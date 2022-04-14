@@ -141,9 +141,41 @@ cal1 = Calculator()
 - 오버라이딩은 같은 이름의 함수 재정의하여 쓸 수 있고 파라미터들이 같은 필요 x
 
 # 모듈
+- 모듈은 하나의 .py 파일이며 다른 .py 파일에 불러와 쓸 수 있게 해줌
 - import 모듈이름, 
 - from 모듈이름 import 모듈의 함수, 변수, 클래스, ...
 - as 키워드로 import한 것에 별칭을 붙여줄 수도
+- 모듈의 모든 것을 import 할 때 *를 와일드카드로 쓸 수 있음 
 
 # 패키지
+모듈의 집합으로 디렉토리 구조를 통해 계층적으로 모듈을 관리할 수 있음
+- 패키지의 일부로 인식시킬 디렉토리는 \_\_init\_\_.py 를 작성해야 
+- 도트로 import 하는 경우 모듈이나 패키지로 끝내야 (import pkg1.pkg2.mod.func 는 안된다는 소리)
+- 모듈과 달리 *를 사용시 다음과 같이 \_\_init\_\_ 안에 명시된 것들만 import 됨
+```python
+__all__ = ['echo']
+```
+- 계층 구조이기에 ..나 .을 상대경로로 사용할 수 있음
 
+# 예외
+``` python
+try:
+    code
+except someException as e:
+    code like print(e)
+except anotherException as e:
+    print(e)
+else:
+    code to run when no exception
+finally:
+    code
+```
+의 구조이며 raise 키워드로 유발할 수 있다.
+
+## 예외 만들기
+``` python
+class MyError(Exception):
+    def __str__(self):
+        return "some_string"
+```
+print 로 해당 예외를 찍으면 위의 문자열을 출력함.
