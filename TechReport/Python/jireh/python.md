@@ -179,3 +179,8 @@ class MyError(Exception):
         return "some_string"
 ```
 print 로 해당 예외를 찍으면 위의 문자열을 출력함.
+
+# 코딩 스타일
+- 들여쓴기는 스페이스바 * 4
+- 연산자 앞뒤와 콤마 뒤엔 스페이스바
+- 클래스는 UpperCamelCase로, 함수/변수/패키지/모듈은 lowercase_with_underscores로, 상수는 소문자가 아닌 대문자로
