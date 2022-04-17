@@ -34,6 +34,16 @@
 
 
 
+
+
+#### brnach 전략
+
+![branch](md-images/branch.png)
+
+
+
+
+
 <div id="2"></div>
 
 ## 🪐 팀원
