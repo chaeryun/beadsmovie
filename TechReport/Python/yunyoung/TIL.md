@@ -67,3 +67,62 @@ count 횟수만큼만 반복 시행
 ## ★ .split([chars])
 
 문자열을 특정한 단위로 나눠 리스트로 반환
+
+
+
+문자열 자르기
+
+s[::]  'abcdefghi'처음부터 끝까지 - 1 전체출력(스텝도 생략) 
+
+s[::-1] 'ihgfedcba'
+
+
+
+.find(x)
+
+- x의 첫번째 위치를 반환. 없으면 -1을 반환
+- 'apple'.find('p') #=>1
+- 'apple'.find('k') # =>-1
+
+index
+
+- x의 첫번째 위치를 반환. 없으면 ValueError 일으킴
+- 'apple'.find('p') #=>1
+- 'apple'.find('k') # => ValueError
+
+
+
+문자열 변경 
+
+.replace(old, new[,count])
+
+```python
+'woooowoo'.replace('o','!',2) #o를 !로 바꾸는데 2개만 바꿔라
+```
+
+
+
+리스트
+
+변경가능, 순서 있고 반복 가능
+
+.extend(iterable) 항목이 들어간다. 
+
+
+
+.insert(i, x)
+
+정해진 위치 i에 값x를 추가함
+
+map(function, iterable)
+
+- 순회가능한 데이터구조(iterable)의 모든 요소에 함수(function) 적용하고, 그 결과를 map object로 반환
+
+
+
+.add(elem)
+
+.update(*others)
+
+여러 값을 추가
+
