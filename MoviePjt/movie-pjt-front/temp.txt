@@ -1,3 +1,0 @@
-When you start this project, delte this file.
-This is first front branch commit
-This is first vue branch commit
