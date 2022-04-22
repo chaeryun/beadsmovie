@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'media',
     'post',
     'accountapp',
+    'corsheaders', # CORS 사용
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # django cors 사용
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -62,6 +64,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080', # vue의 포트 번호
+    'http://127.0.0.1:8000',
+)
 
 ROOT_URLCONF = 'moviesite.urls'
 
