@@ -12,3 +12,5 @@ new Vue({
   vuetify,
   render: (h) => h(App),
 }).$mount("#app");
+
+window.Kakao.init("c814bf25aef9054de320db871851dfd0");

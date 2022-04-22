@@ -3,7 +3,19 @@
     <div>
       <h1 class="main-title">Beads Movie</h1>
     </div>
-    <div class="header-summary">
+
+    <div class="header-summary" v-if="isLogin == false">
+      <span>Movie &nbsp;&nbsp;</span>
+      <span>Article &nbsp;&nbsp;</span>
+      <span>Interest &nbsp;&nbsp;</span>
+      <span>Subscribe &nbsp;&nbsp;</span>
+      <span
+        ><router-link :to="{ name: 'login' }">Login&nbsp;&nbsp;</router-link>
+      </span>
+      <!-- <span>Sign up &nbsp;&nbsp;</span> -->
+    </div>
+
+    <div class="header-summary" v-else>
       <span>Movie &nbsp;&nbsp;</span>
       <span>Article &nbsp;&nbsp;</span>
       <span>Interest &nbsp;&nbsp;</span>
@@ -15,10 +27,20 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "SnsHeader",
 
-  data: () => ({}),
+  data() {
+    return {};
+  },
+
+  computed: {
+    ...mapState({ isLogin: (state) => state.user.isLogin }),
+  },
+
+  methods: {},
 };
 </script>
 
@@ -39,5 +61,14 @@ export default {
   margin-top: 1rem;
   font-size: 2.5rem;
   font-family: "Amatic SC", cursive;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.v-application a {
+  color: black;
 }
 </style>
