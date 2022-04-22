@@ -38,7 +38,7 @@
                 Login
               </v-btn>
 
-              <v-btn color="error" class="mr-4"> Signup </v-btn>
+              <v-btn color="error" class="mr-4" @click="signup"> Signup </v-btn>
             </div>
 
             <br />
@@ -91,6 +91,10 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
+    },
+
+    signup() {
+      this.$router.push({ name: "signup" });
     },
 
     // kakaoLogin

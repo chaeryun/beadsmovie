@@ -1,27 +1,28 @@
 <template>
   <div class="header">
     <div>
-      <h1 class="main-title">Beads Movie</h1>
+      <h1 class="main-title">
+        <router-link :to="{ name: 'home' }"
+          >Beads Movie&nbsp;&nbsp;</router-link
+        >
+      </h1>
     </div>
 
-    <div class="header-summary" v-if="isLogin == false">
-      <span>Movie &nbsp;&nbsp;</span>
+    <div class="header-summary">
+      <span
+        ><router-link :to="{ name: 'home' }"
+          >Movie&nbsp;&nbsp;</router-link
+        ></span
+      >
       <span>Article &nbsp;&nbsp;</span>
       <span>Interest &nbsp;&nbsp;</span>
       <span>Subscribe &nbsp;&nbsp;</span>
-      <span
+      <span v-if="isLogin == false"
         ><router-link :to="{ name: 'login' }">Login&nbsp;&nbsp;</router-link>
       </span>
-      <!-- <span>Sign up &nbsp;&nbsp;</span> -->
-    </div>
 
-    <div class="header-summary" v-else>
-      <span>Movie &nbsp;&nbsp;</span>
-      <span>Article &nbsp;&nbsp;</span>
-      <span>Interest &nbsp;&nbsp;</span>
-      <span>Subscribe &nbsp;&nbsp;</span>
-      <span>MyPage &nbsp;&nbsp;</span>
-      <span>LogOut &nbsp;&nbsp;</span>
+      <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
+      <span v-if="isLogin == true">LogOut &nbsp;&nbsp;</span>
     </div>
   </div>
 </template>

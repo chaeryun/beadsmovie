@@ -4,6 +4,7 @@ import MovieView from "../views/MovieView.vue";
 
 import User from "../views/User.vue";
 import Userlogin from "@/components/user/login.vue";
+import Signup from "@/components/user/signup.vue";
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
         path: "login",
         name: "login",
         component: Userlogin,
+      },
+      {
+        path: "signup",
+        name: "signup",
+        component: Signup,
       },
     ],
   },
