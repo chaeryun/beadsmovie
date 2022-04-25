@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'post',
     'accountapp',
     'corsheaders', # CORS 사용
+    'drf_yasg',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
