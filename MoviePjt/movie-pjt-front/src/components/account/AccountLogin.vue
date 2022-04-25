@@ -62,7 +62,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "Userlogin",
+  name: "Accountlogin",
   data: () => ({
     valid: false,
     // name rule
@@ -94,7 +94,7 @@ export default {
     },
 
     signup() {
-      this.$router.push({ name: "signup" });
+      this.$router.push({ name: "AccountCreate" });
     },
 
     // kakaoLogin

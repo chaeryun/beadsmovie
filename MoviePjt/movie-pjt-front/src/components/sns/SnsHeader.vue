@@ -18,7 +18,7 @@
       <span>Interest &nbsp;&nbsp;</span>
       <span>Subscribe &nbsp;&nbsp;</span>
       <span v-if="isLogin == false"
-        ><router-link :to="{ name: 'login' }">Login&nbsp;&nbsp;</router-link>
+        ><router-link :to="{ name: 'AccountView' }">Login</router-link>
       </span>
 
       <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
