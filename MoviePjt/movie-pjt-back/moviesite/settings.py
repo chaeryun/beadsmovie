@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'user',
     'media',
     'post',
-    'accountapp',
+    'account',
     'corsheaders', # CORS 사용
     'drf_yasg',
     'rest_framework',
