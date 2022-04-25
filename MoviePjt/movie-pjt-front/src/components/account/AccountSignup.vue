@@ -78,7 +78,7 @@
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
-  name: "AccountCreate",
+  name: "AccountSignup",
   data: () => ({
     valid: false,
     // name rule

@@ -94,7 +94,7 @@ export default {
     },
 
     signup() {
-      this.$router.push({ name: "AccountCreate" });
+      this.$router.push({ name: "AccountSignup" });
     },
 
     // kakaoLogin

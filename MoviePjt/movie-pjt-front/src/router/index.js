@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import MovieView from "../views/MovieView.vue";
 
 import AccountView from "@/views/AccountView.vue";
-import AccountCreate from "@/components/account/AccountCreate.vue";
+import AccountSignup from "@/components/account/AccountSignup.vue";
 import AccountLogin from "@/components/account/AccountLogin.vue";
 // import User from "../views/User.vue";
 // import Userlogin from "@/components/user/login.vue";
@@ -29,9 +29,9 @@ const routes = [
         component: AccountLogin,
       },
       {
-        path: "create",
-        name: "AccountCreate",
-        component: AccountCreate,
+        path: "signup",
+        name: "AccountSignup",
+        component: AccountSignup,
       },
     ],
   },
