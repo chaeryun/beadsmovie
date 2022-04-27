@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import MovieView from "../views/MovieView.vue";
+import MovieDetail from "../components/movie/MovieDetail.vue";
 
 import AccountView from "@/views/AccountView.vue";
 import AccountSignup from "@/components/account/AccountSignup.vue";
@@ -34,6 +35,12 @@ const routes = [
         component: AccountSignup,
       },
     ],
+  },
+
+  {
+    path: "/moviedetail",
+    name: "MoveDetail",
+    component: MovieDetail,
   },
 
   // {

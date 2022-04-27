@@ -1,11 +1,23 @@
 <template>
   <div>
     <!-- Top 10 Movies -->
-    <v-card-title class="text-h2 fw-bold" style="margin-left:400px; margin-top:30px; font-family: Amatic SC, cursive !important;">
+    <v-card-title
+      class="text-h2 fw-bold"
+      style="
+        margin-left: 400px;
+        margin-top: 30px;
+        font-family: Amatic SC, cursive !important;
+      "
+    >
       Top 10 Movies
     </v-card-title>
-    <v-container style="display: flex;">
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+    <v-container style="display: flex">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -15,14 +27,20 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-          <h2>배신의 만찬</h2><h2></h2>
+          <h2>배신의 만찬</h2>
+          <h2></h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <v-btn color="orange" text @click="detail"> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -32,14 +50,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>인 비트윈</h2>
+          <h2>인 비트윈</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -49,14 +72,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-         <h2>리버데일</h2>
+          <h2>리버데일</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -74,14 +102,25 @@
         </v-card-actions>
       </v-card>
     </v-container>
-    
 
     <!-- Action -->
-    <v-card-title class="text-h2 fw-bold" style="margin-left:400px; margin-top:30px; font-family: Amatic SC, cursive !important;">
+    <v-card-title
+      class="text-h2 fw-bold"
+      style="
+        margin-left: 400px;
+        margin-top: 30px;
+        font-family: Amatic SC, cursive !important;
+      "
+    >
       Action
     </v-card-title>
     <v-container style="display: flex">
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -91,14 +130,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>더 배트맨</h2>
+          <h2>더 배트맨</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -108,14 +152,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-           <h2>수퍼 소닉 (2020) </h2>
+          <h2>수퍼 소닉 (2020)</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -125,14 +174,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-         <h2>스파이더맨 : 노 웨이 홈</h2>
+          <h2>스파이더맨 : 노 웨이 홈</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -142,7 +196,7 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>야차</h2>
+          <h2>야차</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
@@ -152,11 +206,23 @@
     </v-container>
 
     <!-- Animation -->
-    <v-card-title class="text-h2 fw-bold" style="margin-left:400px; margin-top:30px; font-family: Amatic SC, cursive !important;">
+    <v-card-title
+      class="text-h2 fw-bold"
+      style="
+        margin-left: 400px;
+        margin-top: 30px;
+        font-family: Amatic SC, cursive !important;
+      "
+    >
       Animation
     </v-card-title>
     <v-container style="display: flex">
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -173,7 +239,12 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -182,14 +253,19 @@
         >
         </v-img>
         <v-card-subtitle class="pb-0">
-        <h2>pil</h2>
+          <h2>pil</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -199,14 +275,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-          <h2> 메이의 새빨간 비밀</h2>
+          <h2>메이의 새빨간 비밀</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -216,7 +297,7 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-         <h2> 엔칸토: 마법의 세계 (2021)</h2>
+          <h2>엔칸토: 마법의 세계 (2021)</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
@@ -226,11 +307,23 @@
     </v-container>
 
     <!-- Comedy -->
-    <v-card-title class="text-h2 fw-bold" style="margin-left:400px; margin-top:30px; font-family: Amatic SC, cursive !important;">
+    <v-card-title
+      class="text-h2 fw-bold"
+      style="
+        margin-left: 400px;
+        margin-top: 30px;
+        font-family: Amatic SC, cursive !important;
+      "
+    >
       Comedy
     </v-card-title>
     <v-container style="display: flex">
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -240,14 +333,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-         <h2>애덤 프로젝트</h2>
+          <h2>애덤 프로젝트</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -257,14 +355,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>메탈 로드</h2>
+          <h2>메탈 로드</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -281,7 +384,12 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -301,12 +409,24 @@
     </v-container>
 
     <!-- Romance -->
-    <v-card-title class="text-h2 fw-bold" style="margin-left:400px; margin-top:30px; font-family: Amatic SC, cursive !important;">
+    <v-card-title
+      class="text-h2 fw-bold"
+      style="
+        margin-left: 400px;
+        margin-top: 30px;
+        font-family: Amatic SC, cursive !important;
+      "
+    >
       Romance
     </v-card-title>
 
     <v-container style="display: flex">
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -316,14 +436,19 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>메리 미</h2>
+          <h2>메리 미</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -340,7 +465,12 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -357,7 +487,12 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card class="mx-auto" max-width="400" elevation="10" style="border-radius: 10px;">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
         <v-img
           class="white--text align-end"
           height="370px"
@@ -367,7 +502,7 @@
         </v-img>
 
         <v-card-subtitle class="pb-0">
-        <h2>웨스트 사이드 스토리</h2>
+          <h2>웨스트 사이드 스토리</h2>
         </v-card-subtitle>
         <v-card-actions>
           <v-btn color="orange" text> 상세보기 </v-btn>
@@ -382,12 +517,11 @@
 export default {
   name: "MovieMain",
 
-};
-</script>
-
-<script>
-export default {
-  name: "MovieMain",
+  methods: {
+    detail() {
+      this.$router.push({ name: "MoveDetail" });
+    },
+  },
 };
 </script>
 
