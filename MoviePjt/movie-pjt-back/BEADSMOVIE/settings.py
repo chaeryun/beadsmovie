@@ -104,12 +104,23 @@ WSGI_APPLICATION = 'BEADSMOVIE.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'movie_test',
+#         'HOST': '127.0.0.1',
+#         'PORT': 27017,
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'movie_test',
-        'HOST': '127.0.0.1',
-        'PORT': 27017,
+        'CLIENT': {
+            "host":"mongodb+srv://ssafyC201:ssafyC201@cluster0.1yimw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+            "name":"C201DB",
+            "authMechanism":"SCRAM-SHA-1" #for atlas cloud db
+        }
     }
 }
 
