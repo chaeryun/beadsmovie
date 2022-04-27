@@ -1,4 +1,4 @@
-"""moviesite URL Configuration
+"""BEADSMOVIE URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -38,7 +38,7 @@ urlpatterns = [
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
+    path('account/', include('account.urls')),
     path('user/', include('user.urls')),
     path('media/', include('media.urls')),
     path('post/', include('post.urls')),
