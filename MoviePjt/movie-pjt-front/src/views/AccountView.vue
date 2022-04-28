@@ -1,6 +1,5 @@
 <template>
   <div>
-    Account
     <router-view></router-view>
   </div>
 </template>
