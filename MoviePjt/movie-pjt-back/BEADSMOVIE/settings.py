@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'media',
     'post',
     'account',
+    'movies',
     'corsheaders', # CORS 사용
     'drf_yasg', # Swagger
     'rest_framework',
@@ -66,6 +67,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
