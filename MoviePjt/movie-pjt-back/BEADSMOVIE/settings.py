@@ -67,6 +67,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:8081', # vue의 포트 번호
@@ -104,23 +107,12 @@ WSGI_APPLICATION = 'BEADSMOVIE.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'movie_test',
-#         'HOST': '127.0.0.1',
-#         'PORT': 27017,
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'CLIENT': {
-            "host":"mongodb+srv://ssafyC201:ssafyC201@cluster0.1yimw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-            "name":"C201DB",
-            "authMechanism":"SCRAM-SHA-1" #for atlas cloud db
-        }
+        'NAME': 'movie_test',
+        'HOST': '127.0.0.1',
+        'PORT': 27017,
     }
 }
 
