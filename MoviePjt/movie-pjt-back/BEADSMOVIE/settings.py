@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'media',
     'post',
     'account',
+    'movies',
     'corsheaders', # CORS 사용
     'drf_yasg', # Swagger
     'rest_framework',
