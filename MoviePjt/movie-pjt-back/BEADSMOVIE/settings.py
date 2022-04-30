@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'user',
     'media',
     'post',
-    'account',
+    'accounts',
     'movies',
     'corsheaders', # CORS 사용
     'drf_yasg', # Swagger
@@ -73,7 +73,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8081', # vue의 포트 번호
+    'http://localhost:8080', # vue의 포트 번호
     'http://127.0.0.1:8000',
 )
 
@@ -159,7 +159,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
