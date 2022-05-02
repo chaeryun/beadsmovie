@@ -1,5 +1,5 @@
 """
-WSGI config for movieSite project.
+WSGI config for BEADSMOVIE project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

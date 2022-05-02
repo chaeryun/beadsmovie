@@ -11,7 +11,7 @@ class Genre(models.Model):
 class Comment(models.Model):
     _id = models.ObjectIdField()
     user = models.ArrayReferenceField(User, on_delete=models.CASCADE)
-    # movie = models.ForeignKey(Media, on_delete=models.CASCADE)
+    # movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     created_date = models.DateTimeField(auto_now_add=True)
     # last_modified_date = models.DateTimeField(default=created_date)
     content = models.CharField(max_length=200)
@@ -19,7 +19,7 @@ class Comment(models.Model):
     def __str__(self):
         return self.content
 
-class Media(models.Model):
+class Movie(models.Model):
     _id = models.ObjectIdField()
     title = models.CharField(max_length=52)
     original_title = models.CharField(max_length=52, null=True, blank=True)

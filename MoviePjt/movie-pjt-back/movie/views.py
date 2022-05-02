@@ -4,16 +4,16 @@ from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import viewsets, mixins
 from bson import ObjectId
-from media.models import Media, Genre, Comment
-from media.serializers import *
+from movie.models import Movie, Genre, Comment
+from movie.serializers import *
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     authentication_classes = []
     permission_classes = []
 
-    queryset = Media.objects.all()
-    serializer_class = MediaSerializer
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
 
     def retrieve(self, request, *args, **kwargs):
         self.kwargs["pk"] = ObjectId(self.kwargs["pk"])
@@ -24,7 +24,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     @action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
     def list_by_genre(self, request, *args, **kwargs):
         genre_id = int(self.kwargs['genre_id'])
-        movies = Media.objects.filter(genres={'id' : genre_id})
+        movies = Movie.objects.filter(genres={'id' : genre_id})
 
         page = self.paginate_queryset(movies)
         if page is not None:
@@ -38,7 +38,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     # @action(methods=['get'], detail=False, permission_classes=[], url_path=r'(?P<movie_id>\w+)')
     # def create_review(self, request, *args, **kwargs):
     #     movie_id = ObjectId(self.kwargs['movie_id'])
-    #     movie = Media.objects.filter('_id' == movie_id)
+    #     movie = Movie.objects.filter('_id' == movie_id)
 
         # review = Comment.objects.create(user= content=request.data)
         # movie.
@@ -49,7 +49,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     @action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
     def list_by_genre(self, request, *args, **kwargs):
         genre_id = int(self.kwargs['genre_id'])
-        movies = Media.objects.filter(genres={'id' : genre_id})
+        movies = Movie.objects.filter(genres={'id' : genre_id})
 
         page = self.paginate_queryset(movies)
         if page is not None:
@@ -63,7 +63,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     @action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
     def list_by_genre(self, request, *args, **kwargs):
         genre_id = int(self.kwargs['genre_id'])
-        movies = Media.objects.filter(genres={'id' : genre_id})
+        movies = Movie.objects.filter(genres={'id' : genre_id})
 
         page = self.paginate_queryset(movies)
         if page is not None:
@@ -77,7 +77,7 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     @action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
     def list_by_genre(self, request, *args, **kwargs):
         genre_id = int(self.kwargs['genre_id'])
-        movies = Media.objects.filter(genres={'id' : genre_id})
+        movies = Movie.objects.filter(genres={'id' : genre_id})
 
         page = self.paginate_queryset(movies)
         if page is not None:

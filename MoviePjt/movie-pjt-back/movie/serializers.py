@@ -1,22 +1,22 @@
 from rest_framework import serializers
-from .models import Media, Comment
+from .models import Movie, Comment
 from user.models import User
 
 
-class MediaSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.ModelSerializer):
 
     genres = serializers.JSONField()
 
     class Meta:
-        model = Media
+        model = Movie
         fields = ('_id', 'title', 'original_title', 'overview', 'release_date',
         'poster_path', 'backdrop_path', 'youtube_path', 'genres')
 
 
-# class MediaListSerializer(serializers.ModelSerializer):
+# class MovieListSerializer(serializers.ModelSerializer):
 
 #     class Meta:
-#         model = Media
+#         model = Movie
 #         fields = ('_id', 'title', 'poster_path',)
 
 

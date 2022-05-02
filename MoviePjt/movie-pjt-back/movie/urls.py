@@ -5,5 +5,5 @@
 
 # router = routers.SimpleRouter()
 # router.register('', MovieViewSet)
-# router.register('<int:media_id>/review', CommentViewSet)
+# router.register('<int:movie_id>/review', CommentViewSet)
 # urlpatterns = router.urls

@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Media, Comment
+from .models import Movie, Comment
 
 
-admin.site.register(Media)
+admin.site.register(Movie)
 admin.site.register(Comment)

@@ -42,10 +42,9 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'k6c201.p.ssafy.io']
 
 INSTALLED_APPS = [
     'user',
-    'media',
+    'movie',
     'post',
     'accounts',
-    'movies',
     'corsheaders', # CORS 사용
     'drf_yasg', # Swagger
     'rest_framework',

@@ -21,7 +21,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework import routers
 
-from media.views import MovieViewSet, CommentViewSet
+from movie.views import MovieViewSet, CommentViewSet
 
 
 schema_view = get_schema_view(
@@ -43,13 +43,12 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('movies/', include('movies.urls')),
     path('user/', include('user.urls')),
     path('post/', include('post.urls')),
 ]
 
 router = routers.SimpleRouter()
-router.register('media', MovieViewSet)
-router.register('media/(?P<media_id>[^/.]+)/review', CommentViewSet)
+router.register('movie', MovieViewSet)
+router.register('movie/(?P<movie_id>[^/.]+)/review', CommentViewSet)
 
 urlpatterns += router.urls
