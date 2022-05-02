@@ -36,3 +36,5 @@ sqlparse==0.2.4
 tzdata==2022.1
 uritemplate==4.1.1
 urllib3==1.26.9
+testresources==2.0.1
+Pillow==9.1.0 
