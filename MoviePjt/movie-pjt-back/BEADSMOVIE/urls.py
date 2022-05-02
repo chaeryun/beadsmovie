@@ -19,6 +19,10 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework import routers
+
+from media.views import MovieViewSet, CommentViewSet
+
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -41,6 +45,11 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('movies/', include('movies.urls')),
     path('user/', include('user.urls')),
-    path('media/', include('media.urls')),
     path('post/', include('post.urls')),
 ]
+
+router = routers.SimpleRouter()
+router.register('media', MovieViewSet)
+router.register('media/(?P<media_id>[^/.]+)/review', CommentViewSet)
+
+urlpatterns += router.urls

@@ -1,9 +1,9 @@
-from django.urls import path
-from . import views
+# from rest_framework import routers
 
-app_name = 'media'
+# from .views import MovieViewSet, CommentViewSet
 
-urlpatterns = [
-    path('', views.media),
-    path('<int:media_pk>/', views.media_detail),
-]
+
+# router = routers.SimpleRouter()
+# router.register('', MovieViewSet)
+# router.register('<int:media_id>/review', CommentViewSet)
+# urlpatterns = router.urls
