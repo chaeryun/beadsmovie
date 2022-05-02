@@ -42,10 +42,9 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'k6c201.p.ssafy.io']
 
 INSTALLED_APPS = [
     'user',
-    'media',
-    'post',
-    'account',
-    'movies',
+    'movie',
+    'accounts',
+    'articles',
     'corsheaders', # CORS 사용
     'drf_yasg', # Swagger
     'rest_framework',
@@ -73,7 +72,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = (
-    'http://localhost:8081', # vue의 포트 번호
+    'http://localhost:8080', # vue의 포트 번호
     'http://127.0.0.1:8000',
 )
 
@@ -154,12 +153,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/image/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'account.User'
+AUTH_USER_MODEL = 'accounts.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -168,8 +171,16 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }
 
 JWT_AUTH = {
+    'JWT_SECRET_KEY': 'k6c', 
+    'JWT_ALGORITHM': 'HS256', 
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+    'JWT_ALLOW_REFRESH': True, 
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
 }
+
+REST_USE_JWT = True
