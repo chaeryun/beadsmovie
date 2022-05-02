@@ -4,8 +4,9 @@ import MovieView from "../views/MovieView.vue";
 import MovieDetail from "../components/movie/MovieDetail.vue";
 
 import AccountView from "@/views/AccountView.vue";
-import AccountSignup from "@/components/account/AccountSignup.vue";
-import AccountLogin from "@/components/account/AccountLogin.vue";
+import AccountSignup from "@/components/accounts/AccountSignup.vue";
+import AccountLogin from "@/components/accounts/AccountLogin.vue";
+import ArticleList from "@/components/articles/ArticleList.vue"; 
 // import User from "../views/User.vue";
 // import Userlogin from "@/components/user/login.vue";
 // import Signup from "@/components/user/signup.vue";
@@ -19,10 +20,10 @@ const routes = [
     component: MovieView,
   },
   {
-    path: "/account",
+    path: "/accounts",
     name: "AccountView",
     component: AccountView,
-    redirect: "/account/login",
+    redirect: "/accounts/login",
     children: [
       {
         path: "login",
@@ -43,6 +44,11 @@ const routes = [
     component: MovieDetail,
   },
 
+  {
+    path: "/article",
+    name: "ArticleList",
+    component: ArticleList,
+  },
   // {
   //   path: "/user",
   //   name: "User",

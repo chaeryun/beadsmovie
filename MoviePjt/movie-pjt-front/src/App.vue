@@ -1,25 +1,25 @@
 <template>
   <v-app>
     <v-main>
-      <sns-header />
+      <banner-header />
       <hr />
       <router-view />
       <hr />
-      <sns-footer />
+      <banner-footer />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import SnsHeader from "./components/sns/SnsHeader.vue";
-import SnsFooter from "./components/sns/SnsFooter.vue";
+import BannerHeader from "./components/banners/BannerHeader.vue";
+import BannerFooter from "./components/banners/BannerFooter.vue";
 
 export default {
   name: "App",
 
   components: {
-    SnsHeader,
-    SnsFooter,
+    BannerHeader,
+    BannerFooter,
   },
 };
 </script>

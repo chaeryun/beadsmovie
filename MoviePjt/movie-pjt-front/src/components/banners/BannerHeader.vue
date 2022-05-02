@@ -14,7 +14,10 @@
           >Movie&nbsp;&nbsp;</router-link
         ></span
       >
-      <span>Article &nbsp;&nbsp;</span>
+      <span
+        ><router-link :to="{ name: 'ArticleList' }">Article </router-link>
+        &nbsp;&nbsp;</span
+      >
       <span>Interest &nbsp;&nbsp;</span>
       <span>Subscribe &nbsp;&nbsp;</span>
       <span v-if="isLogin == false"
@@ -31,7 +34,7 @@
 import { mapState } from "vuex";
 
 export default {
-  name: "SnsHeader",
+  name: "BannerHeader",
 
   data() {
     return {};
