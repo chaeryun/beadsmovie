@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .models import User
+from .models import User, Profile
 from .serializers import UserSerializer
 
 @api_view(['POST'])
@@ -34,3 +34,10 @@ def delete(request, pk):
     if request.method == 'DELETE':
         user.delete()
         return Response({'id': '계정이 삭제되었습니다.'}, status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST'])
+def profile(request, pk):
+    profile = get_object_or_404(Profile, pk=pk)
+    serializer = UserSerializer(profile)
+    return Response(serializer.data)
