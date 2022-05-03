@@ -43,8 +43,8 @@ urlpatterns = [
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('user/', include('user.urls')),
-    path('post/', include('post.urls')),
+    path('articles/', include('articles.urls')),
+    path('user/', include('user.urls'))
 ]
 
 router = routers.SimpleRouter()
