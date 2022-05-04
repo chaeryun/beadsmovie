@@ -61,6 +61,8 @@
 
 <script>
 import http from "@/util/http-common";
+import jwt_decode from "jwt-decode";
+// import axios from "axios";
 import { mapState, mapMutations } from "vuex";
 
 export default {
@@ -126,6 +128,22 @@ export default {
 
           // home 이동
           this.$router.push({ name: "home" }).catch((err) => err);
+          let decode_token = jwt_decode(token);
+          console.log("decode_token", decode_token);
+          this.saveuser(decode_token.username);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    async saveuser(id) {
+      await http({
+        method: "POST",
+        url: "/accounts/profile/" + id,
+      })
+        .then((res) => {
+          console.log("profile", res);
         })
         .catch((err) => {
           console.log(err);
@@ -140,28 +158,35 @@ export default {
     kakaologin() {
       window.Kakao.Auth.login({
         scope: "account_email, gender, profile_nickname, profile_image",
+        // success: this.getProfile,
         success: this.getProfile,
       });
     },
 
     getProfile(authObj) {
-      // console.log("프로필 받기", authObj);
       sessionStorage.setItem("access_token", authObj.access_token);
-      window.Kakao.API.request({
-        url: "/v2/user/me",
-        success: (res) => {
-          const kakao_account = res.kakao_account;
-          console.log("response :", res);
-          console.log(kakao_account);
-          this.kakaologin2();
-        },
-      });
+      console.log("프로필 받기", authObj);
+
+      this.kakaologin2(authObj.access_token);
+
+      // window.Kakao.API.request({
+      //   url: "/v2/user/me",
+      //   success: (res) => {
+      //     const kakao_account = res.kakao_account;
+      //     console.log("response :", res);
+      //     console.log(kakao_account);
+      //     // this.kakaologin2();
+      //   },
+      // });
     },
 
-    async kakaologin2() {
+    async kakaologin2(token) {
       await http({
-        method: "post",
-        url: "/user/oauth/kakao/",
+        method: "POST",
+        url: "user/oauth/kakao/",
+        data: {
+          access_token: token,
+        },
       })
         .then((res) => {
           console.log(res);
