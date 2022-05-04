@@ -25,13 +25,13 @@
       </span>
 
       <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
-      <span v-if="isLogin == true">LogOut &nbsp;&nbsp;</span>
+      <span v-if="isLogin == true" @click="logout">LogOut &nbsp;&nbsp;</span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "BannerHeader",
@@ -44,7 +44,16 @@ export default {
     ...mapState({ isLogin: (state) => state.user.isLogin }),
   },
 
-  methods: {},
+  methods: {
+    ...mapMutations("user", ["SET_USER_STATE"]),
+    // logout
+    logout() {
+      this.SET_USER_STATE(false);
+      sessionStorage.clear();
+      alert("logout");
+      this.$router.push({ name: "home" }).catch((err) => err);
+    },
+  },
 };
 </script>
 
@@ -74,5 +83,9 @@ a {
 
 .v-application a {
   color: black;
+}
+
+span:hover {
+  cursor: pointer;
 }
 </style>
