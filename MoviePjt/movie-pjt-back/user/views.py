@@ -2,6 +2,7 @@ import json
 import requests
 from django.shortcuts import redirect, get_list_or_404
 from rest_framework_jwt.settings import api_settings
+from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -54,16 +55,21 @@ def kakao_login(request):
     email = payload['kakao_account']['email']
     nickname = payload['properties']['nickname']
     user, is_created = User.objects.get_or_create(kakao_id=id, email=email, username=nickname)
-    JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
-    JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
+    # JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
+    # JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
     serializer = UserSerializer(user)
-    print(user)
-    payload = JWT_PAYLOAD_HANDLER(user)
-    user_id = json_util.dumps(payload["user_id"])
-    payload["user_id"] = json.loads(user_id)['$oid']
-    jwt_token = JWT_ENCODE_HANDLER(payload)
+    # print(user)
+    # payload = JWT_PAYLOAD_HANDLER(user)
+    # user_id = json_util.dumps(payload["user_id"])
+    # payload["user_id"] = json.loads(user_id)['$oid']
+    # jwt_token = JWT_ENCODE_HANDLER(payload)
 
-    return Response(data=jwt_token)
+    refresh = RefreshToken.for_user(user)
+    return Response(data={
+        'user' : serializer.data,
+        'refresh': str(refresh),
+        'access': str(refresh.access_token),
+    })
     
 @api_view(["GET"])
 def kakao_logout(request):

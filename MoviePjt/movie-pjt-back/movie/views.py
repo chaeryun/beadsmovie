@@ -1,5 +1,6 @@
 from http import HTTPStatus
 from django.shortcuts import get_list_or_404, get_object_or_404
+# from rest_framework_simplejwt.backends import 
 from rest_framework.response import Response
 from rest_framework.decorators import action
 from rest_framework import viewsets, mixins
@@ -101,6 +102,8 @@ class CommentViewSet(mixins.CreateModelMixin,
 
     def create(self, request, *args, **kwargs):
         self.kwargs["pk"] = ObjectId(self.kwargs["pk"])
+        # movie_id = 
+        # movie = Movie.objects.filter('_id' = movie_id)
         instance = self.get_object()
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
