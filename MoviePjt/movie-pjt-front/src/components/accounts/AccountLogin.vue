@@ -60,6 +60,9 @@
 </template>
 
 <script>
+import http from "@/util/http-common";
+import { mapState, mapMutations } from "vuex";
+
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accountlogin",
@@ -86,11 +89,47 @@ export default {
     },
   }),
 
-  computed: {},
+  computed: {
+    ...mapState({
+      userstate: (state) => state.user.isLogin,
+    }),
+  },
 
   methods: {
+    ...mapMutations("user", ["SET_USER_STATE"]),
+
     validate() {
       this.$refs.form.validate();
+      if (this.$refs.form.validate() == true) {
+        this.login();
+      }
+    },
+
+    // general login
+    async login() {
+      await http({
+        method: "post",
+        url: "/accounts/login/",
+        data: {
+          username: this.user.id,
+          password: this.user.password,
+        },
+      })
+        .then((res) => {
+          let token = res.data.token;
+          sessionStorage.setItem("access-token", token);
+          // this.$store.commit("SET_USER_STATE", true);
+          // store 저장
+          this.SET_USER_STATE(true);
+          // console("userstate", this.userstate);
+          console.log(res);
+
+          // home 이동
+          this.$router.push({ name: "home" }).catch((err) => err);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
 
     signup() {
@@ -114,8 +153,22 @@ export default {
           const kakao_account = res.kakao_account;
           console.log("response :", res);
           console.log(kakao_account);
+          this.kakaologin2();
         },
       });
+    },
+
+    async kakaologin2() {
+      await http({
+        method: "post",
+        url: "/user/oauth/kakao/",
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
