@@ -1,9 +1,12 @@
-from pyexpat import model
-from django.db import models
+from djongo import models
 
 
 class User(models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    _id = models.ObjectIdField()
+    kakao_id = models.BigIntegerField(unique=True)
     email = models.EmailField(unique=True)
-    register_date = models.DateField(auto_now=True)
-    token = models.CharField(max_length=64)
+    username = models.CharField(max_length=8, null=True, blank=True)
+    register_date = models.DateField(auto_now_add=True)
+    is_valid = models.BooleanField(default=True)
+    unregister_date = models.DateField(default=None)
+    refresh_token = models.CharField(max_length=64)
