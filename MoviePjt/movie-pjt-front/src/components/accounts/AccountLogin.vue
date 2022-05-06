@@ -167,6 +167,7 @@ export default {
       sessionStorage.setItem("access_token", authObj.access_token);
       console.log("프로필 받기", authObj);
 
+      console.log("Token : ", authObj.access_token);
       this.kakaologin2(authObj.access_token);
 
       // window.Kakao.API.request({
@@ -183,9 +184,9 @@ export default {
     async kakaologin2(token) {
       await http({
         method: "POST",
-        url: "user/oauth/kakao/",
+        url: "user/oauth/kakao",
         data: {
-          access_token: token,
+          Kakao: token,
         },
       })
         .then((res) => {

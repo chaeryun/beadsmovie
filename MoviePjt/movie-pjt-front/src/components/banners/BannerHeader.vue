@@ -27,17 +27,39 @@
       <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
       <span v-if="isLogin == true" @click="logout">LogOut &nbsp;&nbsp;</span>
     </div>
+
+    <v-row>
+      <v-col cols="10" align="right">
+        <v-text-field
+          label="Search"
+          prepend-icon="mdi-magnify"
+          v-model="keyword"
+          @keyup.enter="searchmovie(keyword)"
+        ></v-text-field>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import http from "@/util/http-common";
 
 export default {
   name: "BannerHeader",
 
   data() {
-    return {};
+    return {
+      movielist: [],
+
+      // 검색
+      keyword: "",
+      keywordlist: [],
+    };
+  },
+
+  created() {
+    this.getMovieList();
   },
 
   computed: {
@@ -52,6 +74,44 @@ export default {
       sessionStorage.clear();
       alert("logout");
       this.$router.push({ name: "home" }).catch((err) => err);
+    },
+
+    // 전체 MovieList 가져오기
+    async getMovieList() {
+      await http({
+        method: "GET",
+        url: "movie/",
+      })
+        .then((res) => {
+          console.log("movielist :", res);
+          this.movielist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    // 검색기능
+    searchmovie(keyword) {
+      console.log("keyword", keyword);
+
+      // keyword 초기화
+      this.keywordlist = [];
+
+      for (let i = 0; i < this.movielist.length; i++) {
+        if (
+          this.movielist[i].title.toLowerCase().includes(keyword.toLowerCase())
+        ) {
+          // console.log("키워드 일치");
+          this.keywordlist.push(this.movielist[i]);
+          // console.log("키워드 일치 와인리스트", this.keywordlist);
+        }
+      }
+
+      console.log("검색리스트", this.keywordlist);
+      this.$router
+        .push({ name: "MoveDetail", query: { search: keyword } })
+        .catch((err) => err);
     },
   },
 };
@@ -87,5 +147,9 @@ a {
 
 span:hover {
   cursor: pointer;
+}
+
+.v-input {
+  max-width: 15%;
 }
 </style>
