@@ -10,7 +10,10 @@
   "dependencies": {
     "axios": "^0.26.1",
     "core-js": "^3.8.3",
+<<<<<<< HEAD
+=======
     "jwt-decode": "^3.1.2",
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuetify": "^2.6.0",
