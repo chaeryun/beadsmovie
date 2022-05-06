@@ -25,13 +25,21 @@
       </span>
 
       <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
+<<<<<<< HEAD
       <span v-if="isLogin == true">LogOut &nbsp;&nbsp;</span>
+=======
+      <span v-if="isLogin == true" @click="logout">LogOut &nbsp;&nbsp;</span>
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     </div>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { mapState } from "vuex";
+=======
+import { mapState, mapMutations } from "vuex";
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 
 export default {
   name: "BannerHeader",
@@ -44,7 +52,20 @@ export default {
     ...mapState({ isLogin: (state) => state.user.isLogin }),
   },
 
+<<<<<<< HEAD
   methods: {},
+=======
+  methods: {
+    ...mapMutations("user", ["SET_USER_STATE"]),
+    // logout
+    logout() {
+      this.SET_USER_STATE(false);
+      sessionStorage.clear();
+      alert("logout");
+      this.$router.push({ name: "home" }).catch((err) => err);
+    },
+  },
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 };
 </script>
 
@@ -75,4 +96,11 @@ a {
 .v-application a {
   color: black;
 }
+<<<<<<< HEAD
+=======
+
+span:hover {
+  cursor: pointer;
+}
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 </style>

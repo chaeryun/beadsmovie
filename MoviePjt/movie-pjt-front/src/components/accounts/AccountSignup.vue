@@ -8,6 +8,30 @@
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
+<<<<<<< HEAD
+=======
+            <v-row>
+              <v-col cols="12" sm="5">
+                <v-text-field
+                  v-model="user.first_name"
+                  :rules="nameRules"
+                  color="purple darken-2"
+                  label="First name"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="5">
+                <v-text-field
+                  v-model="user.last_name"
+                  :rules="nameRules"
+                  color="blue darken-2"
+                  label="Last name"
+                  required
+                ></v-text-field>
+              </v-col>
+            </v-row>
+
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
             <v-text-field
               v-model="user.id"
               :counter="16"
@@ -29,11 +53,23 @@
             ></v-text-field>
 
             <v-text-field
+<<<<<<< HEAD
               v-model="user.nickname"
               :counter="8"
               :rules="nicknameRules"
               label="Nickname"
               required
+=======
+              v-model="user.passwordConfirmation"
+              :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[passrules.required, passrules.min]"
+              :type="show2 ? 'text' : 'password'"
+              name="input-10-1"
+              label="PasswordConfirm"
+              hint="At least 4 characters ~ 12 characters"
+              counter
+              @click:append="show1 = !show1"
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
             ></v-text-field>
 
             <v-text-field
@@ -43,6 +79,7 @@
               required
             ></v-text-field>
 
+<<<<<<< HEAD
             <!-- <v-select
           v-model="select"
           :items="items"
@@ -50,6 +87,42 @@
           label="Item"
           required
         ></v-select> -->
+=======
+            <v-row>
+              <v-col cols="12" sm="5">
+                <v-slider
+                  v-model="user.age"
+                  color="orange"
+                  label="Age"
+                  min="1"
+                  max="100"
+                  thumb-label
+                ></v-slider>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col cols="12" sm="5">
+                <v-select
+                  v-model="user.gender"
+                  :items="genders"
+                  label="Gender"
+                  required
+                ></v-select>
+              </v-col>
+            </v-row>
+
+            <v-row>
+              <v-col cols="12" sm="5">
+                <v-select
+                  v-model="user.occupation"
+                  :items="occupations"
+                  label="Occupation"
+                  required
+                ></v-select>
+              </v-col>
+            </v-row>
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 
             <v-checkbox
               v-model="checkbox"
@@ -76,6 +149,11 @@
   </v-main>
 </template>
 <script>
+<<<<<<< HEAD
+=======
+import http from "@/util/http-common.js";
+
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "AccountSignup",
@@ -97,6 +175,7 @@ export default {
       emailMatch: () => `The email and password you entered don't match`,
     },
 
+<<<<<<< HEAD
     // nickname rule
     nickname: "",
     nicknameRules: [
@@ -104,6 +183,16 @@ export default {
       (v) =>
         (v && v.length <= 16) || "Nickname must be less than 16 characters",
     ],
+=======
+    // passwordConfirmation
+    show2: false,
+    passwordConfirmation: "",
+    passrules: {
+      required: (value) => !!value || "Password is Required.",
+      min: (v) => (v.length <= 12 && v.length >= 4) || "Max 12 characters",
+      emailMatch: () => `The email and password you entered don't match`,
+    },
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 
     // email rule
     email: "",
@@ -111,6 +200,21 @@ export default {
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
+<<<<<<< HEAD
+=======
+
+    // name rule
+    first_name: "",
+    last_name: "",
+    nameRules: [(val) => (val || "").length > 0 || "This field is required"],
+
+    age: "",
+
+    genders: ["male", "female"],
+
+    occupations: ["student", "professor", "consultant", "manager", "other"],
+
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     // select: null,
     // items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
@@ -118,14 +222,59 @@ export default {
     user: {
       id: "",
       password: "",
+<<<<<<< HEAD
       nickname: "",
       email: "",
+=======
+      passwordConfirmation: "",
+      email: "",
+      first_name: "",
+      last_name: "",
+      age: "",
+      gender: "",
+      occupation: "",
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
   }),
 
   methods: {
     validate() {
       this.$refs.form.validate();
+<<<<<<< HEAD
+=======
+
+      console.log(this.user.gender);
+
+      if (this.$refs.form.validate() == true) {
+        this.regist();
+      }
+    },
+
+    // 회원가입
+    async regist() {
+      await http({
+        method: "POST",
+        url: "accounts/signup/",
+        data: {
+          first_name: this.user.first_name,
+          last_name: this.user.last_name,
+          username: this.user.id,
+          password: this.user.password,
+          passwordConfirmation: this.user.passwordConfirmation,
+          email: this.user.email,
+          age: this.user.age,
+          sex: this.user.gender,
+          occupation: this.user.occupation,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          // this.$router.push({ name: "Home" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
 
     reset() {

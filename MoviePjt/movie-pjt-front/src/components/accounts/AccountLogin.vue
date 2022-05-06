@@ -60,6 +60,14 @@
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import http from "@/util/http-common";
+import jwt_decode from "jwt-decode";
+// import axios from "axios";
+import { mapState, mapMutations } from "vuex";
+
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accountlogin",
@@ -86,11 +94,71 @@ export default {
     },
   }),
 
+<<<<<<< HEAD
   computed: {},
 
   methods: {
     validate() {
       this.$refs.form.validate();
+=======
+  computed: {
+    ...mapState({
+      userstate: (state) => state.user.isLogin,
+    }),
+  },
+
+  methods: {
+    ...mapMutations("user", ["SET_USER_STATE"]),
+
+    validate() {
+      this.$refs.form.validate();
+      if (this.$refs.form.validate() == true) {
+        this.login();
+      }
+    },
+
+    // general login
+    async login() {
+      await http({
+        method: "post",
+        url: "/accounts/login/",
+        data: {
+          username: this.user.id,
+          password: this.user.password,
+        },
+      })
+        .then((res) => {
+          let token = res.data.token;
+          sessionStorage.setItem("access-token", token);
+          // this.$store.commit("SET_USER_STATE", true);
+          // store 저장
+          this.SET_USER_STATE(true);
+          // console("userstate", this.userstate);
+          console.log(res);
+
+          // home 이동
+          this.$router.push({ name: "home" }).catch((err) => err);
+          let decode_token = jwt_decode(token);
+          console.log("decode_token", decode_token);
+          this.saveuser(decode_token.username);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    async saveuser(id) {
+      await http({
+        method: "POST",
+        url: "/accounts/profile/" + id,
+      })
+        .then((res) => {
+          console.log("profile", res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
 
     signup() {
@@ -101,11 +169,16 @@ export default {
     kakaologin() {
       window.Kakao.Auth.login({
         scope: "account_email, gender, profile_nickname, profile_image",
+<<<<<<< HEAD
+=======
+        // success: this.getProfile,
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
         success: this.getProfile,
       });
     },
 
     getProfile(authObj) {
+<<<<<<< HEAD
       // console.log("프로필 받기", authObj);
       sessionStorage.setItem("access_token", authObj.access_token);
       window.Kakao.API.request({
@@ -116,6 +189,38 @@ export default {
           console.log(kakao_account);
         },
       });
+=======
+      sessionStorage.setItem("access_token", authObj.access_token);
+      console.log("프로필 받기", authObj);
+
+      this.kakaologin2(authObj.access_token);
+
+      // window.Kakao.API.request({
+      //   url: "/v2/user/me",
+      //   success: (res) => {
+      //     const kakao_account = res.kakao_account;
+      //     console.log("response :", res);
+      //     console.log(kakao_account);
+      //     // this.kakaologin2();
+      //   },
+      // });
+    },
+
+    async kakaologin2(token) {
+      await http({
+        method: "POST",
+        url: "user/oauth/kakao/",
+        data: {
+          access_token: token,
+        },
+      })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+>>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
   },
 };
