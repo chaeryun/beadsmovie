@@ -60,14 +60,11 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-=======
 import http from "@/util/http-common";
 import jwt_decode from "jwt-decode";
 // import axios from "axios";
 import { mapState, mapMutations } from "vuex";
 
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "Accountlogin",
@@ -94,13 +91,6 @@ export default {
     },
   }),
 
-<<<<<<< HEAD
-  computed: {},
-
-  methods: {
-    validate() {
-      this.$refs.form.validate();
-=======
   computed: {
     ...mapState({
       userstate: (state) => state.user.isLogin,
@@ -158,7 +148,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
 
     signup() {
@@ -169,27 +158,12 @@ export default {
     kakaologin() {
       window.Kakao.Auth.login({
         scope: "account_email, gender, profile_nickname, profile_image",
-<<<<<<< HEAD
-=======
         // success: this.getProfile,
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
         success: this.getProfile,
       });
     },
 
     getProfile(authObj) {
-<<<<<<< HEAD
-      // console.log("프로필 받기", authObj);
-      sessionStorage.setItem("access_token", authObj.access_token);
-      window.Kakao.API.request({
-        url: "/v2/user/me",
-        success: (res) => {
-          const kakao_account = res.kakao_account;
-          console.log("response :", res);
-          console.log(kakao_account);
-        },
-      });
-=======
       sessionStorage.setItem("access_token", authObj.access_token);
       console.log("프로필 받기", authObj);
 
@@ -221,7 +195,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
   },
 };

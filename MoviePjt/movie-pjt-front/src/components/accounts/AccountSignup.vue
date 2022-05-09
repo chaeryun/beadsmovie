@@ -8,8 +8,6 @@
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
-<<<<<<< HEAD
-=======
             <v-row>
               <v-col cols="12" sm="5">
                 <v-text-field
@@ -31,7 +29,6 @@
               </v-col>
             </v-row>
 
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
             <v-text-field
               v-model="user.id"
               :counter="16"
@@ -53,13 +50,6 @@
             ></v-text-field>
 
             <v-text-field
-<<<<<<< HEAD
-              v-model="user.nickname"
-              :counter="8"
-              :rules="nicknameRules"
-              label="Nickname"
-              required
-=======
               v-model="user.passwordConfirmation"
               :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
               :rules="[passrules.required, passrules.min]"
@@ -69,7 +59,6 @@
               hint="At least 4 characters ~ 12 characters"
               counter
               @click:append="show1 = !show1"
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
             ></v-text-field>
 
             <v-text-field
@@ -79,15 +68,6 @@
               required
             ></v-text-field>
 
-<<<<<<< HEAD
-            <!-- <v-select
-          v-model="select"
-          :items="items"
-          :rules="[(v) => !!v || 'Item is required']"
-          label="Item"
-          required
-        ></v-select> -->
-=======
             <v-row>
               <v-col cols="12" sm="5">
                 <v-slider
@@ -122,7 +102,6 @@
                 ></v-select>
               </v-col>
             </v-row>
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 
             <v-checkbox
               v-model="checkbox"
@@ -149,11 +128,8 @@
   </v-main>
 </template>
 <script>
-<<<<<<< HEAD
-=======
 import http from "@/util/http-common.js";
 
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: "AccountSignup",
@@ -175,15 +151,6 @@ export default {
       emailMatch: () => `The email and password you entered don't match`,
     },
 
-<<<<<<< HEAD
-    // nickname rule
-    nickname: "",
-    nicknameRules: [
-      (v) => !!v || "Nickname is required",
-      (v) =>
-        (v && v.length <= 16) || "Nickname must be less than 16 characters",
-    ],
-=======
     // passwordConfirmation
     show2: false,
     passwordConfirmation: "",
@@ -192,7 +159,6 @@ export default {
       min: (v) => (v.length <= 12 && v.length >= 4) || "Max 12 characters",
       emailMatch: () => `The email and password you entered don't match`,
     },
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
 
     // email rule
     email: "",
@@ -200,8 +166,6 @@ export default {
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
-<<<<<<< HEAD
-=======
 
     // name rule
     first_name: "",
@@ -214,7 +178,6 @@ export default {
 
     occupations: ["student", "professor", "consultant", "manager", "other"],
 
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     // select: null,
     // items: ["Item 1", "Item 2", "Item 3", "Item 4"],
     checkbox: false,
@@ -222,10 +185,6 @@ export default {
     user: {
       id: "",
       password: "",
-<<<<<<< HEAD
-      nickname: "",
-      email: "",
-=======
       passwordConfirmation: "",
       email: "",
       first_name: "",
@@ -233,15 +192,12 @@ export default {
       age: "",
       gender: "",
       occupation: "",
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
   }),
 
   methods: {
     validate() {
       this.$refs.form.validate();
-<<<<<<< HEAD
-=======
 
       console.log(this.user.gender);
 
@@ -274,7 +230,6 @@ export default {
         .catch((err) => {
           console.log(err);
         });
->>>>>>> f1a715ec92d9e15bffc482c9c6d9feffdf2244ab
     },
 
     reset() {
