@@ -16,6 +16,16 @@
       </div>
       <label for="content">내용</label>
       <div class="view" v-html="article.content"></div>
+      <div>
+        <v-btn v-if="islikes" icon color="blue" @click="like">
+          <v-icon>mdi-thumb-up</v-icon>
+        </v-btn>
+        <v-btn v-else icon color="blue" @click="like">
+          <v-icon>mdi-thumb-up-outline</v-icon>
+        </v-btn>
+      </div>
+      <div>{{ numLike }} 개</div>
+
       <div align="center" justify="space-around" style="margin: 2.5rem">
         <v-btn
           depressed
@@ -38,32 +48,31 @@
 
 <script>
 import axios from "axios";
+import VueJwtDecode from "vue-jwt-decode";
 
 export default {
   name: "ArticleDetail",
-  data: function () {
+  data() {
     return {
       article: {},
       user: [],
+      me: [],
+      likes: "",
+      numLike: "",
     };
   },
   created() {
-    const config = this.getToken();
     axios
       .get(
         `http://127.0.0.1:8000/api/articles/detail/${this.$route.params.id}/`
       )
       .then(({ data }) => {
+        // console.log(this.$route.params.id);
+        // console.log(data);
         this.article = data;
+        // console.log(this.article);
       });
-    axios
-      .post(
-        `http://127.0.0.1:8000/api/accounts/profile/${this.$route.params.user}/`,
-        config
-      )
-      .then(({ data }) => {
-        this.user = data;
-      });
+    this.getUser();
   },
   methods: {
     getToken() {
@@ -100,6 +109,54 @@ export default {
       } else {
         alert("삭제 권한이 없습니다!");
       }
+    },
+    getUser() {
+      const config = this.getToken();
+      const hash = localStorage.getItem("jwt");
+      // console.log(VueJwtDecode.decode(hash));
+      const info = VueJwtDecode.decode(hash);
+      axios
+        .post(`http://127.0.0.1:8000/api/accounts/myprofile/`, info, config)
+        .then(({ data }) => {
+          this.user = data;
+          // console.log(this.user);
+          this.numLike = this.user.like_articles.length;
+          if (this.user.like_articles.includes(this.article.id)) {
+            this.likes = true;
+          } else {
+            this.likes = false;
+          }
+        });
+    },
+    like() {
+      const config = this.getToken();
+      const item = {
+        id: this.article.id,
+        user: this.user.id,
+      };
+
+      axios
+        .post(
+          `http://127.0.0.1:8000/api/articles/like/${this.user.id}/${this.article.id}/`,
+          item,
+          config
+        )
+        .then(() => {
+          this.getUser();
+          this.check();
+        });
+    },
+    check() {
+      if (this.likes) {
+        this.numLike -= 1;
+      } else {
+        this.numLike += 1;
+      }
+    },
+  },
+  computed: {
+    islikes() {
+      return this.likes;
     },
   },
   filters: {
@@ -171,11 +228,9 @@ label {
 button,
 .btn {
   width: 8%;
-  background-color: #39c534;
-  color: rgb(255, 255, 255);
+
   padding: 14px 20px;
   margin: 3rem;
-  border: 1px solid #34c534;
   border-radius: 4px;
   font-size: large;
   cursor: pointer;
