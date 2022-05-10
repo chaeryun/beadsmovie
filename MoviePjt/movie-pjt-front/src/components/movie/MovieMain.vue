@@ -1,6 +1,21 @@
 <template>
   <div>
+    
+
+            <div class="image-box" >
+              <img src="@/assets/harrypotter.png" class="image-thumbnail" width="1550" >
+            </div>
+
+          <div class="image-box" >
+              <img src="@/assets/harrypotter2.png" class="image-thumbnail" width="1550" >
+            </div>
+   
+          <div class="image-box" >
+              <img src="@/assets/harrypotter3.png" class="image-thumbnail" width="1550">
+            </div>
+
     <!-- Top 10 Movies -->
+  
     <v-card-title
       class="text-h2 fw-bold"
       style="
@@ -11,97 +26,7 @@
     >
       Top 10 Movies
     </v-card-title>
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/g4tMniKxol1TBJrHlAtiDjjlx4Q.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>배신의 만찬</h2>
-          <h2></h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text @click="detail"> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/qcOFxYpBvU8LwaMyKdjCoP7y7we.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>인 비트윈</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/6zBWSuYW3Ps1nTfeMS8siS4KUaA.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>리버데일</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>워킹 데드</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
+    <MovieCard :movies="top_movies"/>
 
     <!-- Action -->
     <v-card-title
@@ -114,97 +39,8 @@
     >
       Action
     </v-card-title>
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/bCz71ysciwNL2xddSm25ufrgZ7V.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>더 배트맨</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>수퍼 소닉 (2020)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/voddFVdjUoAtfoZZp2RUmuZILDI.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>스파이더맨 : 노 웨이 홈</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/nOYyuJ2mNo6RWsFsTwApEyG3F4J.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>야차</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
-
+    <MovieCard :movies="action_movies"/>
+    
     <!-- Animation -->
     <v-card-title
       class="text-h2 fw-bold"
@@ -216,95 +52,7 @@
     >
       Animation
     </v-card-title>
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3eElpVmCeMqplQbkQd0y1fftL04FkfbQZrjKbEuhg3D6rQuKf"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>아이스 에이지: 벅의 대모험 (2022)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/78JfwRiubwX87BYgPXsdFKBf9P5.jpg"
-        >
-        </v-img>
-        <v-card-subtitle class="pb-0">
-          <h2>pil</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/hsOhOcX7qDy7bPwbrt1OoITngrf.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>메이의 새빨간 비밀</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://blog.kakaocdn.net/dn/II2OM/btrpoVuvWts/b9rK1lvjxUFVox60anaKmK/img.png"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>엔칸토: 마법의 세계 (2021)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
+    <MovieCard :movies="animation_movies"/>
 
     <!-- Comedy -->
     <v-card-title
@@ -514,12 +262,44 @@
 </template>
 
 <script>
-export default {
+import axios from "axios";
+import MovieCard from "@/components/movie/MovieCard";
+
+
+
+export default 
+{
   name: "MovieMain",
+  data: function () {
+    return {
+       options: {
+          rewind : true,
+          width  : 800,
+          gap    : '1rem',
+        },
+      movies: [],
+      movie: '',
+
+    }
+  },
+  components: {
+    MovieCard,
+},
 
   methods: {
     detail() {
       this.$router.push({ name: "MoveDetail" });
+    },
+    getMovieDatas: function () {
+      axios.get(`https://beadsmovie.com/api/movie/`)
+      .then( 
+        (res) => { console.log(res);
+        if (this.$store.state.movies.length === 0) {
+          this.$store.state.movies = res.data
+        }
+      
+       
+      })
     },
   },
 };
@@ -527,11 +307,22 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
+
 .mx-auto {
   margin-top: 2rem;
 }
 
 .main-font {
   font-family: "Amatic SC", cursive;
+}
+.image-box {
+  margin: 0 auto;
+}
+.image-thumbnail {
+  margin: -100px auto;
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 </style>
