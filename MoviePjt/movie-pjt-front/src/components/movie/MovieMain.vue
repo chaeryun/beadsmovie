@@ -1,18 +1,16 @@
 <template>
   <div>
+  <div class="image-box">
+  <carousel :autoplay="true" :nav="false" :dots="true"  items="1" >
+
+    <img src="@/assets/image0.png" >
+    <img src="@/assets/image1.jpg"  >
+    <img src="@/assets/image2.png"  >
+    <img src="@/assets/image0.png" >
+
+  </carousel>
+  </div>
     
-
-            <div class="image-box" >
-              <img src="@/assets/harrypotter.png" class="image-thumbnail" width="1550" >
-            </div>
-
-          <div class="image-box" >
-              <img src="@/assets/harrypotter2.png" class="image-thumbnail" width="1550" >
-            </div>
-   
-          <div class="image-box" >
-              <img src="@/assets/harrypotter3.png" class="image-thumbnail" width="1550">
-            </div>
 
     <!-- Top 10 Movies -->
   
@@ -264,26 +262,23 @@
 <script>
 import axios from "axios";
 import MovieCard from "@/components/movie/MovieCard";
-
-
+import carousel from 'vue-owl-carousel'
 
 export default 
 {
   name: "MovieMain",
+
   data: function () {
     return {
-       options: {
-          rewind : true,
-          width  : 800,
-          gap    : '1rem',
-        },
       movies: [],
       movie: '',
 
     }
   },
+   
   components: {
     MovieCard,
+    carousel,
 },
 
   methods: {
@@ -297,12 +292,11 @@ export default
         if (this.$store.state.movies.length === 0) {
           this.$store.state.movies = res.data
         }
-      
-       
-      })
-    },
-  },
-};
+        }
+      )},
+   
+  }
+}
 </script>
 
 <style>
@@ -317,12 +311,16 @@ export default
   font-family: "Amatic SC", cursive;
 }
 .image-box {
-  margin: 0 auto;
+  margin: -25px auto;
 }
 .image-thumbnail {
+
   margin: -100px auto;
   width:100%;
   height:100%;
   object-fit:cover;
+
+
+
 }
 </style>

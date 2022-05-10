@@ -27,6 +27,7 @@
       <v-col cols="10" align="right" color="white" >
         <v-text-field
           color="white"
+          style="max-width: 200px; margin-top: 20px;"
           dark
           class="text-white"
           label="Search"
