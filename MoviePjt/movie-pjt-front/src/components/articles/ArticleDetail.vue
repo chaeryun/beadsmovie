@@ -24,7 +24,7 @@
           <v-icon>mdi-thumb-up-outline</v-icon>
         </v-btn>
       </div>
-      <div>{{ numLike }} 개</div>
+      <div>{{ likesNum }} 개</div>
 
       <div align="center" justify="space-around" style="margin: 2.5rem">
         <v-btn
@@ -58,7 +58,7 @@ export default {
       user: [],
       me: [],
       likes: "",
-      numLike: "",
+      likesNum: "",
     };
   },
   created() {
@@ -67,10 +67,8 @@ export default {
         `http://127.0.0.1:8000/api/articles/detail/${this.$route.params.id}/`
       )
       .then(({ data }) => {
-        // console.log(this.$route.params.id);
-        // console.log(data);
         this.article = data;
-        // console.log(this.article);
+        this.likesNum = this.article.like_users.length;
       });
     this.getUser();
   },
@@ -119,8 +117,6 @@ export default {
         .post(`http://127.0.0.1:8000/api/accounts/myprofile/`, info, config)
         .then(({ data }) => {
           this.user = data;
-          // console.log(this.user);
-          this.numLike = this.user.like_articles.length;
           if (this.user.like_articles.includes(this.article.id)) {
             this.likes = true;
           } else {
@@ -148,9 +144,9 @@ export default {
     },
     check() {
       if (this.likes) {
-        this.numLike -= 1;
+        this.likesNum -= 1;
       } else {
-        this.numLike += 1;
+        this.likesNum += 1;
       }
     },
   },
