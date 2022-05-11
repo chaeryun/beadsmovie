@@ -12,18 +12,15 @@
 </template>
 
 <script>
-import axios from "axios";
+import http from "@/util/http-common";
 
 export default {
   name: "ArticleDelete",
   created() {
     const config = this.getToken();
     try {
-      axios
-        .delete(
-          `http://127.0.0.1:8000/api/articles/delete/${this.$route.params.id}/`,
-          config
-        )
+      http
+        .delete(`/articles/delete/${this.$route.params.id}/`, config)
         .then(({ data }) => {
           let msg = "삭제 처리시 문제가 발생했습니다.";
           if (data !== null) {

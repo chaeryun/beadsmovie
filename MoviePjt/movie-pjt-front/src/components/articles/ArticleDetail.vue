@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import http from "@/util/http-common";
 import VueJwtDecode from "vue-jwt-decode";
 
 export default {
@@ -62,14 +62,10 @@ export default {
     };
   },
   created() {
-    axios
-      .get(
-        `http://127.0.0.1:8000/api/articles/detail/${this.$route.params.id}/`
-      )
-      .then(({ data }) => {
-        this.article = data;
-        this.likesNum = this.article.like_users.length;
-      });
+    http.get(`/articles/detail/${this.$route.params.id}/`).then(({ data }) => {
+      this.article = data;
+      this.likesNum = this.article.like_users.length;
+    });
     this.getUser();
   },
   methods: {
@@ -113,16 +109,14 @@ export default {
       const hash = localStorage.getItem("jwt");
       // console.log(VueJwtDecode.decode(hash));
       const info = VueJwtDecode.decode(hash);
-      axios
-        .post(`http://127.0.0.1:8000/api/accounts/myprofile/`, info, config)
-        .then(({ data }) => {
-          this.user = data;
-          if (this.user.like_articles.includes(this.article.id)) {
-            this.likes = true;
-          } else {
-            this.likes = false;
-          }
-        });
+      http.post(`/accounts/myprofile/`, info, config).then(({ data }) => {
+        this.user = data;
+        if (this.user.like_articles.includes(this.article.id)) {
+          this.likes = true;
+        } else {
+          this.likes = false;
+        }
+      });
     },
     like() {
       const config = this.getToken();
@@ -131,9 +125,9 @@ export default {
         user: this.user.id,
       };
 
-      axios
+      http
         .post(
-          `http://127.0.0.1:8000/api/articles/like/${this.user.id}/${this.article.id}/`,
+          `/articles/like/${this.user.id}/${this.article.id}/`,
           item,
           config
         )

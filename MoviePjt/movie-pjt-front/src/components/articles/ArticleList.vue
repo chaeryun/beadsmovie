@@ -19,8 +19,8 @@
 </template>
 
 <script>
+import http from "@/util/http-common";
 import ArticleListRow from "@/components/articles/child/ArticleListRow";
-import axios from "axios";
 
 export default {
   name: "ArticleList",
@@ -33,7 +33,7 @@ export default {
     };
   },
   created() {
-    axios.get(`http://127.0.0.1:8000/api/articles/lists/`).then(({ data }) => {
+    http.get(`/articles/lists/`).then(({ data }) => {
       this.articles = data;
     });
   },

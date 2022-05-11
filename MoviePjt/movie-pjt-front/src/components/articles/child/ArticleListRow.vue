@@ -6,7 +6,7 @@
     }"
   >
     <figure class="item">
-      <v-img :src="`http://127.0.0.1:8000` + image" /></figure
+      <v-img :src="`http://127.0.0.1:8000/api` + image" /></figure
   ></router-link>
 </template>
 

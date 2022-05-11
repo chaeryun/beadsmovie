@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import http from "@/util/http-common";
 
 export default {
   name: "ArticleWriteForm",
@@ -74,10 +74,8 @@ export default {
   created() {
     if (this.type === "modify") {
       try {
-        axios
-          .get(
-            `http://127.0.0.1:8000/api/articles/detail/${this.$route.params.id}/`
-          )
+        http
+          .get(`/articles/detail/${this.$route.params.id}/`)
           .then(({ data }) => {
             this.article.title = data.title;
             this.article.content = data.content;
@@ -131,8 +129,8 @@ export default {
       formData.append("content", this.article.content);
       formData.append("image", this.article.image);
       try {
-        await axios
-          .post(`http://127.0.0.1:8000/api/articles/create/`, formData, config)
+        await http
+          .post(`/articles/create/`, formData, config)
           .then(({ data }) => {
             let msg = "등록 처리시 문제가 발생했습니다.";
             if (data !== null) {
@@ -152,12 +150,8 @@ export default {
       formData.append("content", this.article.content);
       formData.append("image", this.article.image);
       try {
-        axios
-          .put(
-            `http://127.0.0.1:8000/api/articles/update/${this.$route.params.id}/`,
-            formData,
-            config
-          )
+        http
+          .put(`/articles/update/${this.$route.params.id}/`, formData, config)
           .then(({ data }) => {
             let msg = "등록 처리시 문제가 발생했습니다.";
             if (data !== null) {
