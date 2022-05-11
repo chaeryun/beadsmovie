@@ -4,7 +4,6 @@ from . import views
 app_name = 'user'
 
 urlpatterns = [
-    path('oauth/kakao', views.kakao_login),
-    path('oauth/kakao/callback', views.kakao_login),
-    path('oauth/kakao/logout', views.kakao_logout),
+    path('oauth/kakao/', views.kakao_login),
+    path('oauth/kakao/logout/', views.kakao_logout),
 ]

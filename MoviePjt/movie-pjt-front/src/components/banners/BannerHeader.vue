@@ -2,51 +2,49 @@
   <div id="app">
     <sliding-header :threshold-hide="5000" :threshold-open="400">
       <template v-slot:header>
-        <img width="380" src="@/assets/logo.png">
-    <div class="header-summary">
-      <span
-        ><router-link :to="{ name: 'home' }"
-          >Movie&nbsp;&nbsp;</router-link
-        ></span
-      >
-      <span
-        ><router-link :to="{ name: 'ArticleList' }">Article </router-link>
-        &nbsp;&nbsp;</span
-      >
-      <span>Interest &nbsp;&nbsp;</span>
-      <span>Subscribe &nbsp;&nbsp;</span>
-      <span v-if="isLogin == false"
-        ><router-link :to="{ name: 'AccountView' }">Login</router-link>
-      </span>
+        <img width="380" src="@/assets/logo.png" />
+        <div class="header-summary">
+          <span
+            ><router-link :to="{ name: 'home' }"
+              >Movie&nbsp;&nbsp;</router-link
+            ></span
+          >
+          <span
+            ><router-link :to="{ name: 'ArticleList' }">Article </router-link>
+            &nbsp;&nbsp;</span
+          >
+          <span>Interest &nbsp;&nbsp;</span>
+          <span>Subscribe &nbsp;&nbsp;</span>
+          <span v-if="isLogin == false"
+            ><router-link :to="{ name: 'AccountView' }">Login</router-link>
+          </span>
 
-      <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
-      <span v-if="isLogin == true" @click="logout">LogOut &nbsp;&nbsp;</span>
-    </div>
+          <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
+          <span v-if="isLogin == true" @click="logout"
+            >LogOut &nbsp;&nbsp;</span
+          >
+        </div>
 
-    <v-row>
-      <v-col cols="10" align="right" color="white" >
-        <v-text-field
-          color="white"
-          style="max-width: 200px; margin-top: 20px;"
-          dark
-          class="text-white"
-          label="Search"
-          prepend-icon="mdi-magnify"
-          v-model="keyword"
-          @keyup.enter="searchmovie(keyword)"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    </template>
+        <v-row>
+          <v-col cols="10" align="right" color="white">
+            <v-text-field
+              color="white"
+              style="max-width: 200px; margin-top: 20px"
+              dark
+              class="text-white"
+              label="Search"
+              prepend-icon="mdi-magnify"
+              v-model="keyword"
+              @keyup.enter="searchmovie(keyword)"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+      </template>
     </sliding-header>
-    
-    
   </div>
-  
 </template>
 
 <script>
-
 import SlidingHeader from "./SlidingHeader.vue";
 import { mapState, mapMutations } from "vuex";
 import http from "@/util/http-common";
@@ -55,13 +53,10 @@ export default {
   name: "BannerHeader",
   components: {
     SlidingHeader,
-
   },
 
   data() {
     return {
-     
-        
       movielist: [],
 
       // 검색
@@ -134,24 +129,24 @@ export default {
 
 @font-face {
   font-family: "NewWaltDisney";
-  src: url(../../fonts/NewWaltDisney.ttf) format('woff');
-};
+  src: url(../../fonts/NewWaltDisney.ttf) format("woff");
+}
 
 .text-white {
   color: white !important;
 }
 .sliding-header {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
 }
 .sliding-header.header {
-	background-color: rgba(17,53,53,85%);
-	height: 80px;
+  background-color: rgba(17, 53, 53, 85%);
+  height: 80px;
 }
 .sliding-header.hidden {
-	top: -100px;
+  top: -100px;
 }
 .header {
   text-align: center;
@@ -186,19 +181,18 @@ span:hover {
   max-width: 15%;
 }
 #app {
-	text-align: center;
+  text-align: center;
   margin-top: 100px;
   font-size: 2.5rem;
   top: 0;
-
 }
 .image-box {
   margin: 0 auto;
 }
 .image-thumbnail {
   margin: -100px auto;
-  width:100%;
-  height:100%;
-  object-fit:cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

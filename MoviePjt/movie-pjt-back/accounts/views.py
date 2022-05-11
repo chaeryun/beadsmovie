@@ -5,8 +5,9 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 
-from .models import User, Profile
+from .models import User
 from .serializers import UserSerializer
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -37,7 +38,16 @@ def delete(request, pk):
 
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def profile(request, pk):
-    profile = get_object_or_404(Profile, pk=pk)
+    profile = get_object_or_404(User, pk=pk)
     serializer = UserSerializer(profile)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def my_profile(request):
+    user = get_object_or_404(User, pk=request.data.get('user_id'))
+
+    serializer = UserSerializer(user)
+
     return Response(serializer.data)

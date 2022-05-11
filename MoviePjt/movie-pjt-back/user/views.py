@@ -14,7 +14,8 @@ from .serializers import UserSerializer
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def kakao_login(request):
-    kakao_access_token = request.headers['Kakao']
+    # kakao_access_token = request.headers['Kakao']
+    kakao_access_token = request.data['access_token']
     if  not kakao_access_token:
         return request.error_description
     
