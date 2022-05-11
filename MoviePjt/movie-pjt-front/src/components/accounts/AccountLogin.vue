@@ -119,7 +119,7 @@ export default {
       })
         .then((res) => {
           let token = res.data.token;
-          sessionStorage.setItem("access-token", token);
+          localStorage.setItem("access-token", token);
           // this.$store.commit("SET_USER_STATE", true);
           // store 저장
           this.SET_USER_STATE(true);
@@ -164,11 +164,11 @@ export default {
     },
 
     getProfile(authObj) {
-      sessionStorage.setItem("access_token", authObj.access_token);
+      localStorage.setItem("jwt", authObj.jwt);
       console.log("프로필 받기", authObj);
 
-      console.log("Token : ", authObj.access_token);
-      this.kakaologin2(authObj.access_token);
+      console.log("Token : ", authObj.jwt);
+      this.kakaologin2(authObj.jwt);
 
       // window.Kakao.API.request({
       //   url: "/v2/user/me",
@@ -208,5 +208,16 @@ export default {
 
 .v-btn:not(.v-btn--round).v-size--default {
   padding: 0;
+}
+
+.login-page {
+  /* background-image: url("../../assets/"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+  padding: 150px;
+  margin: auto !important;
+  opacity: 0.9;
 }
 </style>

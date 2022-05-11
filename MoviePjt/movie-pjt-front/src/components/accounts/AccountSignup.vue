@@ -222,7 +222,7 @@ export default {
     async regist() {
       await http({
         method: "POST",
-        url: "accounts/signup/",
+        url: "/accounts/signup/",
         data: {
           username: this.user.id,
           password: this.user.password,
