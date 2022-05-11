@@ -5,6 +5,7 @@ from user.models import User
 
 class MovieSerializer(serializers.ModelSerializer):
 
+    _id = serializers.CharField()
     genres = serializers.JSONField()
 
     class Meta:

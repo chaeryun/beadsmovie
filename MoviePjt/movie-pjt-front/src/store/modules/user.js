@@ -1,13 +1,17 @@
 const user = {
-  state: {
-    namespaced: true,
+  namespaced: true,
 
+  state: {
     // login 상태여부
     isLogin: false,
     userInfo: [],
   },
   getters: {},
-  mutations: {},
+  mutations: {
+    SET_USER_STATE(state, data) {
+      state.isLogin = data;
+    },
+  },
   actions: {},
 };
 
