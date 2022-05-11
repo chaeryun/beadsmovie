@@ -119,7 +119,7 @@ export default {
       })
         .then((res) => {
           let token = res.data.token;
-          localStorage.setItem("access-token", token);
+          localStorage.setItem("jwt", token);
           // this.$store.commit("SET_USER_STATE", true);
           // store 저장
           this.SET_USER_STATE(true);
