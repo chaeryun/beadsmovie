@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import MovieView from "../views/MovieView.vue";
 import MovieDetail from "../components/movie/MovieDetail.vue";
+import Movielist from "../components/movie/Movielist.vue";
 
 import AccountView from "@/views/AccountView.vue";
 import AccountSignup from "@/components/accounts/AccountSignup.vue";
@@ -45,9 +46,15 @@ const routes = [
   },
   {
     path: "/moviedetail",
-    name: "MoveDetail",
+    name: "MovieDetail",
     component: MovieDetail,
   },
+  {
+    path: "/movielist",
+    name: "Movielist",
+    component: Movielist,
+  },
+
   {
     path: "/article",
     name: "ArticleView",
@@ -81,23 +88,6 @@ const routes = [
       },
     ],
   },
-  // {
-  //   path: "/user",
-  //   name: "User",
-  //   component: User,
-  //   children: [
-  //     {
-  //       path: "login",
-  //       name: "login",
-  //       component: Userlogin,
-  //     },
-  //     {
-  //       path: "signup",
-  //       name: "signup",
-  //       component: Signup,
-  //     },
-  //   ],
-  // },
 ];
 
 const router = new VueRouter({

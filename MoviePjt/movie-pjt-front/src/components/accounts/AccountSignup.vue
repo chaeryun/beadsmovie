@@ -8,7 +8,7 @@
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-row>
+            <!-- <v-row>
               <v-col cols="12" sm="5">
                 <v-text-field
                   v-model="user.first_name"
@@ -27,7 +27,7 @@
                   required
                 ></v-text-field>
               </v-col>
-            </v-row>
+            </v-row> -->
 
             <v-text-field
               v-model="user.id"
@@ -65,6 +65,13 @@
               v-model="user.email"
               :rules="emailRules"
               label="E-mail"
+              required
+            ></v-text-field>
+
+            <v-text-field
+              v-model="user.nickname"
+              :rules="nicknameRules"
+              label="Nickname"
               required
             ></v-text-field>
 
@@ -168,9 +175,15 @@ export default {
     ],
 
     // name rule
-    first_name: "",
-    last_name: "",
-    nameRules: [(val) => (val || "").length > 0 || "This field is required"],
+    // first_name: "",
+    // last_name: "",
+    // nameRules: [(val) => (val || "").length > 0 || "This field is required"],
+
+    nickname: "",
+    nicknameRules: [
+      (v) => !!v || "Nickname is required",
+      (v) => v.length <= 12 || "Nickname must be less than 12 characters",
+    ],
 
     age: "",
 
@@ -187,8 +200,7 @@ export default {
       password: "",
       passwordConfirmation: "",
       email: "",
-      first_name: "",
-      last_name: "",
+      nickname: "",
       age: "",
       gender: "",
       occupation: "",
@@ -212,12 +224,11 @@ export default {
         method: "POST",
         url: "accounts/signup/",
         data: {
-          first_name: this.user.first_name,
-          last_name: this.user.last_name,
           username: this.user.id,
           password: this.user.password,
           passwordConfirmation: this.user.passwordConfirmation,
           email: this.user.email,
+          nickname: this.user.nickname,
           age: this.user.age,
           sex: this.user.gender,
           occupation: this.user.occupation,
@@ -225,6 +236,7 @@ export default {
       })
         .then((res) => {
           console.log(res);
+          alert("회원가입 성공");
           // this.$router.push({ name: "Home" });
         })
         .catch((err) => {

@@ -43,7 +43,7 @@
 
             <br />
 
-            <div>
+            <!-- <div>
               <v-btn depressed tile text>
                 <v-img
                   src="@/assets/kakao_login_medium_narrow.png"
@@ -51,7 +51,7 @@
                   @click="kakaologin"
                 ></v-img>
               </v-btn>
-            </div>
+            </div> -->
           </v-form>
         </v-flex>
       </v-layout>
