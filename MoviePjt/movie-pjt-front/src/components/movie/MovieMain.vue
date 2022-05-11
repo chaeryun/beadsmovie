@@ -1,9 +1,12 @@
 <template>
   <div>
+
+
+
   <div class="image-box">
   <carousel :autoplay="true" :nav="false" :dots="true"  items="1" >
 
-    <img src="@/assets/image0.png" >
+    <div><img src="@/assets/image0.png" > <h1>신동덤덤</h1></div>
     <img src="@/assets/image1.jpg"  >
     <img src="@/assets/image2.png"  >
     <img src="@/assets/image0.png" >
@@ -27,21 +30,18 @@
     <MovieCard :movies="top_movies"/>
     <v-container style="display: flex">
       <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/g4tMniKxol1TBJrHlAtiDjjlx4Q.jpg"
-        >
-        </v-img>
 
-        <v-card-subtitle class="pb-0">
-          <h2>배신의 만찬</h2>
+        max-width="100%"
+        elevation="10"
+        min-width="370px"
+        min-height="350px"
+        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)), url(https://www.themoviedb.org/t/p/w220_and_h330_face/qcOFxYpBvU8LwaMyKdjCoP7y7we.jpg) center center ;"
+
+      >
+
+
+        <v-card-subtitle >
+          <h2 style="color:#fff" >배신의 만찬</h2>
           <h2></h2>
         </v-card-subtitle>
         <v-card-actions>
@@ -49,75 +49,8 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/qcOFxYpBvU8LwaMyKdjCoP7y7we.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>인 비트윈</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/6zBWSuYW3Ps1nTfeMS8siS4KUaA.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>리버데일</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>워킹 데드</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
-
-
+      </v-container>
+     
     <!-- Action -->
     <v-card-title
       style="
@@ -583,6 +516,7 @@ export default
 
 .mx-auto {
   margin-top: 2rem;
+  
 }
 
 .main-font {
@@ -600,5 +534,10 @@ export default
 
 
 
+}
+.title {
+  display: flex;
+
+  align-items: flex-end;
 }
 </style>
