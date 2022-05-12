@@ -16,8 +16,8 @@
       <div v-for="movie in movies" :key="movie.id" @click="toDetail(movie)" class="card mx-2 my-3" style="width: 18%;">
         <img :src="`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`" class="card-img-top" alt="...">
         <div class="card-body">
-          <p class="card-title fw-bold fs-6">{{ movie.title }}</p>
-          <p>★ {{ movie.vote_average }}</p>
+          <p class="card-title fw-bold fs-5">{{ movie.title }}</p>
+          <p>{{ movie.vote_average }}</p>
           <p>{{ movie.release_date | dateParse('YYYY-MM-DD') | dateFormat('YY.MM.DD') }}</p>
         </div>
       </div>
