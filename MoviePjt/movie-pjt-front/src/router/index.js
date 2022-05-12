@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import MovieView from "../views/MovieView.vue";
 import MovieDetail from "../components/movie/MovieDetail.vue";
-import MovieList from "../components/movie/MovieList.vue";
+import MovieList from "../components/movie/Movielist.vue";
 
 import AccountView from "@/views/AccountView.vue";
 import AccountSignup from "@/components/accounts/AccountSignup.vue";
