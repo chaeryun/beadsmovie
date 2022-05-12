@@ -4,7 +4,7 @@
 
 
   <div class="image-box">
-  <carousel :autoplay="true" :nav="false" :dots="true"  items="1" >
+  <carousel :autoplay="true" :nav="false" :dots="true"  items=1 >
 
     <div class="jb-wrap">
       <div class="slide"></div>
@@ -34,7 +34,7 @@
     >
       Top 10 Movies
     </v-card-title>
-    <MovieCard :movies="top_movies"/>
+  <!--<MovieCard :movies="top_movies"/>--> 
   <!--
     <v-card
         max-width="100%"
@@ -56,7 +56,7 @@
 
     
     <v-container style="display: flex; justify-content: space-between; ">
-    <carousel :autoplay="false" :nav="true" :dots="false"  items="3" >
+    <carousel :autoplay="false" :nav="true" :dots="false"  items=3 >
       <v-card
         
         max-width="300px"
@@ -96,12 +96,12 @@
           min-width="300px"
           max-width="150px"
           max-height="430px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
+          src="https://www.themoviedb.org/t/p/w220_and_h330_face/9Xd459BvOLFfPPzNfAPT9dZkO1x.jpg"
         >
         </v-img>
         <div class="text">
           <v-card-subtitle class="pb-0">
-            <h2>수퍼 소닉 (2020)</h2>
+            <h2>웨스트 사이드 스토리</h2>
           </v-card-subtitle>
           <v-card-actions >
             <v-btn color="orange" text> 상세보기 </v-btn>
@@ -122,12 +122,12 @@
           min-width="300px"
           max-width="150px"
           max-height="430px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
+          src="https://www.themoviedb.org/t/p/w220_and_h330_face/hsOhOcX7qDy7bPwbrt1OoITngrf.jpg"
         >
         </v-img>
         <div class="text">
           <v-card-subtitle class="pb-0">
-            <h2>수퍼 소닉 (2020)</h2>
+            <h2>메이의 새빨간 비밀</h2>
           </v-card-subtitle>
           <v-card-actions >
             <v-btn color="orange" text> 상세보기 </v-btn>
@@ -150,12 +150,12 @@
           min-width="300px"
           max-width="150px"
           max-height="430px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
+          src="https://blog.kakaocdn.net/dn/II2OM/btrpoVuvWts/b9rK1lvjxUFVox60anaKmK/img.png"
         >
         </v-img>
         <div class="text">
           <v-card-subtitle class="pb-0">
-            <h2>수퍼 소닉 (2020)</h2>
+            <h2>엔칸토: 마법의 세계 (2021)</h2>
           </v-card-subtitle>
           <v-card-actions >
             <v-btn color="orange" text> 상세보기 </v-btn>
@@ -176,12 +176,12 @@
           min-width="300px"
           max-width="150px"
           max-height="430px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
+          src="https://www.themoviedb.org/t/p/w220_and_h330_face/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg"
         >
         </v-img>
         <div class="text">
           <v-card-subtitle class="pb-0">
-            <h2>수퍼 소닉 (2020)</h2>
+            <h2>애덤 프로젝트</h2>
           </v-card-subtitle>
           <v-card-actions >
             <v-btn color="orange" text> 상세보기 </v-btn>
@@ -205,7 +205,7 @@
     >
       Action
     </v-card-title>
-    <MovieCard :movies="action_movies"/>
+    <!--<MovieCard :movies="action_movies"/>-->
     <v-container style="display: flex">
       <v-card
         class="mx-auto"
@@ -311,7 +311,7 @@
     >
       Animation
     </v-card-title>
-    <MovieCard :movies="animation_movies"/>
+    <!--<MovieCard :movies="animation_movies"/> -->
     <v-container style="display: flex">
       <v-card
         class="mx-auto"
@@ -612,7 +612,7 @@
 
 <script>
 import axios from "axios";
-import MovieCard from "@/components/movie/MovieCard";
+///import MovieCard from "@/components/movie/MovieCard";
 import carousel from 'vue-owl-carousel'
 
 export default 
@@ -628,7 +628,7 @@ export default
   },
    
   components: {
-    MovieCard,
+    ///MovieCard,
     carousel,
 },
 
