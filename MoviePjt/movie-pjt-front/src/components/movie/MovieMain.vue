@@ -78,7 +78,9 @@
             <h2>수퍼 소닉 (2020)</h2>
           </v-card-subtitle>
           <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
+            <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
@@ -104,7 +106,9 @@
             <h2>웨스트 사이드 스토리</h2>
           </v-card-subtitle>
           <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
+            <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
@@ -130,7 +134,9 @@
             <h2>메이의 새빨간 비밀</h2>
           </v-card-subtitle>
           <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
+            <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
@@ -158,7 +164,9 @@
             <h2>엔칸토: 마법의 세계 (2021)</h2>
           </v-card-subtitle>
           <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
+            <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
@@ -184,7 +192,9 @@
             <h2>애덤 프로젝트</h2>
           </v-card-subtitle>
           <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
+            <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
@@ -225,7 +235,9 @@
           <h2>더 배트맨</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -247,7 +259,9 @@
           <h2>수퍼 소닉 (2020)</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -269,7 +283,9 @@
           <h2>스파이더맨 : 노 웨이 홈</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -291,7 +307,9 @@
           <h2>야차</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -331,7 +349,9 @@
           <h2>아이스 에이지: 벅의 대모험 (2022)</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -352,7 +372,9 @@
           <h2>pil</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -374,7 +396,9 @@
           <h2>메이의 새빨간 비밀</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -396,7 +420,9 @@
           <h2>엔칸토: 마법의 세계 (2021)</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -433,7 +459,9 @@
           <h2>애덤 프로젝트</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -455,7 +483,9 @@
           <h2>메탈 로드</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -477,7 +507,9 @@
           <h2>더 버블</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -499,7 +531,9 @@
           <h2>루프 라페타</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -536,7 +570,9 @@
           <h2>메리 미</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -558,7 +594,9 @@
           <h2>문 샷</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -580,7 +618,9 @@
           <h2>배틀 : 프리스타일</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
@@ -602,7 +642,9 @@
           <h2>웨스트 사이드 스토리</h2>
         </v-card-subtitle>
         <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
+          <a href="/moviedetail" style="text-decoration: none;">
+              <v-btn color="orange" text > 상세보기 </v-btn>
+            </a>
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
