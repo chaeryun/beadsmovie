@@ -7,7 +7,7 @@ from .views import signup, delete, profile, my_profile
 urlpatterns = [
     path('signup/', signup),
     path('login/', obtain_jwt_token),
-    path('delete/<int:pk>/', delete),
-    path('profile/<int:pk>/', profile),
+    path('delete/<int:user_pk>/', delete),
+    path('profile/<int:user_pk>/', profile),
     path('myprofile/', my_profile)
 ]

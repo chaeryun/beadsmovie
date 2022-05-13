@@ -4,7 +4,6 @@ const user = {
   state: {
     // login 상태여부
     isLogin: false,
-    userInfo: [],
   },
   getters: {},
   mutations: {

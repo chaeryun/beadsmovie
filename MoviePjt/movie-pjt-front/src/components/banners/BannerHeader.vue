@@ -19,8 +19,11 @@
             ><router-link :to="{ name: 'AccountView' }">Login</router-link>
           </span>
 
-          <span v-if="isLogin == true">MyPage &nbsp;&nbsp;</span>
-          <span v-if="isLogin == true" @click="logout"
+          <span v-if="isLogin == true"
+            ><router-link :to="{ name: 'AccountMypage' }">MyPage</router-link>
+            &nbsp;&nbsp;</span
+          >
+          <span class="logoutheader" v-if="isLogin == true" @click="logout"
             >LogOut &nbsp;&nbsp;</span
           >
         </div>
@@ -78,7 +81,7 @@ export default {
     // logout
     logout() {
       this.SET_USER_STATE(false);
-      sessionStorage.clear();
+      localStorage.clear();
       alert("logout");
       this.$router.push({ name: "home" }).catch((err) => err);
     },
@@ -87,7 +90,7 @@ export default {
     async getMovieList() {
       await http({
         method: "GET",
-        url: "movie/",
+        url: "/movie/",
       })
         .then((res) => {
           console.log("movielist :", res);
@@ -194,5 +197,8 @@ span:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.logoutheader {
+  color: white;
 }
 </style>

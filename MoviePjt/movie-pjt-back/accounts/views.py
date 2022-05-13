@@ -27,9 +27,9 @@ def signup(request):
 
 
 @api_view(['DELETE'])
-def delete(request, pk):
+def delete(request, user_pk):
     try:
-        user = get_object_or_404(User, pk=pk)
+        user = get_object_or_404(User, pk=user_pk)
     except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     if request.method == 'DELETE':
@@ -43,6 +43,16 @@ def profile(request, pk):
     profile = get_object_or_404(User, pk=pk)
     serializer = UserSerializer(profile)
     return Response(serializer.data)
+
+@api_view(['PUT'])
+def profile(request, user_pk):
+    profile = get_object_or_404(User, pk=user_pk)
+
+    serializer = UserSerializer(profile, data=request.data)
+
+    if serializer.is_valid(raise_exception=True):
+        serializer.save(user=request.user)
+        return Response(serializer.data)
 
 @api_view(['POST'])
 def my_profile(request):

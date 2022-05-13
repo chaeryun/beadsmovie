@@ -1,22 +1,19 @@
 <template>
   <div>
-
-
-
-  <div class="image-box">
-  <carousel :autoplay="true" :nav="false" :dots="true"  items="1" >
-
-    <div><img src="@/assets/image0.png" > <h1>신동덤덤</h1></div>
-    <img src="@/assets/image1.jpg"  >
-    <img src="@/assets/image2.png"  >
-    <img src="@/assets/image0.png" >
-
-  </carousel>
-  </div>
-    
+    <div class="image-box">
+      <carousel :autoplay="true" :nav="false" :dots="true" items="1">
+        <div>
+          <img src="@/assets/image0.png" />
+          <h1>신동덤덤</h1>
+        </div>
+        <img src="@/assets/image1.jpg" />
+        <img src="@/assets/image2.png" />
+        <img src="@/assets/image0.png" />
+      </carousel>
+    </div>
 
     <!-- Top 10 Movies -->
-  
+
     <v-card-title
       style="
         margin-left: 190px;
@@ -27,21 +24,21 @@
     >
       Top 10 Movies
     </v-card-title>
-    <MovieCard :movies="top_movies"/>
+    <MovieCard :movies="top_movies" />
     <v-container style="display: flex">
       <v-card
-
         max-width="100%"
         elevation="10"
         min-width="370px"
         min-height="350px"
-        style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0)), url(https://www.themoviedb.org/t/p/w220_and_h330_face/qcOFxYpBvU8LwaMyKdjCoP7y7we.jpg) center center ;"
-
+        style="
+          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+            url(https://www.themoviedb.org/t/p/w220_and_h330_face/qcOFxYpBvU8LwaMyKdjCoP7y7we.jpg)
+              center center;
+        "
       >
-
-
-        <v-card-subtitle >
-          <h2 style="color:#fff" >배신의 만찬</h2>
+        <v-card-subtitle>
+          <h2 style="color: #fff">배신의 만찬</h2>
           <h2></h2>
         </v-card-subtitle>
         <v-card-actions>
@@ -49,8 +46,8 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      </v-container>
-     
+    </v-container>
+
     <!-- Action -->
     <v-card-title
       style="
@@ -62,7 +59,7 @@
     >
       Action
     </v-card-title>
-    <MovieCard :movies="action_movies"/>
+    <MovieCard :movies="action_movies" />
     <v-container style="display: flex">
       <v-card
         class="mx-auto"
@@ -154,10 +151,8 @@
       </v-card>
     </v-container>
 
-    
     <!-- Animation -->
     <v-card-title
-
       style="
         margin-left: 400px;
         margin-top: 30px;
@@ -167,7 +162,7 @@
     >
       Animation
     </v-card-title>
-    <MovieCard :movies="animation_movies"/>
+    <MovieCard :movies="animation_movies" />
     <v-container style="display: flex">
       <v-card
         class="mx-auto"
@@ -257,7 +252,6 @@
         </v-card-actions>
       </v-card>
     </v-container>
-
 
     <!-- Comedy -->
     <v-card-title
@@ -469,54 +463,48 @@
 <script>
 import axios from "axios";
 import MovieCard from "@/components/movie/MovieCard";
-import carousel from 'vue-owl-carousel'
+import carousel from "vue-owl-carousel";
 
-export default 
-{
+export default {
   name: "MovieMain",
 
   data: function () {
     return {
       movies: [],
-      movie: '',
-
-    }
+      movie: "",
+    };
   },
-   
+
   components: {
     MovieCard,
     carousel,
-},
+  },
 
   methods: {
     detail() {
       this.$router.push({ name: "MoveDetail" });
     },
     getMovieDatas: function () {
-      axios.get(`https://beadsmovie.com/api/movie/`)
-      .then( 
-        (res) => { console.log(res);
+      axios.get(`https://beadsmovie.com/api/movie/`).then((res) => {
+        console.log(res);
         if (this.$store.state.movies.length === 0) {
-          this.$store.state.movies = res.data
+          this.$store.state.movies = res.data;
         }
-        }
-      )},
-   
-  }
-}
+      });
+    },
+  },
+};
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
 @font-face {
   font-family: "NewWaltDisney";
-  src: url(../../fonts/NewWaltDisney.ttf) format('woff');
-};
-
+  src: url(../../fonts/NewWaltDisney.ttf) format("woff");
+}
 
 .mx-auto {
   margin-top: 2rem;
-  
 }
 
 .main-font {
@@ -526,14 +514,10 @@ export default
   margin: -25px auto;
 }
 .image-thumbnail {
-
   margin: -100px auto;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-
-
-
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .title {
   display: flex;

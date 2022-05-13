@@ -234,10 +234,10 @@ export default {
           occupation: this.user.occupation,
         },
       })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
+          // console.log(res);
           alert("회원가입 성공");
-          // this.$router.push({ name: "Home" });
+          this.$router.push({ name: "home" });
         })
         .catch((err) => {
           console.log(err);

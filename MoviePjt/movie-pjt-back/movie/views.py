@@ -8,7 +8,6 @@ from rest_framework import viewsets, mixins
 from bson import ObjectId
 from movie.models import Movie, Comment
 from movie.serializers import *
-from accounts.models import User
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
@@ -49,15 +48,13 @@ class CommentViewSet(mixins.CreateModelMixin,
         if not movie.exists():
             return Response('해당하는 영화가 없습니다. movie_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
 
-        content = request.data['content']
-        comment = Comment(content=content)
-        comment.user.add(request.user)
-        comment.movie.add(movie.first())
-        comment.save()
+        serializer = CommentSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, HTTPStatus.NOT_FOUND)
         
-        serializer = CommentSerializer(comment)
+        serializer.save(user=request.user, movie=movie.first())
         return Response(serializer.data, HTTPStatus.CREATED)
-        
+
     def list(self, request, *args, **kwargs):
         movie_id = self.kwargs['movie_id']
         movie = Movie.objects.filter(_id=movie_id)
@@ -87,9 +84,9 @@ class CommentViewSet(mixins.CreateModelMixin,
         if not comment.exists():
             return Response('해당하는 리뷰가 없습니다. comment_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
             
-        comment_writer_id = comment.first().user_id.pop()
+        comment_writer_id = comment.first().user_id
         if request.user.id is not comment_writer_id:
-            Response(HTTPStatus.FORBIDDEN)
+            return Response(HTTPStatus.FORBIDDEN)
         comment.update(content=request.data['content'])
 
         serializer = CommentSerializer(comment.first())
@@ -107,9 +104,9 @@ class CommentViewSet(mixins.CreateModelMixin,
             return Response('해당하는 리뷰가 없습니다. comment_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
 
         comment = Comment.objects.get(_id=ObjectId(comment_id))
-        comment_writer_id = Comment.objects.get(_id=ObjectId(comment_id)).user_id.pop()
+        comment_writer_id = Comment.objects.get(_id=ObjectId(comment_id)).user_id
         if request.user.id is not comment_writer_id:
-            Response(HTTPStatus.FORBIDDEN)
+            return Response(HTTPStatus.FORBIDDEN)
 
         comment.delete()
         return Response(HTTPStatus.NO_CONTENT)

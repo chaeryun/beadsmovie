@@ -7,7 +7,10 @@ import Movielist from "../components/movie/Movielist.vue";
 import AccountView from "@/views/AccountView.vue";
 import AccountSignup from "@/components/accounts/AccountSignup.vue";
 import AccountLogin from "@/components/accounts/AccountLogin.vue";
-import ArticleList from "@/components/articles/ArticleList.vue"; 
+import AccountMypage from "@/components/accounts/AccountMypage.vue";
+
+import ArticleList from "@/components/articles/ArticleList.vue";
+
 // import User from "../views/User.vue";
 // import Userlogin from "@/components/user/login.vue";
 // import Signup from "@/components/user/signup.vue";
@@ -35,6 +38,11 @@ const routes = [
         path: "signup",
         name: "AccountSignup",
         component: AccountSignup,
+      },
+      {
+        path: "mypage",
+        name: "AccountMypage",
+        component: AccountMypage,
       },
     ],
   },

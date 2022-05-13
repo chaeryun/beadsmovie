@@ -16,6 +16,7 @@ class User(AbstractUser):
         ('other', 'Other'),
     }
 
+    image = models.ImageField(upload_to='accounts/', null=True)
     nickname = models.CharField(max_length=50)
     age = models.CharField(max_length=20)
     sex = models.CharField(max_length=10, choices=SEX_CHOICES, null=False, default="male")

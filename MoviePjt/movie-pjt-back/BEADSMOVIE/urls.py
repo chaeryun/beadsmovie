@@ -38,6 +38,10 @@ schema_view = get_schema_view(
     permission_classes=[permissions.AllowAny],
 )
 
+movie_router = routers.SimpleRouter()
+movie_router.register('movie', MovieViewSet)
+movie_router.register('movie/(?P<movie_id>[^/.]+)/review', CommentViewSet)
+
 urlpatterns = [
     re_path(r'swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     re_path(r'swagger', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
@@ -45,11 +49,7 @@ urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/accounts/', include('accounts.urls')),
     path('api/articles/', include('articles.urls')),
-    path('api/user/', include('user.urls'))
+    path('api/user/', include('user.urls')),
+    path('api/', include(movie_router.urls))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-router = routers.SimpleRouter()
-router.register('movie', MovieViewSet)
-router.register('movie/(?P<movie_id>[^/.]+)/review', CommentViewSet)
-
-urlpatterns += router.urls

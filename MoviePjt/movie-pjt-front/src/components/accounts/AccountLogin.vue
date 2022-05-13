@@ -62,7 +62,6 @@
 <script>
 import http from "@/util/http-common";
 import jwt_decode from "jwt-decode";
-// import axios from "axios";
 import { mapState, mapMutations } from "vuex";
 
 export default {
@@ -119,7 +118,7 @@ export default {
       })
         .then((res) => {
           let token = res.data.token;
-          localStorage.setItem("access-token", token);
+          localStorage.setItem("jwt", token);
           // this.$store.commit("SET_USER_STATE", true);
           // store 저장
           this.SET_USER_STATE(true);
@@ -130,23 +129,10 @@ export default {
           this.$router.push({ name: "home" }).catch((err) => err);
           let decode_token = jwt_decode(token);
           console.log("decode_token", decode_token);
-          this.saveuser(decode_token.username);
         })
         .catch((err) => {
           console.log(err);
-        });
-    },
-
-    async saveuser(id) {
-      await http({
-        method: "POST",
-        url: "/accounts/profile/" + id,
-      })
-        .then((res) => {
-          console.log("profile", res);
-        })
-        .catch((err) => {
-          console.log(err);
+          alert("아이디와 비밀번호를 확인해주세요");
         });
     },
 
