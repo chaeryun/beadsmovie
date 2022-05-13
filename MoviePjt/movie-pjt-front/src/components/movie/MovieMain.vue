@@ -74,7 +74,9 @@
     -->
 
     <v-container style="display: flex; justify-content: space-between; ">
-    <carousel :autoplay="false" :nav="true" :dots="false"  items=3 >
+    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
+      <template slot="prev"><v-icon class="prev" large>mdi-chevron-left</v-icon></template>
+      <template slot="next"><v-icon class="next" large>mdi-chevron-right</v-icon></template>
       <v-card
         
         max-width="300px"
@@ -207,7 +209,7 @@
           </v-card-actions>
         </div>
       </v-card>
-
+      
     </carousel>
     </v-container>
 
@@ -814,6 +816,16 @@ export default {
   color: white;
   font-family: "NanumSquare";
   font-size:20px;
+}
+.prev {
+  position: absolute;
+  top: -10%;
+  left: 60%;
+}
+.next {
+  position: absolute;
+  bottom: 104%;
+  left: 62%
 }
 
 </style>

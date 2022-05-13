@@ -145,13 +145,14 @@ export default {
   transition: 0.3s;
 }
 .sliding-header.header {
-  background-color: rgba(17, 53, 53, 85%);
+  background-color: rgba(17, 53, 53, 100%);
   height: 80px;
 }
 .sliding-header.hidden {
   top: -100px;
 }
 .header {
+  position: absolute;
   text-align: center;
   top: 0;
   font-size: 2.5rem;
