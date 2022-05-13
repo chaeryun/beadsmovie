@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .models import Movie, Comment
-from user.models import User
+from bson import ObjectId
+from movie.models import Movie, Comment
+from accounts.models import User
 
 
 class MovieSerializer(serializers.ModelSerializer):
 
-    _id = serializers.CharField()
     genres = serializers.JSONField()
 
     class Meta:
@@ -14,24 +14,20 @@ class MovieSerializer(serializers.ModelSerializer):
         'poster_path', 'backdrop_path', 'youtube_path', 'genres')
 
 
-# class MovieListSerializer(serializers.ModelSerializer):
-
-#     class Meta:
-#         model = Movie
-#         fields = ('_id', 'title', 'poster_path',)
-
-
 class CommentSerializer(serializers.ModelSerializer):
 
+    simple_user = serializers.SerializerMethodField()
+    
     class Meta:
         model = Comment
-        fields = ('_id', 'user', 'created_date', 'content')
-        read_only_fields = ['_id', 'user']
+        fields = ('_id', 'simple_user', 'created_date', 'content')
+        read_only_fields = ('_id', 'simple_user', 'created_date',)
 
+    def get_simple_user(self, obj):
+        simple_user = {
+            'user_id': obj.user.id,
+            'user_nickname': obj.user.nickname,
+        }
 
-# class CommentListSerializer(serializers.ModelSerializer):
-
-#     user_nickname = User.nickname
-#     class Meta:
-#         model = Comment
-#         fields = ('id', 'user_nickname', 'last_modified_date', 'content')
+        return simple_user
+            
