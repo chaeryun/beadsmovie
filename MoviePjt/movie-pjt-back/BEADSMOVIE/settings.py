@@ -155,7 +155,7 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = 'image/'
+MEDIA_URL = 'api/image/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'image')
 
