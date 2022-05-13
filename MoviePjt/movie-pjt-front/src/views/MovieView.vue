@@ -1,5 +1,7 @@
 <template>
+<div class="background">
   <movie-main />
+</div>
 </template>
 
 <script>
@@ -14,3 +16,14 @@ export default {
   },
 };
 </script>
+<style>
+.background {
+  height:100vh;
+  width: 100vw;
+  overflow: scroll;
+  background-position: center;
+  background-image: url('@/assets/strange.jpg');
+  background-size:cover;
+}
+
+</style>

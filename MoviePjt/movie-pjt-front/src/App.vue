@@ -5,7 +5,6 @@
       <hr />
       <router-view />
       <hr />
-      <banner-footer />
     </v-main>
   </v-app>
 </template>

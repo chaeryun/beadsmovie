@@ -1,12 +1,26 @@
 <template>
-  <div>
+  <div >
     <div class="image-box">
       <carousel :autoplay="true" :nav="false" :dots="true" :autoplayHoverPause="true" :items='1'>
+        <div class="jb-wrap">
+          <video class="video" autoplay="autoplay" loop="loop" muted="muted" >
+			      <source src="@/assets/video.mp4" type="video/mp4" >
+        
+
+          </video>
+          <h1 class="video-title">신비한 동물들과<br> 덤블도어의 비밀</h1>
+            <p class="video-summary"><br><br>1930년대, 제2차 세계대전에 마법사들이 개입하게 되면서 강력한 어둠의 마법사 그린델왈드의 힘이 급속도로 커진다. 덤블도어는 뉴트 스캐맨더에게 위대한 마법사 가문 후손, 마법학교의 유능한 교사, 머글 등으로 이루어진 팀에게 임무를 맡긴다. 이에 뉴트와 친구들은 머글과의 전쟁을 선포한 그린델왈드와 추종자들, 그의 위험한 신비한 동물들에 맞서 세상을 구할 거대한 전쟁에 나선다. <br><br>장르 : 판타지, 모험<br>별점 : 6.8</p>
+          
+
+          
+          
+        </div>
         <div class="jb-wrap">
           <div class="slide"></div>
           <h1 class="jb-title">신비한 동물들과<br> 덤블도어의 비밀</h1>
           <p class="jb-summary"><br><br>1930년대, 제2차 세계대전에 마법사들이 개입하게 되면서 강력한 어둠의 마법사 그린델왈드의 힘이 급속도로 커진다. 덤블도어는 뉴트 스캐맨더에게 위대한 마법사 가문 후손, 마법학교의 유능한 교사, 머글 등으로 이루어진 팀에게 임무를 맡긴다. 이에 뉴트와 친구들은 머글과의 전쟁을 선포한 그린델왈드와 추종자들, 그의 위험한 신비한 동물들에 맞서 세상을 구할 거대한 전쟁에 나선다. <br><br>장르 : 판타지, 모험<br>별점 : 6.8</p>
         </div>
+
         <div class="jb-wrap">
           <div class="slide2"></div>
           <h1 class="jb-title">닥터스트레인지: <br>대혼돈의 멀티버스</h1>
@@ -75,8 +89,7 @@
 
     <v-container style="display: flex; justify-content: space-between; ">
     <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
-      <template slot="prev"><v-icon class="prev" large>mdi-chevron-left</v-icon></template>
-      <template slot="next"><v-icon class="next" large>mdi-chevron-right</v-icon></template>
+
       <v-card
         
         max-width="300px"
@@ -208,6 +221,15 @@
             <v-btn color="orange" text> 찜하기 </v-btn>
           </v-card-actions>
         </div>
+      </v-card>
+      <v-card
+        
+        max-width="300px"
+        min-width="300px"
+        min-height="550px"
+        flat="true"
+       
+      >
       </v-card>
       
     </carousel>
@@ -630,6 +652,7 @@ import axios from "axios";
 import MovieCard from "@/components/movie/MovieCard";
 import carousel from "vue-owl-carousel";
 
+
 export default {
   name: "MovieMain",
 
@@ -686,6 +709,7 @@ export default {
   src: url(../../fonts/NanumSquareEB.ttf) format('truetype');
 
 }
+
 
 .mx-auto {
   margin-top: 2rem;
@@ -817,6 +841,28 @@ export default {
   font-family: "NanumSquare";
   font-size:20px;
 }
+.video-title {
+  position:absolute;
+  box-sizing: content-box;
+  width: 400px;
+  top: 95px;
+  left:5%;
+  color: white;
+  font-family: "NewWaltDisney", "NanumSquareExtraBold";
+  font-size:50px;
+
+}
+.video-summary {
+  position:absolute;
+  box-sizing: content-box;
+  width: 420px;
+  top:200px;
+  left:5%;
+  color: white;
+  font-family: "NanumSquare";
+  font-size:20px;
+}
+
 .prev {
   position: absolute;
   top: -10%;
@@ -826,6 +872,22 @@ export default {
   position: absolute;
   bottom: 104%;
   left: 62%
+}
+
+.video {
+  width:100%;
+  position: absolute;
+  left: 0;
+  top: -100px;
+  object-fit: cover;
+  
+}
+.video:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0));
+
 }
 
 </style>
