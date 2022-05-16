@@ -43,6 +43,7 @@
         >
       </div>
     </div>
+    <article-comment />
   </div>
 </template>
 
@@ -50,8 +51,13 @@
 import http from "@/util/http-common";
 import VueJwtDecode from "vue-jwt-decode";
 
+import ArticleComment from "./ArticleComment.vue";
+
 export default {
   name: "ArticleDetail",
+  components: {
+    ArticleComment,
+  },
   data() {
     return {
       article: {},
