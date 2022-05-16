@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-main>
+    <v-main class="detail">
       <banner-header />
       <hr />
       <router-view />
@@ -27,5 +27,10 @@ export default {
 hr {
   width: 75%;
   margin: 0px auto;
+}
+.detail {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 </style>
