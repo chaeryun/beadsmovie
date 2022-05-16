@@ -12,7 +12,7 @@ def vote_count(n=5):
     df3 = df.copy()
     df4 = df3.sort_values('vote_count', ascending=False).head(n)
     return df4.pk.tolist()
-print(vote_count(5))
+#print(vote_count(5))
 
 
 
