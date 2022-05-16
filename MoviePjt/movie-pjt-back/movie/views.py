@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from django.shortcuts import get_list_or_404, get_object_or_404
+from django.shortcuts import get_list_or_404, get_object_or_404, render
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -8,6 +8,13 @@ from rest_framework import viewsets, mixins
 from bson import ObjectId
 from movie.models import Movie, Comment
 from movie.serializers import *
+import json
+from recommend.reco import get_recommendations, genre_build_chart, vote_count,popularity, vote_average
+from rest_framework.decorators import api_view
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import permission_classes
+import random
+from rest_framework import status
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
@@ -110,4 +117,15 @@ class CommentViewSet(mixins.CreateModelMixin,
 
         comment.delete()
         return Response(HTTPStatus.NO_CONTENT)
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def reco_detail_movie(request, movie_id):
+    movie_list = get_recommendations(movie_id)
+    movies = Movie.objects.filter(movie_id__in=random.sample(movie_list, 3))
+    movieserializers = MovieSerializer(movies, many=True)
+    return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
+
+
 
