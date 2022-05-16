@@ -4,8 +4,8 @@
       <v-col cols="4">
         <v-card class="mx-auto" max-width="400" elevation="10">
           <v-img
-            height="500px"
-            width="400px"
+            height="510px"
+            width="410px"
             :src="this.generalurl + this.moviedetail.poster_path"
           >
           </v-img>
@@ -16,19 +16,39 @@
         <v-card flat>
           <v-card-title class="mt-10 pt-10 mb-3">
             <h1>{{ this.moviedetail.title }}</h1>
+            <div class="col-2" :key="i" v-for="(genre, i) in genrelist"></div>
           </v-card-title>
-          <v-card-subtitle>액션 / 스릴러 </v-card-subtitle>
-          <h3 class="ml-4 mb-2 mt-5">Original title : All the Old Knives</h3>
-          <h3 class="ml-4 mb-2">TMDB Popularity : 3421.136</h3>
-          <h3 class="ml-4 mb-2">TMDB Vote Average: ★★★☆☆</h3>
-          <h3 class="ml-4 mb-2">Release date : 2022.04.08</h3>
+              <v-card-subtitle>
+               <v-row >
+    <v-col
+      cols="12"
+      sm="10"
+      md="8"
+    >
+    
+      <v-sheet
+      >
+        <v-chip-group
+          multiple
+          active-class="success--text"
+        >
+          <v-chip
+            v-for="genre in genrelist"
+            :key="genre"
+          >
+            {{ genre.name }}
+          </v-chip>
+        </v-chip-group>
+      </v-sheet>
+    </v-col>
+  </v-row>
+                
+              </v-card-subtitle>
+          <h3 class="ml-4 mb-2 ">Original title : {{ this.moviedetail.original_title }}</h3>
+          <h3 class="ml-4 mb-2">Release date : {{ this.moviedetail.release_date }}</h3>
 
-          <h3 class="ml-4 mb-2 mt-3">
-            Overview : <br />CIA 요원이자 전 연인(크리스 파인, 탠디 뉴턴)이 구출
-            임무를 실패하고 몇 년이 지난 뒤 재회하고, <br />
-            업무와 개인적인 감정을 구분하지 못한다. 국제 스파이 행위, 도덕적
-            딜레마, <br />
-            그리고 치명적인 배신을 다룬 눈을 뗄 수 없는 이야기다.
+          <h3 class="ml-4 mb-2 mt-7">
+            Overview : <br />{{ this.moviedetail.overview }}
           </h3>
         </v-card>
       </v-col>
@@ -40,7 +60,7 @@
             class="video-iframe"
             width="90%"
             height="400"
-            :src="`https://www.youtube-nocookie.com/embed/DfQx5kfERwE`"
+            :src="this.videourl +  this.moviedetail.youtube_path"
             frameborder="0"
             allowfullscreen
           ></iframe>
@@ -99,7 +119,9 @@ export default {
     return {
       movieid: "",
       moviedetail: [],
+      genrelist: [],
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
+      videourl: "https://www.youtube-nocookie.com/embed/",
     };
   },
 
@@ -118,6 +140,7 @@ export default {
         .then((res) => {
           console.log("moviedetail :", res);
           this.moviedetail = res.data;
+          this.genrelist = res.data.genres;
         })
         .catch((err) => {
           console.log(err);

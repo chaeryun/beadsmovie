@@ -668,9 +668,9 @@ export default {
     carousel,
   },
 
-  methods: {
-    detail() {
-      this.$router.push({ name: "MoveDetail" });
+   methods: {
+    detail(id) {
+      this.$router.push({ path: "/moviedetail", query: { _id: id } });
     },
     getMovieDatas: function () {
       axios.get(`https://beadsmovie.com/api/movie/`).then((res) => {
