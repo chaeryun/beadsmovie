@@ -711,13 +711,7 @@ export default {
 }
 
 
-.mx-auto {
-  margin-top: 2rem;
-}
-
-
-.image-box {
-  margin: -25px auto;
+ox {
 }
 .image-thumbnail {
   margin: -100px auto;

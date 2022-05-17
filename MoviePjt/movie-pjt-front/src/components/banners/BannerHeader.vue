@@ -2,11 +2,12 @@
   <div id="app">
     <sliding-header :threshold-hide="5000" :threshold-open="400">
       <template v-slot:header>
+        <span><router-link :to="{ name: 'home' }">
         <img width="380" src="@/assets/logo.png" />
+        </router-link></span>
         <div class="header-summary">
-          <span
-            ><router-link :to="{ name: 'home' }"
-              >Movie&nbsp;&nbsp;</router-link
+          <span><router-link :to="{ name: 'home' }">
+          Movie&nbsp;&nbsp;</router-link
             ></span
           >
           <span
@@ -156,8 +157,6 @@ export default {
   text-align: center;
   top: 0;
   font-size: 2.5rem;
-
-  margin-bottom: 2rem;
 }
 .main-title {
   font-family: "Amatic SC", cursive;
