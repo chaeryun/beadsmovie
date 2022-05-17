@@ -2,7 +2,7 @@
 
     <div class="header">
 
-        <img src="@/assets/logo.png" style="width:400px; margin-top: -40px;" />
+        <img src="@/assets/logo.png" style="width:400px; margin-top: -70px;" />
         <div class="header-summary">
           <span
             ><router-link :to="{ name: 'home' }"
@@ -32,7 +32,7 @@
           <v-col cols="10" align="right" color="white">
             <v-text-field
               color="white"
-              style="max-width: 200px; margin-top: -160px; margin-right: -220px;"
+              style="max-width: 200px; margin-top: -61px; margin-right: -220px;"
               dark
               class="text-white"
               label="Search"
@@ -60,16 +60,20 @@ export default {
 
   data() {
     return {
+      moviegenre: "",
       movielist: [],
 
       // 검색
       keyword: "",
       keywordlist: [],
+      genre:[],
     };
   },
 
   created() {
+    this.moviegenre = 80;
     this.getMovieList();
+    this.getGenre();
   },
 
   computed: {
@@ -87,14 +91,29 @@ export default {
     },
 
     // 전체 MovieList 가져오기
-    async getMovieList() {
+    ///async getMovieList() {
+    ///  await http({
+    ///    method: "GET",
+    ///    url: "/movie/",
+    ///  })
+    ///    .then((res) => {
+    ///      console.log("movielist :", res);
+    ///      this.movielist = res.data;
+    ///    })
+    ///    .catch((err) => {
+    ///      console.log(err);
+    ///    });
+    ///},
+
+    //genre 가져오기
+    async getGenre() {
       await http({
         method: "GET",
-        url: "/movie/",
+        url: "/similar_movie/genres/" + this.moviegenre,
       })
         .then((res) => {
-          console.log("movielist :", res);
-          this.movielist = res.data;
+          console.log("genre :", res);
+          this.genre = res.data;
         })
         .catch((err) => {
           console.log(err);
@@ -145,14 +164,14 @@ export default {
   text-align: center;
   margin-top: 0px;
   font-size: 2.5rem;
-  margin-bottom: 0px;
-  height:215px;
+  margin-bottom: -15px;
+  height:160px;
 }
 .main-title {
   font-family: "Amatic SC", cursive;
 }
 .header-summary {
-  margin-top: -80px;
+  margin-top: -100px;
   font-size: 2.5rem;
   font-family: "NewWaltDisney";
 }

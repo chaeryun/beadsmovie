@@ -51,6 +51,25 @@
    
 
     </div>
+    <div>
+    <MovieCard :movies="movies"/>
+    <movie-card 
+      v-for="movie in movies"
+      :key="movie._id"
+      :movie="movie"
+    >
+    </movie-card>
+  
+    
+    <div v-for="movie in movies" :key="movie.id" class="card mx-2 my-3" style="width: 18%;">
+        <img :src="`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-title fw-bold fs-6">{{ movie.title }}</p>
+         
+        </div>
+      </div>
+    </div>
+
   <!--MBTI reco-->
   <v-card-title
       style="
@@ -64,6 +83,8 @@
       Today I feel like...
       
     </v-card-title>
+  
+
 
     <div class="mbti-wrap">
     <v-img href="#romance" v-smooth-scroll="{duration:50}"
@@ -80,7 +101,51 @@
       </div>
 
 
+    <v-col :key="i" v-for="(genre, i) in genrelist">
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;
+        "
+      >
+        {{ genre }}
+      </v-card-title>
+      
 
+      <v-container style="display: flex">
+      <v-col :key="i" v-for="(movie, i) in movielist">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        elevation="10"
+        style="border-radius: 10px"
+      >
+        <v-img
+          class="white--text align-end"
+          height="370px"
+          width="350px"
+          :src="this.generalurl + this.movie.poster_path"
+        >
+        </v-img>
+
+        <v-card-subtitle class="pb-0" >
+          <h2>{{ this.movie.title }}</h2>
+        </v-card-subtitle>
+        <v-card-actions>
+          <v-btn color="orange" text> 상세보기 </v-btn>
+          <v-btn color="orange" text> 찜하기 </v-btn>
+        </v-card-actions>
+      </v-card>
+      </v-col>
+
+    </v-container>
+
+
+    
+    </v-col>
 
     <!-- Top 10 Movies -->
     
@@ -95,28 +160,18 @@
     >
       Top 10 Movies
     </v-card-title>
+
+    
+
     
   
     
-    <!--<MovieCard :movies="top_movies"/>--> 
-  <!--
-    <v-card
-        max-width="100%"
-        elevation="10"
-        min-width="300px"
-        min-height="400px"
-        style= "background-size: cover; border-radius: 0px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0)40%, rgba(0,0,0,0)), url(https://www.themoviedb.org/t/p/w220_and_h330_face/g4tMniKxol1TBJrHlAtiDjjlx4Q.jpg) center center ;"
-      >
-          <v-card-subtitle class="pb-0" >
-          <h2 style="color:#fff" >배신의 만찬</h2>
-          <h2></h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="white" text @click="detail"> 상세보기 </v-btn>
-          <v-btn color="white" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    -->
+    
+    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
+      <movie-list :movies="movies"></movie-list>
+    
+    </carousel>
+
 
     <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
 
@@ -309,6 +364,8 @@
 
 <script>
 import axios from "axios";
+import { mapState, mapMutations } from "vuex";
+import http from "@/util/http-common";
 import MovieCard from "@/components/movie/MovieCard";
 import carousel from "vue-owl-carousel";
 import VueSmoothScroll from 'vue2-smooth-scroll'
@@ -319,12 +376,45 @@ Vue.use(VueSmoothScroll)
 export default {
   name: "MovieMain",
 
-  data: function () {
+  data() {
     return {
-      movies: [],
-      movie: "",
+      generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
+      genres_id:"",
+      movieslist: [],
+      movie:"",
+
+      //genre 가져오기
+      genrelist : [28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
+      dict : {
+    "28": "액션",
+    "12": "모험",
+    "16": "애니메이션",
+    "35": "코미디",
+    "80": "범죄",
+    "99": "다큐멘터리",
+    "18": "드라마",
+    "10751": "가족",
+    "14": "판타지",
+    "36": "역사",
+    "27": "공포",
+    "10402": "음악",
+    "9648": "미스터리",
+    "10749": "로맨스",
+    "878": "SF",
+    "10770": "TV 영화",
+    "53": "스릴러",
+    "10752": "전쟁",
+    "37": "서부"
+    },
     };
   },
+  created() {
+   
+    this.getMovieList();
+
+  },
+
+  
 
   components: {
     MovieCard,
@@ -335,14 +425,23 @@ export default {
     detail(id) {
       this.$router.push({ path: "/moviedetail", query: { _id: id } });
     },
-    getMovieDatas: function () {
-      axios.get(`https://beadsmovie.com/api/movie/`).then((res) => {
-        ///console.log(res);
-        if (this.$store.state.movies.length === 0) {
-          this.$store.state.movies = res.data;
-        }
-      });
+    // 장르 MovieList 가져오기
+    async getMovieList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/" + this.movie.genres.id,
+      })
+        .then((res) => {
+          console.log("movielist :", res);
+          this.movielist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
+    
+    
+    
   },
 };
 </script>

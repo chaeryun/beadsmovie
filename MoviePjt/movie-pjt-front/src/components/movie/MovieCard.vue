@@ -1,43 +1,13 @@
 <template>
-  <div>
-    <v-container style="display: flex; justify-content: space-between; ">
-    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3"  >
-    <div v-for="(movie, idx) in movies"
-    :key="idx"
-    movie="movie">
-      <v-card
-      
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
-        elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px;"
-      >
-        <v-img
-          class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          :src="this.generalurl + this.movie.poster_path"
-        >
-        </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>{{ movie.title }}</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
-      </v-card>
-      </div>
-    </carousel>
-    </v-container>
-    
-    
+  <div  class="card text-white" style="width: 18%; height: 485px; background-color: rgba(50, 60, 65, 0.9)">
+    <img :src="poster" class="card-img-top" alt="...">
+    <div class="card-body d-flex align-items-start flex-column">
+      <p class="card-title fw-bold fs-6 mb-auto">{{ movie.title }}</p>
+     
+    </div>
   </div>
 </template>
+
 
 <script>
 import MovieDetail from "@/components/movie/MovieDetail"
@@ -46,14 +16,13 @@ export default {
   name: "MovieCard",
   data: function () {
     return {
+      poster: null,
 
     }
   },
   props:{
-    movieCard: Object,
-    movies: {
-      type: Array,
-    }
+    movie: Object,
+
   },
 
   components: {
@@ -63,10 +32,8 @@ export default {
   methods: {
    
   },
-  computed: {
-    imgUrl: function () {
-      return `https://image.tmdb.org/t/p/w200/${this.movie.poster_path}`
-    }
+  created: function () {
+    this.poster = `https://www.themoviedb.org/t/p/w440_and_h660_face/${this.movie.poster_path}`
   }
 }
 </script>
@@ -102,6 +69,9 @@ export default {
   justify-content: center;
   font-family:  "NanumSquareExtraBold";
 }
+.centered { display: table; margin-left: auto; margin-right: auto;}
+  .float {float:left;}
+
 
 
 

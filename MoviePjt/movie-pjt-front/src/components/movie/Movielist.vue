@@ -518,8 +518,8 @@ export default {
   name: "Movielist",
 
   methods: {
-    detail() {
-      this.$router.push({ name: "Movelist" });
+    movies() {
+      this.$router.push({ name: "movies" });
     },
   },
 };
