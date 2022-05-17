@@ -55,9 +55,9 @@ def genre_build_chart(genre_id):
     "10752": "전쟁",
     "37": "서부"
     }
-    genre = dict1[str(genre_id=14)]
+    genre = dict1[str(genre_id)]
     print(genre)
-    df3 = pd.read_json('movie.json')
+    df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     percentile=0.88
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)

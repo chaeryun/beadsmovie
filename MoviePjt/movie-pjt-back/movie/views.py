@@ -165,8 +165,8 @@ def reco_detail_movie(request, movie_id):
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
-def reco_genres_movie(request, genres):
-    movie_list = genre_build_chart(genres)  #[12,13,14]
-    movies = Movie.objects.filter(movie_id__in=random.sample(movie_list, 3))
+def reco_genres_movie(request, genres_id):
+    movie_list = genre_build_chart(genres_id)  #[12,13,14]
+    movies = Movie.objects.filter(_id__in=random.sample(movie_list, 10))
     movieserializers = MovieSerializer(movies, many=True)
     return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
