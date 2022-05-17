@@ -56,7 +56,6 @@ def genre_build_chart(genre_id):
     "37": "서부"
     }
     genre = dict1[str(genre_id)]
-    print(genre)
     df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     percentile=0.88
@@ -74,8 +73,8 @@ def genre_build_chart(genre_id):
     qualified['vote_average'] = qualified['vote_average'].astype('int')
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
-    return qualified
-# print(genre_build_chart('범죄'))
+    return qualified.pk.tolist()
+# print(genre_build_chart('14')) 
 
 
 
