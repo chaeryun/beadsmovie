@@ -81,9 +81,9 @@ def genre_build_chart(genre_id):
 
 
 def get_recommendations(pk):
-    df3 = pd.read_json('movie.json')
+    df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
-    title = df.loc[df['pk'] == 414906]
+    title = df.loc[df['pk'] == int(pk)]
     title = title.iloc[0]['title']
     tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 2), 
     min_df=0, stop_words='english')
