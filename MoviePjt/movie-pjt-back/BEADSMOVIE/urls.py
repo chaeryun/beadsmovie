@@ -50,19 +50,8 @@ urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/accounts/', include('accounts.urls')),
     path('api/articles/', include('articles.urls')),
-<<<<<<< HEAD
     path('api/user/', include('user.urls')),
     path('api/', include(movie_router.urls)),
     path('api/similar_movie/<int:movie_id>/', views.reco_detail_movie),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-=======
-    path('api/user/', include('user.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-router = routers.SimpleRouter()
-router.register('api/movie', MovieViewSet)
-router.register('api/movie/(?P<movie_id>[^/.]+)/review', CommentViewSet)
-
-urlpatterns += router.urls
->>>>>>> django

@@ -1,9 +1,5 @@
 from http import HTTPStatus
-<<<<<<< HEAD
 from django.shortcuts import get_list_or_404, get_object_or_404, render
-=======
-from django.shortcuts import get_list_or_404, get_object_or_404
->>>>>>> django
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
@@ -12,7 +8,6 @@ from rest_framework import viewsets, mixins
 from bson import ObjectId
 from movie.models import Movie, Comment
 from movie.serializers import *
-<<<<<<< HEAD
 import json
 from recommend.reco import get_recommendations, genre_build_chart, vote_count,popularity, vote_average
 from rest_framework.decorators import api_view
@@ -20,9 +15,6 @@ from rest_framework.permissions import AllowAny
 from rest_framework.decorators import permission_classes
 import random
 from rest_framework import status
-=======
-from accounts.models import User
->>>>>>> django
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):
@@ -63,7 +55,6 @@ class CommentViewSet(mixins.CreateModelMixin,
         if not movie.exists():
             return Response('해당하는 영화가 없습니다. movie_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
 
-<<<<<<< HEAD
         serializer = CommentSerializer(data=request.data)
         if not serializer.is_valid():
             return Response(serializer.errors, HTTPStatus.NOT_FOUND)
@@ -71,17 +62,6 @@ class CommentViewSet(mixins.CreateModelMixin,
         serializer.save(user=request.user, movie=movie.first())
         return Response(serializer.data, HTTPStatus.CREATED)
 
-=======
-        content = request.data['content']
-        comment = Comment(content=content)
-        comment.user.add(request.user)
-        comment.movie.add(movie.first())
-        comment.save()
-        
-        serializer = CommentSerializer(comment)
-        return Response(serializer.data, HTTPStatus.CREATED)
-        
->>>>>>> django
     def list(self, request, *args, **kwargs):
         movie_id = self.kwargs['movie_id']
         movie = Movie.objects.filter(_id=movie_id)
@@ -111,15 +91,9 @@ class CommentViewSet(mixins.CreateModelMixin,
         if not comment.exists():
             return Response('해당하는 리뷰가 없습니다. comment_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
             
-<<<<<<< HEAD
         comment_writer_id = comment.first().user_id
         if request.user.id is not comment_writer_id:
             return Response(HTTPStatus.FORBIDDEN)
-=======
-        comment_writer_id = comment.first().user_id.pop()
-        if request.user.id is not comment_writer_id:
-            Response(HTTPStatus.FORBIDDEN)
->>>>>>> django
         comment.update(content=request.data['content'])
 
         serializer = CommentSerializer(comment.first())
@@ -137,20 +111,13 @@ class CommentViewSet(mixins.CreateModelMixin,
             return Response('해당하는 리뷰가 없습니다. comment_id를 다시 확인하세요.', HTTPStatus.NOT_FOUND)
 
         comment = Comment.objects.get(_id=ObjectId(comment_id))
-<<<<<<< HEAD
         comment_writer_id = Comment.objects.get(_id=ObjectId(comment_id)).user_id
         if request.user.id is not comment_writer_id:
             return Response(HTTPStatus.FORBIDDEN)
-=======
-        comment_writer_id = Comment.objects.get(_id=ObjectId(comment_id)).user_id.pop()
-        if request.user.id is not comment_writer_id:
-            Response(HTTPStatus.FORBIDDEN)
->>>>>>> django
 
         comment.delete()
         return Response(HTTPStatus.NO_CONTENT)
 
-<<<<<<< HEAD
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
@@ -162,5 +129,3 @@ def reco_detail_movie(request, movie_id):
 
 
 
-=======
->>>>>>> django
