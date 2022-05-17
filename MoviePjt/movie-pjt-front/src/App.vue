@@ -2,10 +2,9 @@
   <v-app>
     <v-main class="detail">
       <banner-header />
-     
+
       <router-view />
       <hr />
-    <banner-footer />
     </v-main>
   </v-app>
 </template>
@@ -23,10 +22,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-hr {
-  width: 75%;
-  margin: 0px auto;
-}
-</style>

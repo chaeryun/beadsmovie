@@ -57,6 +57,7 @@ def profile(request, user_pk):
 @api_view(['POST'])
 def my_profile(request):
     user = get_object_or_404(User, pk=request.data.get('user_id'))
+
     serializer = UserSerializer(user)
 
     return Response(serializer.data)
