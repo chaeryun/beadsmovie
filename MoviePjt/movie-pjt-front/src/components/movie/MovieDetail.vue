@@ -67,29 +67,33 @@
         </div>
       </v-col>
       <v-col>
+        
         <div><h1 class="mt-10 ml-10 mb-8" style="color: white;">영화 추천</h1></div>
+ 
         <v-row justify="center" class="mb-8" >
           <v-col cols="4" v-for="movie in similar_movielist" :key="movie">
+          
                   
                     <v-card
                     style="
+                      z-index: 1;
                       height: 370px;
                       margin: auto;
                       border-radius: 10px;
                       background-color:darkslategrey;
-                      opacity: 0.9;
                       box-shadow: 0 0 10px grey;
                     "
                     hover
                     outlined
                   >
-                    <v-img
+                    <v-img 
                       :src="generalurl + movie.poster_path"
                       height="300"
                       style="margin-top: 10px; margin-bottom : 10px;"
                       contain
                       @click="gomoviedetail(movie.movie_id)"
-                    /><v-img />
+                    ></v-img>
+                    
                     <hr class="recommend_line" />
                     <v-card-text
                       class="text-center"
@@ -98,6 +102,7 @@
                     </v-card-text>
                   </v-card>
                 </v-col>
+                  <img style="z-index:0; position:absolute;  width:350px; height:350px" src="@/assets/loading.gif">
               </v-row>
 </v-col>
 
