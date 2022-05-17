@@ -54,9 +54,39 @@
         </div>
       </carousel>
     </div>
+  <!--MBTI reco-->
+  <v-card-title
+      style="
+        margin-left: 190px;
+        margin-top: 50px;
+        font-family: NewWaltDisney;
+        font-size: 60px;
+        color: white;
+      "
+    >
+      Today I feel like...
+      
+    </v-card-title>
+
+    <div class="mbti-wrap">
+    <v-img href="#romance" v-smooth-scroll="{duration:50}"
+          class="enfp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="200px"
+   
+        >
+        </v-img>
+        <h2 class="mbti-title">ENFP</h2>
+        <p class="mbti-summary">#외향</p>
+
+      </div>
+
+
+
 
     <!-- Top 10 Movies -->
-
+    
     <v-card-title
       style="
         margin-left: 190px;
@@ -68,6 +98,9 @@
     >
       Top 10 Movies
     </v-card-title>
+    
+  
+    
     <!--<MovieCard :movies="top_movies"/>--> 
   <!--
     <v-card
@@ -237,6 +270,7 @@
     </v-container>
 
     <!-- Action -->
+    
     <v-card-title
       style="
         margin-left: 400px;
@@ -247,6 +281,7 @@
     >
       Action
     </v-card-title>
+  
     <MovieCard :movies="action_movies" />
     <v-container style="display: flex">
       <v-card
@@ -543,6 +578,7 @@
       </v-card>
     </v-container>
 
+    <section id="romance"></section>
     <!-- Romance -->
     <v-card-title
       style="
@@ -652,6 +688,9 @@
 import axios from "axios";
 import MovieCard from "@/components/movie/MovieCard";
 import carousel from "vue-owl-carousel";
+import VueSmoothScroll from 'vue2-smooth-scroll'
+import Vue from "vue";
+Vue.use(VueSmoothScroll)
 
 
 export default {
@@ -675,7 +714,7 @@ export default {
     },
     getMovieDatas: function () {
       axios.get(`https://beadsmovie.com/api/movie/`).then((res) => {
-        console.log(res);
+        ///console.log(res);
         if (this.$store.state.movies.length === 0) {
           this.$store.state.movies = res.data;
         }
@@ -717,15 +756,7 @@ export default {
 }
 
 
-.image-box {
-  margin: -25px auto;
-}
-.image-thumbnail {
-  margin: -100px auto;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .title {
   display: flex;
 
@@ -819,6 +850,9 @@ export default {
 }
 
 
+
+
+
 .jb-wrap {
   position:relative;
 }
@@ -891,5 +925,44 @@ export default {
   background: linear-gradient(to right, rgba(0,0,0,0.7),rgba(0,0,0,0));
 
 }
+
+.mbti-wrap {
+  position:relative;
+}
+.mbti-title {
+  position:absolute;
+  box-sizing: content-box;
+  width: 400px;
+  top: 45%;
+  left:5%;
+  color: white;
+  font-family: "NewWaltDisney", "NanumSquareExtraBold";
+  font-size:60px;
+
+}
+.mbti-summary {
+  position:absolute;
+  box-sizing: content-box;
+  width: 420px;
+  top:82%;
+  left:5%;
+  color: white;
+  font-family: "NanumSquare";
+  font-size:20px;
+}
+.enfp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/enfp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.enfp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+
 
 </style>

@@ -1,7 +1,7 @@
 <template>
-<div class="background">
+
   <movie-main />
-</div>
+
 </template>
 
 <script>
