@@ -1,13 +1,12 @@
 <template>
-  <div id="app">
-    <sliding-header :threshold-hide="5000" :threshold-open="400">
-      <template v-slot:header>
-        <span><router-link :to="{ name: 'home' }">
-        <img width="380" src="@/assets/logo.png" />
-        </router-link></span>
+
+    <div class="header">
+
+        <img src="@/assets/logo.png" style="width:400px; margin-top: -40px;" />
         <div class="header-summary">
-          <span><router-link :to="{ name: 'home' }">
-          Movie&nbsp;&nbsp;</router-link
+          <span
+            ><router-link :to="{ name: 'home' }"
+              >Movie&nbsp;&nbsp;</router-link
             ></span
           >
           <span
@@ -33,7 +32,7 @@
           <v-col cols="10" align="right" color="white">
             <v-text-field
               color="white"
-              style="max-width: 200px; margin-top: 20px"
+              style="max-width: 200px; margin-top: -160px; margin-right: -220px;"
               dark
               class="text-white"
               label="Search"
@@ -43,20 +42,20 @@
             ></v-text-field>
           </v-col>
         </v-row>
-      </template>
-    </sliding-header>
-  </div>
+
+    </div>
+
 </template>
 
 <script>
-import SlidingHeader from "./SlidingHeader.vue";
+
 import { mapState, mapMutations } from "vuex";
 import http from "@/util/http-common";
 
 export default {
   name: "BannerHeader",
   components: {
-    SlidingHeader,
+
   },
 
   data() {
@@ -139,30 +138,21 @@ export default {
 .text-white {
   color: white !important;
 }
-.sliding-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.3s;
-}
-.sliding-header.header {
-  background-color: rgba(17, 53, 53, 100%);
-  height: 80px;
-}
-.sliding-header.hidden {
-  top: -100px;
-}
+
 .header {
-  position: absolute;
+  color: white;
+  background-color:rgba(17, 53, 53, 100%);
   text-align: center;
-  top: 0;
+  margin-top: 0px;
   font-size: 2.5rem;
+  margin-bottom: 0px;
+  height:215px;
 }
 .main-title {
   font-family: "Amatic SC", cursive;
 }
 .header-summary {
-  margin-top: 1rem;
+  margin-top: -80px;
   font-size: 2.5rem;
   font-family: "NewWaltDisney";
 }
@@ -183,21 +173,8 @@ span:hover {
 .v-input {
   max-width: 15%;
 }
-#app {
-  text-align: center;
-  margin-top: 100px;
-  font-size: 2.5rem;
-  top: 0;
-}
-.image-box {
-  margin: 0 auto;
-}
-.image-thumbnail {
-  margin: -100px auto;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
+
 .logoutheader {
   color: white;
 }

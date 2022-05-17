@@ -2,8 +2,9 @@
   <div>
     <v-container style="display: flex; justify-content: space-between; ">
     <carousel :autoplay="false" :nav="false" :dots="false"  :items="3"  >
-    <div v-for="card in movieCard"
-    :key="card.id">
+    <div v-for="(movie, idx) in movies"
+    :key="idx"
+    movie="movie">
       <v-card
       
         max-width="300px"
@@ -17,12 +18,12 @@
           min-width="300px"
           max-width="150px"
           max-height="430px"
-          src="imgUrl"
+          :src="this.generalurl + this.movie.poster_path"
         >
         </v-img>
         <div class="text">
           <v-card-subtitle class="pb-0">
-            <h2>{{ card.title }}</h2>
+            <h2>{{ movie.title }}</h2>
           </v-card-subtitle>
           <v-card-actions >
             <v-btn color="orange" text> 상세보기 </v-btn>
@@ -48,7 +49,13 @@ export default {
 
     }
   },
-  props: ['movieCard'],
+  props:{
+    movieCard: Object,
+    movies: {
+      type: Array,
+    }
+  },
+
   components: {
     MovieDetail,
     carousel
@@ -58,7 +65,7 @@ export default {
   },
   computed: {
     imgUrl: function () {
-      return `https://image.tmdb.org/t/p/w200/${this.card.poster_path}`
+      return `https://image.tmdb.org/t/p/w200/${this.movie.poster_path}`
     }
   }
 }

@@ -27,9 +27,11 @@ export default {
 }
 .footer-summary {
   font-size: 0.8rem;
+  color: grey;
 }
 .footer-title {
   margin-top: 1rem;
   font-family: "Amatic SC", cursive;
+  color: darkgrey;
 }
 </style>

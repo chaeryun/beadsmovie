@@ -31,7 +31,7 @@
       >
         <v-chip-group
           multiple
-          active-class="success--text"
+          active-class="red--text"
         >
           <v-chip
             v-for="genre in genrelist"
@@ -100,12 +100,15 @@
               src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg"
             >
             </v-img>
+
             <h3 class="text-center mt-5 ml-8" style="color: white;">워킹 데드</h3>
           </div>
         </div>
       </v-col>
     </v-row>
-    
+    <v-col cols="4" v-for="movie in similar_movielist" :key="movie">
+    <div>{{ this.movie }} </div>
+    </v-col>
   </v-container>
 </template>
 
@@ -120,6 +123,7 @@ export default {
       movieid: "",
       moviedetail: [],
       genrelist: [],
+      similar_movielist: [],
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
       videourl: "https://www.youtube-nocookie.com/embed/",
     };
@@ -129,6 +133,7 @@ export default {
     // movie id 값 가져오기
     this.movieid = this.$route.query._id;
     this.getMovieDetail();
+    this.getSimilarMovieDetail();
   },
 
   methods: {
@@ -141,6 +146,19 @@ export default {
           console.log("moviedetail :", res);
           this.moviedetail = res.data;
           this.genrelist = res.data.genres;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+     async getSimilarMovieDetail() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/" + this.movieid,
+      })
+        .then((res) => {
+          console.log("similar_movielist :", res);
+          this.similar_movielist = res.data;
         })
         .catch((err) => {
           console.log(err);
