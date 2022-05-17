@@ -124,12 +124,11 @@ export default {
           // store 저장
           this.SET_USER_STATE(true);
           // console("userstate", this.userstate);
-          console.log(res);
+          //console.log(res);
 
           // home 이동
           this.$router.push({ name: "home" }).catch((err) => err);
           let decode_token = jwt_decode(token);
-          console.log("decode_token", decode_token);
           this.saveuser(decode_token.username);
         })
         .catch((err) => {
@@ -142,9 +141,7 @@ export default {
         method: "POST",
         url: "/accounts/profile/" + id,
       })
-        .then((res) => {
-          console.log("profile", res);
-        })
+        .then(() => {})
         .catch((err) => {
           console.log(err);
         });
@@ -165,9 +162,6 @@ export default {
 
     getProfile(authObj) {
       localStorage.setItem("jwt", authObj.jwt);
-      console.log("프로필 받기", authObj);
-
-      console.log("Token : ", authObj.jwt);
       this.kakaologin2(authObj.jwt);
 
       // window.Kakao.API.request({
@@ -189,8 +183,8 @@ export default {
           Kakao: token,
         },
       })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
+          //console.log(res);
         })
         .catch((err) => {
           console.log(err);

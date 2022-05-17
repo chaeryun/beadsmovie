@@ -211,8 +211,6 @@ export default {
     validate() {
       this.$refs.form.validate();
 
-      console.log(this.user.gender);
-
       if (this.$refs.form.validate() == true) {
         this.regist();
       }
@@ -234,10 +232,9 @@ export default {
           occupation: this.user.occupation,
         },
       })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           alert("회원가입 성공");
-          // this.$router.push({ name: "Home" });
+          this.$router.push({ name: "login" });
         })
         .catch((err) => {
           console.log(err);
