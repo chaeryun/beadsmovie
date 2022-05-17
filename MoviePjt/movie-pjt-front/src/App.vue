@@ -2,7 +2,7 @@
   <v-app>
     <v-main class="detail">
       <banner-header />
-      <hr />
+
       <router-view />
       <hr />
     </v-main>

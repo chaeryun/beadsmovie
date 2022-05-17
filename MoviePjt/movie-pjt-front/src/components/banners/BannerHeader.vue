@@ -2,7 +2,7 @@
 
     <div class="header">
 
-        <img width="380" src="@/assets/logo.png" />
+        <img src="@/assets/logo.png" style="width:400px; margin-top: -40px;" />
         <div class="header-summary">
           <span
             ><router-link :to="{ name: 'home' }"
@@ -32,7 +32,7 @@
           <v-col cols="10" align="right" color="white">
             <v-text-field
               color="white"
-              style="max-width: 200px; margin-top: 20px"
+              style="max-width: 200px; margin-top: -160px; margin-right: -220px;"
               dark
               class="text-white"
               label="Search"
@@ -143,19 +143,16 @@ export default {
   color: white;
   background-color:rgba(17, 53, 53, 100%);
   text-align: center;
-  margin-top: 4.7rem;
-  
+  margin-top: 0px;
   font-size: 2.5rem;
-  margin-top:2.7rem;
-
-
-  margin-bottom: 2rem;
+  margin-bottom: 0px;
+  height:215px;
 }
 .main-title {
   font-family: "Amatic SC", cursive;
 }
 .header-summary {
-  margin-top: 1rem;
+  margin-top: -80px;
   font-size: 2.5rem;
   font-family: "NewWaltDisney";
 }
