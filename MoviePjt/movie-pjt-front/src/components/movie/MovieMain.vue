@@ -63,6 +63,7 @@
         margin-top: 50px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Top 10 Movies
@@ -729,6 +730,7 @@ export default {
   display: flex;
 
   align-items: flex-end;
+  color: white;
 }
 .text {
   text-align: center;
