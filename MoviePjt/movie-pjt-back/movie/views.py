@@ -9,7 +9,7 @@ from bson import ObjectId
 from movie.models import Movie, Comment
 from movie.serializers import *
 import json
-from recommend.reco import get_recommendations, genre_build_chart, vote_count,popularity, vote_average
+from recommend.reco import get_recommendations, genre_build_chart, vote_count,popularity, vote_average, top_movies
 from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny
 from rest_framework.decorators import permission_classes
@@ -132,10 +132,16 @@ def reco_detail_movie(request, movie_id):
 @api_view(["GET"])
 @permission_classes([AllowAny])
 def reco_genres_movie(request, genres_id):
-    movie_list = genre_build_chart(genres_id)  #[12,13,14]
+    movie_list = genre_build_chart(genres_id)  
     movies = Movie.objects.filter(_id__in=random.sample(movie_list, 10))
     movieserializers = MovieSerializer(movies, many=True)
     return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
 
 
-
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def reco_top10_movie(request):
+    movie_list = top_movies(10)
+    movies = Movie.objects.filter(_id__in=random.sample(movie_list, 10))
+    movieserializers = MovieSerializer(movies, many=True)
+    return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
