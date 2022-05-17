@@ -25,7 +25,6 @@ from rest_framework import routers
 from movie.views import MovieViewSet, CommentViewSet
 from movie import views
 
-
 schema_view = get_schema_view(
     openapi.Info(
         title="Beads Movie Swagger",
@@ -52,6 +51,6 @@ urlpatterns = [
     path('api/articles/', include('articles.urls')),
     path('api/user/', include('user.urls')),
     path('api/', include(movie_router.urls)),
-    path('api/movie/<int:movie_id>/', views.reco_detail_movie),
+    path('api/similar_movie/<int:movie_id>/', views.reco_detail_movie),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
