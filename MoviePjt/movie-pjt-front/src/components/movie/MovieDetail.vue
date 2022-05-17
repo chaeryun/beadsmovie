@@ -31,7 +31,7 @@
       >
         <v-chip-group
           multiple
-          active-class="success--text"
+          active-class="red--text"
         >
           <v-chip
             v-for="genre in genrelist"
@@ -66,45 +66,48 @@
           ></iframe>
         </div>
       </v-col>
-      <v-col cols="7">
-        <div><h1 class="mt-10 ml-10" style="color: white;">영화 추천</h1></div>
-        <div style="display: flex">
-          <div>
-            <v-img
-              class="white--text align-end ml-10 mt-8"
-              height="350px"
-              width="250px"
-              style="border-radius: 30px"
-              src="https://www.themoviedb.org/t/p/w220_and_h330_face/6zBWSuYW3Ps1nTfeMS8siS4KUaA.jpg"
-            >
-            </v-img>
-            <h3 class="text-center mt-5 ml-8" style="color: white;">리버 데일</h3>
-          </div>
-          <div>
-            <v-img
-              class="white--text align-end ml-10 mt-8"
-              height="350px"
-              width="250px"
-              style="border-radius: 30px"
-              src="https://www.themoviedb.org/t/p/w220_and_h330_face/ppn4ZO8qmylxRwFjfBWPkmMRdSs.jpg"
-            >
-            </v-img>
-            <h3 class="text-center mt-5 ml-8" style="color: white;">루프 라페타</h3>
-          </div>
-          <div>
-            <v-img
-              class="white--text align-end ml-10 mt-8"
-              height="350px"
-              width="250px"
-              style="border-radius: 30px"
-              src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg"
-            >
-            </v-img>
-            <h3 class="text-center mt-5 ml-8" style="color: white;">워킹 데드</h3>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
+      <v-col>
+        
+        <div><h1 class="mt-10 ml-10 mb-8" style="color: white;">영화 추천</h1></div>
+ 
+        <v-row justify="center" class="mb-8" >
+          <v-col cols="4" v-for="movie in similar_movielist" :key="movie">
+          
+                  
+                    <v-card
+                    style="
+                      z-index: 1;
+                      height: 370px;
+                      margin: auto;
+                      border-radius: 10px;
+                      background-color:darkslategrey;
+                      box-shadow: 0 0 10px grey;
+                    "
+                    hover
+                    outlined
+                  >
+                    <v-img 
+                      :src="generalurl + movie.poster_path"
+                      height="300"
+                      style="margin-top: 10px; margin-bottom : 10px;"
+                      contain
+                      @click="gomoviedetail(movie.movie_id)"
+                    ></v-img>
+                    
+                    <hr class="recommend_line" />
+                    <v-card-text
+                      class="text-center"
+                      style="color: white; font-size:medium;"
+                      >{{ movie.title }}
+                    </v-card-text>
+                  </v-card>
+                </v-col>
+                  <img style="z-index:0; position:absolute;  width:350px; height:350px" src="@/assets/loading.gif">
+              </v-row>
+</v-col>
+
+              </v-row>
+    
     
   </v-container>
 </template>
@@ -120,6 +123,7 @@ export default {
       movieid: "",
       moviedetail: [],
       genrelist: [],
+      similar_movielist: [],
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
       videourl: "https://www.youtube-nocookie.com/embed/",
     };
@@ -129,6 +133,7 @@ export default {
     // movie id 값 가져오기
     this.movieid = this.$route.query._id;
     this.getMovieDetail();
+    this.getSimilarMovieDetail();
   },
 
   methods: {
@@ -145,6 +150,29 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+
+    // 추천영화 가져오기
+     async getSimilarMovieDetail() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/" + this.movieid,
+      })
+        .then((res) => {
+          console.log("similar_movielist :", res);
+          this.similar_movielist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    // 추천영화 상세페이지 이동
+    gomoviedetail(movie_id) {
+      this.$router
+        .push({ path: "/moviedetail", query: { movie_id: movieid } })
+        .catch(() => {});
+      location.reload();
     },
   },
 };
@@ -188,4 +216,10 @@ h3 {
   background-position: center;
   background-size: cover;
 }
+
+.recommend_line{
+  border-color:silver;
+  border-width: 2px;
+}
+
 </style>

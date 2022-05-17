@@ -54,5 +54,8 @@ urlpatterns = [
     path('api/', include(movie_router.urls)),
     path('api/similar_movie/<int:movie_id>/', views.reco_detail_movie),
     path('api/similar_movie/genres/<int:genres_id>/', views.reco_genres_movie),
+    path('api/similar_movie/top/', views.reco_top10_movie),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

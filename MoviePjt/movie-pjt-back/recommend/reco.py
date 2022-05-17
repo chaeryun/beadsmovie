@@ -20,8 +20,8 @@ def popularity(n=5):
     df = pd.read_json('movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('popularity', ascending=False).head(n)
-    return df4.pk.tolist()
-#print(popularity(10))
+    return df4
+# print(popularity(10))
 
 
 
@@ -33,6 +33,7 @@ def vote_average(n=5):
 #print(vote_average(5))
 
 
+# 장르별 영화 추천
 def genre_build_chart(genre_id):
     dict1 = {
     "28": "액션",
@@ -74,11 +75,10 @@ def genre_build_chart(genre_id):
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
     return qualified.pk.tolist()
-# print(genre_build_chart('14')) 
 
 
 
-
+# Detail 영화 추천
 def get_recommendations(pk):
     df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
@@ -99,4 +99,11 @@ def get_recommendations(pk):
     result = titles.iloc[movie_indices].head(10)
     return result.tolist()
 
-# print(get_recommendations('414906'))
+# 최근 인기영화 
+def top_movies(n=10):
+    df3 = pd.read_json('./recommend/movie.json')
+    df = df3.copy()
+    a = df.query('"2022-01-01"<= release_date <= "2022-05-31"')
+    df4 = a.sort_values('popularity', ascending=False).head(n)
+    return df4.pk.tolist()
+
