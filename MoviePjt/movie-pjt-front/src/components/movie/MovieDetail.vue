@@ -13,11 +13,11 @@
       </v-col>
 
       <v-col cols="8" >
-        <v-card flat style="background-color:aliceblue;">
+        <v-card flat style="background:rgba(0,0,0,0);">
           <v-card-title class="mt-10 pt-10 mb-3">
-            <h1 class="mr-2">{{ this.moviedetail.title }}</h1>
-            <h3 style="color: slategrey; background-color:aliceblue;">{{ this.moviedetail.original_title }}</h3>
-            <div style="background-color:aliceblue;" class="col-2" :key="i" v-for="(genre, i) in genrelist"></div>
+            <h1 class="mr-2" style="color: white;">{{ this.moviedetail.title }}</h1>
+            <h3 style="color: slategrey; background:rgba(0,0,0,0);">{{ this.moviedetail.original_title }}</h3>
+            <div style="background:rgba(0,0,0,0); " class="col-2" :key="i" v-for="(genre, i) in genrelist"></div>
           </v-card-title>
               <v-card-subtitle>
                <v-row >
@@ -27,7 +27,7 @@
       md="8"
     >
     
-      <v-sheet style="background-color:aliceblue;"
+      <v-sheet style="background:rgba(0,0,0,0);"
       >
         <v-chip-group
           multiple
@@ -45,15 +45,15 @@
   </v-row>
                 
               </v-card-subtitle>
-          <h3 class="ml-4 mb-2">개봉일 : {{ this.moviedetail.release_date }}</h3>
+          <h3 class="ml-4 mb-2" style="color: white;">개봉일 : {{ this.moviedetail.release_date }}</h3>
 
-          <h3 class="ml-4 mb-2 mt-7">
+          <h3 class="ml-4 mb-2 mt-7" style="color: white;">
             줄거리 : <br />{{ this.moviedetail.overview }}
           </h3>
         </v-card>
       </v-col>
       <v-col class="mb-2 mt-10">
-        <div class="ml-10 pl-10"><h1>예고편</h1></div>
+        <div class="ml-10 pl-10" style="color: white;"><h1>예고편</h1></div>
         <br />
         <div class="video-container ml-10 pl-10">
           <iframe
@@ -67,7 +67,7 @@
         </div>
       </v-col>
       <v-col cols="7">
-        <div><h1 class="mt-10 ml-10">영화 추천</h1></div>
+        <div><h1 class="mt-10 ml-10" style="color: white;">영화 추천</h1></div>
         <div style="display: flex">
           <div>
             <v-img
@@ -78,7 +78,7 @@
               src="https://www.themoviedb.org/t/p/w220_and_h330_face/6zBWSuYW3Ps1nTfeMS8siS4KUaA.jpg"
             >
             </v-img>
-            <h3 class="text-center mt-5 ml-8">리버 데일</h3>
+            <h3 class="text-center mt-5 ml-8" style="color: white;">리버 데일</h3>
           </div>
           <div>
             <v-img
@@ -89,7 +89,7 @@
               src="https://www.themoviedb.org/t/p/w220_and_h330_face/ppn4ZO8qmylxRwFjfBWPkmMRdSs.jpg"
             >
             </v-img>
-            <h3 class="text-center mt-5 ml-8">루프 라페타</h3>
+            <h3 class="text-center mt-5 ml-8" style="color: white;">루프 라페타</h3>
           </div>
           <div>
             <v-img
@@ -100,7 +100,7 @@
               src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/rqeYMLryjcawh2JeRpCVUDXYM5b.jpg"
             >
             </v-img>
-            <h3 class="text-center mt-5 ml-8">워킹 데드</h3>
+            <h3 class="text-center mt-5 ml-8" style="color: white;">워킹 데드</h3>
           </div>
         </div>
       </v-col>
@@ -183,7 +183,7 @@ h3 {
 }
 
 .detail {
-  background-color:aliceblue;
+  background-image: url('@/assets/background.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

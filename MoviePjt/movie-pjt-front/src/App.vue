@@ -2,9 +2,10 @@
   <v-app>
     <v-main class="detail">
       <banner-header />
-      <hr />
+     
       <router-view />
       <hr />
+    <banner-footer />
     </v-main>
   </v-app>
 </template>
@@ -27,10 +28,5 @@ export default {
 hr {
   width: 75%;
   margin: 0px auto;
-}
-.detail {
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 }
 </style>

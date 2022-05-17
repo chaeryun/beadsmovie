@@ -21,8 +21,8 @@ export default {
   height:100vh;
   width: 100vw;
   overflow: scroll;
-  background-position: center;
-  background-image: url('@/assets/strange.jpg');
+  background-attachment: local;
+  background-image: url('@/assets/background.png');
   background-size:cover;
 }
 

@@ -63,6 +63,7 @@
         margin-top: 50px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Top 10 Movies
@@ -711,13 +712,7 @@ export default {
 }
 
 
-.mx-auto {
-  margin-top: 2rem;
-}
-
-
-.image-box {
-  margin: -25px auto;
+ox {
 }
 .image-thumbnail {
   margin: -100px auto;
@@ -729,6 +724,7 @@ export default {
   display: flex;
 
   align-items: flex-end;
+  color: white;
 }
 .text {
   text-align: center;
