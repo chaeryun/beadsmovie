@@ -1,7 +1,12 @@
 from rest_framework import serializers
 from bson import ObjectId
 from movie.models import Movie, Comment
+<<<<<<< HEAD
 from accounts.models import User
+=======
+from user.models import User
+from user.serializers import UserSerializer
+>>>>>>> django
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -20,6 +25,7 @@ class CommentSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Comment
+<<<<<<< HEAD
         fields = ('_id', 'simple_user', 'created_date', 'content')
         read_only_fields = ('_id', 'simple_user', 'created_date',)
 
@@ -31,3 +37,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
         return simple_user
             
+=======
+        fields = ('_id', 'user', 'created_date', 'content')
+        read_only_fields = ['_id', 'user']
+>>>>>>> django
