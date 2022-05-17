@@ -22,11 +22,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-hr {
-  width: 75%;
-  margin: 0px auto;
-}
-
-</style>

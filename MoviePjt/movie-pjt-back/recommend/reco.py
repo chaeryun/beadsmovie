@@ -33,8 +33,31 @@ def vote_average(n=5):
 #print(vote_average(5))
 
 
-def genre_build_chart(genre):
-    df3 = pd.read_json('movie.json')
+def genre_build_chart(genre_id):
+    dict1 = {
+    "28": "액션",
+    "12": "모험",
+    "16": "애니메이션",
+    "35": "코미디",
+    "80": "범죄",
+    "99": "다큐멘터리",
+    "18": "드라마",
+    "10751": "가족",
+    "14": "판타지",
+    "36": "역사",
+    "27": "공포",
+    "10402": "음악",
+    "9648": "미스터리",
+    "10749": "로맨스",
+    "878": "SF",
+    "10770": "TV 영화",
+    "53": "스릴러",
+    "10752": "전쟁",
+    "37": "서부"
+    }
+    genre = dict1[str(genre_id)]
+    print(genre)
+    df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     percentile=0.88
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)
