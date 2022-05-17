@@ -1,118 +1,101 @@
 <template>
   <div>
-    <vue-glide v-if="movies.length"
-      class="glide__track"
-      data-glide-el="track"
-      ref="slider"
-      type="carousel"
-      :breakpoints="{3000: {perView: 7}, 1100: {perView: 5}, 600: {perView: 3}}"
-    >
-      <vue-glide-slide
-        v-for="(movie, idx) in movies"
-        :key="idx">
-        <MovieDetail 
-          :movie="movie"
-        />
-      </vue-glide-slide>
-    </vue-glide>
+    <v-container style="display: flex; justify-content: space-between; ">
+    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3"  >
+    <div v-for="card in movieCard"
+    :key="card.id">
+      <v-card
+      
+        max-width="300px"
+        min-width="300px"
+        min-height="300px"
+        elevation="10"
+        style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+      >
+        <v-img
+          class="white--text align-end"
+          min-width="300px"
+          max-width="150px"
+          max-height="430px"
+          src="imgUrl"
+        >
+        </v-img>
+        <div class="text">
+          <v-card-subtitle class="pb-0">
+            <h2>{{ card.title }}</h2>
+          </v-card-subtitle>
+          <v-card-actions >
+            <v-btn color="orange" text> 상세보기 </v-btn>
+            <v-btn color="orange" text> 찜하기 </v-btn>
+          </v-card-actions>
+        </div>
+      </v-card>
+      </div>
+    </carousel>
+    </v-container>
+    
     
   </div>
 </template>
 
 <script>
-import { Glide, GlideSlide } from 'vue-glide-js'
 import MovieDetail from "@/components/movie/MovieDetail"
+import carousel from "vue-owl-carousel"
 export default {
   name: "MovieCard",
   data: function () {
     return {
-      show: false,
-      variants: ["light", "dark"],
-      headerBgVariant: "dark",
-      headerTextVariant: "light",
-      bodyBgVariant: "dark",
-      bodyTextVariant: "light",
-      footerBgVariant: "dark",
-      footerTextVariant: "dark",
+
     }
   },
-  props: {
-    movies: {
-      type: Array,
-    }
-  },
+  props: ['movieCard'],
   components: {
-    [Glide.name]: Glide,
-    [GlideSlide.name]: GlideSlide,
     MovieDetail,
+    carousel
   },
   methods: {
-    movieDetail: function () {
-      this.show = true
-    },
-    close: function () {
-      this.show = false
-    }
+   
   },
+  computed: {
+    imgUrl: function () {
+      return `https://image.tmdb.org/t/p/w200/${this.card.poster_path}`
+    }
+  }
 }
 </script>
 
 
 <style>
-.w3-myfont {
-  font-family: 'Luminari', fantasy;
+@font-face {
+  font-family: "NewWaltDisney";
+  src: url(../../fonts/NewWaltDisney.ttf) format("truetype");
 }
-.w2-myfont {
-  font-family: 'Avantgarde', 'TeX Gyre Adventor', 'URW Gothic L', sans-serif;
+@font-face {
+  font-family: 'NanumSquareLight';
+  src: url(../../fonts/NanumSquareL.ttf) format('truetype');
 }
-#main {
-padding: 4em 0 2em 0;
+@font-face {
+  font-family: 'NanumSquare';
+  src: url(../../fonts/NanumSquareR.ttf) format('truetype');
+
 }
-@media screen and (max-width: 736px) {
-#main {
-padding: 3em 0 1em 0;
+@font-face {
+  font-family: 'NanumSquareBold';
+  src: url(../../fonts/NanumSquareB.ttf) format('truetype');
+
 }
+@font-face {
+  font-family: 'NanumSquareExtraBold';
+  src: url(../../fonts/NanumSquareEB.ttf) format('truetype');
+
 }
-#main .inner {
-width: 90%;
-max-width: 80em;
-margin: 0 auto;
+
+.text {
+  text-align: center;
+  justify-content: center;
+  font-family:  "NanumSquareExtraBold";
 }
-@media screen and (max-width: 480px) {
-#main .inner {
-width: 95%;
-}
-}
-.thumbnails {
-display: -moz-flex;
-display: -webkit-flex;
-display: -ms-flex;
-display: flex;
--moz-align-items: stretch;
--webkit-align-items: stretch;
--ms-align-items: stretch;
-align-items: stretch;
--moz-justify-content: center;
--webkit-justify-content: center;
--ms-justify-content: center;
-justify-content: center;
--moz-flex-wrap: wrap;
--webkit-flex-wrap: wrap;
--ms-flex-wrap: wrap;
-flex-wrap: wrap;
-}
-.thumbnails .box {
-margin: 0 1em 2em 1em;
-width: 30%;
-}
-@media screen and (max-width: 1280px) {
-.thumbnails .box {
-width: 45%;
-}
-}
-@media screen and (max-width: 736px) {
-.thumbnails .box {
-width: 100%;
-}
-}
+
+
+
 </style>
