@@ -5,6 +5,7 @@
 
       <router-view />
       <hr />
+      <banner-footer />
     </v-main>
   </v-app>
 </template>
@@ -22,3 +23,10 @@ export default {
   },
 };
 </script>
+
+<style>
+hr {
+  border-color:darkslategrey;
+}
+
+</style>
