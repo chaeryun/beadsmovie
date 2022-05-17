@@ -77,10 +77,8 @@ def get_recommendations(pk):
     result = titles.iloc[movie_indices].head(10)
     return result.tolist()
 
-<<<<<<< HEAD
-# print(get_recommendations('414906'))
-=======
+
 #print(get_recommendations('634649'))
 #print(get_recommendations('414906'))
 #print(get_recommendations('99861'))
->>>>>>> ce985f11 (adsfd)
+
