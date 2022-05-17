@@ -6,7 +6,7 @@
           <v-img
             height="500px"
             width="400px"
-            src="https://www.themoviedb.org/t/p/w220_and_h330_face/g4tMniKxol1TBJrHlAtiDjjlx4Q.jpg"
+            :src="this.generalurl + this.moviedetail.poster_path"
           >
           </v-img>
         </v-card>
@@ -14,8 +14,8 @@
 
       <v-col cols="8">
         <v-card flat>
-          <v-card-title class="mt-10 pt-10 mb-3"> <h1>배신의 만찬</h1> </v-card-title>
-          <v-card-subtitle>액션 / 스릴러 </v-card-subtitle>
+          <v-card-title class="mt-10 pt-10 mb-3"> <h1>{{ this.moviedetail.title }}</h1> </v-card-title>
+          <v-card-subtitle>{{ this.moviedetail.genre }}</v-card-subtitle>
           <h3 class="ml-4 mb-2 mt-5">Original title : All the Old Knives</h3>
           <h3 class="ml-4 mb-2">TMDB Popularity : 3421.136</h3>
           <h3 class="ml-4 mb-2">TMDB Vote Average: ★★★☆☆ </h3>
@@ -82,48 +82,40 @@
 </template>
 
 <script>
-import axios from 'axios'
+import http from "@/util/http-common";
 
 export default {
-  name: 'MovieDetail',
-  // components: {
-  //   RankList
-  // },
-  // data: function () {
-  //   return {
-  //     movie: '',
-  //     movieId: null,
-  //     youtubeurl: null,
-  //   }
-  // },
-  // methods: {
-  //   getYoutubeUrl: function () {
-  //     axios({
-  //       method: 'get',
-  //       url: `https://api.themoviedb.org/3/movie/${this.movieId}/videos?api_key=131783423dfc5d2cb752bba2d8da456e&language=ko`,
-  //     })
-  //       .then((res) => {
-  //         this.youtubeurl = res.data.results[res.data.results.length-1].key
-  //       })
-  //       .catch((err) => {
-  //         console.log(err)
-  //       })
-  //   }
-  // },
-  // created: function () {
-  //   this.movieId = this.$route.params.movieId
-  //   axios({
-  //     method: 'get',
-  //     url: `http://127.0.0.1:8000/movies/${this.movieId}/`,
-  //   })
-  //     .then((res) => {
-  //       this.movie = res.data
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  //   this.getYoutubeUrl()
-  // }
+  name: "MovieDetail",
+
+  data() {
+    return {
+      movieid: "",
+      moviedetail: [],
+      generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
+    };
+  },
+
+  created() {
+    // movie id 값 가져오기
+    this.movieid = this.$route.query._id;
+    this.getMovieDetail();
+  },
+
+  methods: {
+    async getMovieDetail() {
+      await http({
+        method: "GET",
+        url: "/movie/" + this.movieid,
+      })
+        .then((res) => {
+          console.log("moviedetail :", res);
+          this.moviedetail = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
 };
 </script>
 
