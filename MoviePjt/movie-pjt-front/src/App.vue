@@ -5,10 +5,7 @@
 
       <router-view />
       <hr />
-<<<<<<< HEAD
       <banner-footer />
-=======
->>>>>>> c9fa444f638fd3159099e9af92b9797cacedd282
     </v-main>
   </v-app>
 </template>
@@ -26,7 +23,6 @@ export default {
   },
 };
 </script>
-<<<<<<< HEAD
 
 <style>
 hr {
@@ -34,5 +30,3 @@ hr {
 }
 
 </style>
-=======
->>>>>>> c9fa444f638fd3159099e9af92b9797cacedd282
