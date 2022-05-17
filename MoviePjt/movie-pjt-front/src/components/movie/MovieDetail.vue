@@ -20,7 +20,7 @@
             <div style="background:rgba(0,0,0,0); " class="col-2" :key="i" v-for="(genre, i) in genrelist"></div>
           </v-card-title>
               <v-card-subtitle>
-               <v-row >
+               <v-row>
     <v-col 
       cols="12"
       sm="10"

@@ -1,21 +1,16 @@
 <template>
-  <div >
-    <div class="image-box">
+  <div>
+    <div>
       <carousel :autoplay="true" :nav="false" :dots="true" :autoplayHoverPause="true" :items='1'>
         <div class="jb-wrap">
           <video class="video" autoplay="autoplay" loop="loop" muted="muted" >
 			      <source src="@/assets/video.mp4" type="video/mp4" >
-        
-
           </video>
           <h1 class="video-title">신비한 동물들과<br> 덤블도어의 비밀</h1>
             <p class="video-summary"><br><br>1930년대, 제2차 세계대전에 마법사들이 개입하게 되면서 강력한 어둠의 마법사 그린델왈드의 힘이 급속도로 커진다. 덤블도어는 뉴트 스캐맨더에게 위대한 마법사 가문 후손, 마법학교의 유능한 교사, 머글 등으로 이루어진 팀에게 임무를 맡긴다. 이에 뉴트와 친구들은 머글과의 전쟁을 선포한 그린델왈드와 추종자들, 그의 위험한 신비한 동물들에 맞서 세상을 구할 거대한 전쟁에 나선다. <br><br>장르 : 판타지, 모험<br>별점 : 6.8</p>
-          
-
-          
-          
         </div>
-        <div class="jb-wrap">
+
+         <div class="jb-wrap">
           <div class="slide"></div>
           <h1 class="jb-title">신비한 동물들과<br> 덤블도어의 비밀</h1>
           <p class="jb-summary"><br><br>1930년대, 제2차 세계대전에 마법사들이 개입하게 되면서 강력한 어둠의 마법사 그린델왈드의 힘이 급속도로 커진다. 덤블도어는 뉴트 스캐맨더에게 위대한 마법사 가문 후손, 마법학교의 유능한 교사, 머글 등으로 이루어진 팀에게 임무를 맡긴다. 이에 뉴트와 친구들은 머글과의 전쟁을 선포한 그린델왈드와 추종자들, 그의 위험한 신비한 동물들에 맞서 세상을 구할 거대한 전쟁에 나선다. <br><br>장르 : 판타지, 모험<br>별점 : 6.8</p>
@@ -53,6 +48,8 @@
  관객은 마지막 순간까지 예기치 못한 반전으로 놀라운 결말에 이르게 된다. <br><br>장르 : 범죄, 드라마, 미스터리 <br>별점 : 7.17</p>
         </div>
       </carousel>
+   
+
     </div>
 
     <!-- Top 10 Movies -->
@@ -88,153 +85,35 @@
       </v-card>
     -->
 
-    <v-container style="display: flex; justify-content: space-between; ">
     <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
 
+      <v-container style="display: flex">
       <v-card
-        
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
+        class="mx-auto"
+        max-width="400"
         elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+        style="border-radius: 10px"
       >
         <v-img
           class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
+          height="370px"
+          width="350px"
+          src="https://www.themoviedb.org/t/p/w220_and_h330_face/bCz71ysciwNL2xddSm25ufrgZ7V.jpg"
         >
         </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>수퍼 소닉 (2020)</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
+
+        <v-card-subtitle class="pb-0" >
+          <h2>더 배트맨</h2>
+        </v-card-subtitle>
+        <v-card-actions>
+          <v-btn color="orange" text> 상세보기 </v-btn>
+          <v-btn color="orange" text> 찜하기 </v-btn>
+        </v-card-actions>
       </v-card>
 
-      <v-card
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
-        elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px;"
-      >
-        <v-img
-          class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/9Xd459BvOLFfPPzNfAPT9dZkO1x.jpg"
-        >
-        </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>웨스트 사이드 스토리</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
-      </v-card>
-
-      <v-card
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
-        elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px; "
-      >
-        <v-img
-          class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/hsOhOcX7qDy7bPwbrt1OoITngrf.jpg"
-        >
-        </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>메이의 새빨간 비밀</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
-      </v-card>
-      
-
-      
-      <v-card
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
-        elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px; "
-      >
-        <v-img
-          class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          src="https://blog.kakaocdn.net/dn/II2OM/btrpoVuvWts/b9rK1lvjxUFVox60anaKmK/img.png"
-        >
-        </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>엔칸토: 마법의 세계 (2021)</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
-      </v-card>
-
-      <v-card
-        max-width="300px"
-        min-width="300px"
-        min-height="300px"
-        elevation="10"
-        style="border-radius: 0px; margin: 0px 20px 0px 20px; "
-      >
-        <v-img
-          class="white--text align-end"
-          min-width="300px"
-          max-width="150px"
-          max-height="430px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg"
-        >
-        </v-img>
-        <div class="text">
-          <v-card-subtitle class="pb-0">
-            <h2>애덤 프로젝트</h2>
-          </v-card-subtitle>
-          <v-card-actions >
-            <v-btn color="orange" text> 상세보기 </v-btn>
-            <v-btn color="orange" text> 찜하기 </v-btn>
-          </v-card-actions>
-        </div>
-      </v-card>
-      <v-card
-        
-        max-width="300px"
-        min-width="300px"
-        min-height="550px"
-        flat="true"
-       
-      >
-      </v-card>
+    </v-container>
       
     </carousel>
-    </v-container>
 
     <!-- Action -->
     <v-card-title
@@ -243,6 +122,7 @@
         margin-top: 30px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Action
@@ -271,72 +151,7 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://mblogthumb-phinf.pstatic.net/MjAyMDEwMDJfMTE4/MDAxNjAxNjA5OTI1MDkx.iGd-vZulv298Brk8HAmipq10gf0OjKULrFpaqfagCh0g.02yjTFQ0NaVI3Wztsn6nKxGU5ePYKrNmnA0K3E2B_lsg.JPEG.cubase777/MV5BMDk5Yzc4NzMtODUwOS00NTdhLTg2MjEtZTkzZjc0ZWE2MzAwXkEyXkFqcGdeQXVyMTA3MTA4.jpg?type=w800"
-        >
-        </v-img>
 
-        <v-card-subtitle class="pb-0">
-          <h2>수퍼 소닉 (2020)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/voddFVdjUoAtfoZZp2RUmuZILDI.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>스파이더맨 : 노 웨이 홈</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/nOYyuJ2mNo6RWsFsTwApEyG3F4J.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>야차</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
     </v-container>
 
     <!-- Animation -->
@@ -346,6 +161,7 @@
         margin-top: 30px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Animation
@@ -374,71 +190,6 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/78JfwRiubwX87BYgPXsdFKBf9P5.jpg"
-        >
-        </v-img>
-        <v-card-subtitle class="pb-0">
-          <h2>pil</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/hsOhOcX7qDy7bPwbrt1OoITngrf.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>메이의 새빨간 비밀</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://blog.kakaocdn.net/dn/II2OM/btrpoVuvWts/b9rK1lvjxUFVox60anaKmK/img.png"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>엔칸토: 마법의 세계 (2021)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
     </v-container>
 
     <!-- Comedy -->
@@ -448,6 +199,7 @@
         margin-top: 30px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Comedy
@@ -475,72 +227,7 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/r97txZRmBb75SGsIAWqmplWJnO3.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>메탈 로드</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/edYk5TSowZIDv138bCpF5ls3XI5.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>더 버블</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/ppn4ZO8qmylxRwFjfBWPkmMRdSs.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>루프 라페타</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+      
     </v-container>
 
     <!-- Romance -->
@@ -550,6 +237,7 @@
         margin-top: 30px;
         font-family: NewWaltDisney;
         font-size: 60px;
+        color: white;
       "
     >
       Romance
@@ -578,74 +266,9 @@
           <v-btn color="orange" text> 찜하기 </v-btn>
         </v-card-actions>
       </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/thqgzBPEDYQX0taszVus5nYMtTZ.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>문 샷</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/vdgUNCruHI6jX9TU4vvplgpDtL7.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>배틀 : 프리스타일</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/9Xd459BvOLFfPPzNfAPT9dZkO1x.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>웨스트 사이드 스토리</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+      
     </v-container>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -712,8 +335,6 @@ export default {
 }
 
 
-ox {
-}
 .image-thumbnail {
   margin: -100px auto;
   width: 100%;
