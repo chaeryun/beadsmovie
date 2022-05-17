@@ -11,13 +11,13 @@ def vote_count(n=5):
     df = pd.read_json('movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('vote_count', ascending=False).head(n)
-    return df4.pk.tolist()
-#print(vote_count(5))
+    return df4
+# print(vote_count(5))
 
 
 
 def popularity(n=5):
-    df = pd.read_json('movie.json')
+    df = pd.read_json('./recommend/movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('popularity', ascending=False).head(n)
     return df4.pk.tolist()
@@ -26,14 +26,37 @@ def popularity(n=5):
 
 
 def vote_average(n=5):
-    df = pd.read_json('movie.json')
+    df = pd.read_json('./recommend/movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('vote_average', ascending=False).head(n)
     return df4.pk.tolist()
 #print(vote_average(5))
 
 
-def genre_build_chart(genre):
+def genre_build_chart(genre_id):
+    dict1 = {
+    "28": "액션",
+    "12": "모험",
+    "16": "애니메이션",
+    "35": "코미디",
+    "80": "범죄",
+    "99": "다큐멘터리",
+    "18": "드라마",
+    "10751": "가족",
+    "14": "판타지",
+    "36": "역사",
+    "27": "공포",
+    "10402": "음악",
+    "9648": "미스터리",
+    "10749": "로맨스",
+    "878": "SF",
+    "10770": "TV 영화",
+    "53": "스릴러",
+    "10752": "전쟁",
+    "37": "서부"
+    }
+    genre = dict1[str(genre_id=14)]
+    print(genre)
     df3 = pd.read_json('movie.json')
     df = df3.copy()
     percentile=0.88
@@ -52,13 +75,14 @@ def genre_build_chart(genre):
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
     return qualified.pk.tolist()
-#print(genre_build_chart('로맨스'))
+# print(genre_build_chart('14')) 
+
 
 
 
 
 def get_recommendations(pk):
-    df3 = pd.read_json('movie.json')
+    df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     title = df.loc[df['pk'] == int(pk)]
     title = title.iloc[0]['title']
