@@ -154,9 +154,19 @@ class CommentViewSet(mixins.CreateModelMixin,
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
-@action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
+# @action(methods=['get'], detail=False, permission_classes=[], url_path=r'genre/(?P<genre_id>\w+)')
 def reco_detail_movie(request, movie_id):
-    movie_list = get_recommendations(movie_id)
+    movie_list = get_recommendations(movie_id)  #[12,13,14]
+    movies = Movie.objects.filter(_id__in=random.sample(movie_list, 3))
+    movieserializers = MovieSerializer(movies, many=True)
+    return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
+
+
+
+@api_view(["GET"])
+@permission_classes([AllowAny])
+def reco_genres_movie(request, genres):
+    movie_list = genre_build_chart(genres)  #[12,13,14]
     movies = Movie.objects.filter(movie_id__in=random.sample(movie_list, 3))
     movieserializers = MovieSerializer(movies, many=True)
     return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
