@@ -51,8 +51,8 @@ def genre_build_chart(genre):
     qualified['vote_average'] = qualified['vote_average'].astype('int')
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
-    return qualified
-# print(genre_build_chart('범죄'))
+    return qualified.pk.tolist()
+#print(genre_build_chart('로맨스'))
 
 
 
@@ -60,7 +60,7 @@ def genre_build_chart(genre):
 def get_recommendations(pk):
     df3 = pd.read_json('movie.json')
     df = df3.copy()
-    title = df.loc[df['pk'] == 414906]
+    title = df.loc[df['pk'] == int(pk)]
     title = title.iloc[0]['title']
     tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 2), 
     min_df=0, stop_words='english')
@@ -77,4 +77,10 @@ def get_recommendations(pk):
     result = titles.iloc[movie_indices].head(10)
     return result.tolist()
 
+<<<<<<< HEAD
 # print(get_recommendations('414906'))
+=======
+#print(get_recommendations('634649'))
+#print(get_recommendations('414906'))
+#print(get_recommendations('99861'))
+>>>>>>> ce985f11 (adsfd)
