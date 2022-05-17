@@ -11,13 +11,13 @@ def vote_count(n=5):
     df = pd.read_json('movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('vote_count', ascending=False).head(n)
-    return df4
-# print(vote_count(5))
+    return df4.pk.tolist()
+#print(vote_count(5))
 
 
 
 def popularity(n=5):
-    df = pd.read_json('./recommend/movie.json')
+    df = pd.read_json('movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('popularity', ascending=False).head(n)
     return df4.pk.tolist()
@@ -26,7 +26,7 @@ def popularity(n=5):
 
 
 def vote_average(n=5):
-    df = pd.read_json('./recommend/movie.json')
+    df = pd.read_json('movie.json')
     df3 = df.copy()
     df4 = df3.sort_values('vote_average', ascending=False).head(n)
     return df4.pk.tolist()
@@ -55,9 +55,8 @@ def genre_build_chart(genre_id):
     "10752": "전쟁",
     "37": "서부"
     }
-    genre = dict1[str(genre_id=14)]
-    print(genre)
-    df3 = pd.read_json('movie.json')
+    genre = dict1[str(genre_id)]
+    df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     percentile=0.88
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)
@@ -76,7 +75,6 @@ def genre_build_chart(genre_id):
     qualified = qualified.sort_values('sc', ascending=False).head(10)
     return qualified.pk.tolist()
 # print(genre_build_chart('14')) 
-
 
 
 
@@ -101,8 +99,4 @@ def get_recommendations(pk):
     result = titles.iloc[movie_indices].head(10)
     return result.tolist()
 
-
-#print(get_recommendations('634649'))
-#print(get_recommendations('414906'))
-#print(get_recommendations('99861'))
-
+# print(get_recommendations('414906'))

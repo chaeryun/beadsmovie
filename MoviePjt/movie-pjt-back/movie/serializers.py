@@ -1,5 +1,7 @@
 from rest_framework import serializers
+from bson import ObjectId
 from movie.models import Movie, Comment
+from accounts.models import User
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -10,11 +12,6 @@ class MovieSerializer(serializers.ModelSerializer):
         model = Movie
         fields = ('_id', 'title', 'original_title', 'overview', 'release_date',
         'poster_path', 'backdrop_path', 'youtube_path', 'genres')
-
-    def to_internal_value(self, data):
-        if data['release_date'] == '':
-            data['release_date'] = None
-        return super(MovieSerializer, self).to_internal_value(data)
 
 
 class CommentSerializer(serializers.ModelSerializer):
