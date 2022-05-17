@@ -51,24 +51,6 @@
    
 
     </div>
-    <div>
-    <MovieCard :movies="movies"/>
-    <movie-card 
-      v-for="movie in movies"
-      :key="movie._id"
-      :movie="movie"
-    >
-    </movie-card>
-  
-    
-    <div v-for="movie in movies" :key="movie.id" class="card mx-2 my-3" style="width: 18%;">
-        <img :src="`https://www.themoviedb.org/t/p/w440_and_h660_face/${movie.poster_path}`" class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-title fw-bold fs-6">{{ movie.title }}</p>
-         
-        </div>
-      </div>
-    </div>
 
   <!--MBTI reco-->
   <v-card-title
@@ -115,33 +97,48 @@
       </v-card-title>
       
 
-      <v-container style="display: flex">
-      <v-col :key="i" v-for="(movie, i) in movielist">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          :src="this.generalurl + this.movie.poster_path"
-        >
-        </v-img>
+      
+      <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
+      <v-container style="display: flex; justify-content: space-between; ">
+        <v-col :key="i" v-for="(movie1, i) in movielist">
+      
+          
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
 
-        <v-card-subtitle class="pb-0" >
-          <h2>{{ this.movie.title }}</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-      </v-col>
+            >
+            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
 
-    </v-container>
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text @click="detail"> 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+  
+         
+        </v-col>
+        </v-container>
+      </carousel>
+      
+
+   
 
 
     
@@ -380,7 +377,7 @@ export default {
     return {
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
       genres_id:"",
-      movieslist: [],
+      movielist: [],
       movie:"",
 
       //genre 가져오기
@@ -429,7 +426,7 @@ export default {
     async getMovieList() {
       await http({
         method: "GET",
-        url: "/similar_movie/genres/" + this.movie.genres.id,
+        url: "/similar_movie/genres/80/",
       })
         .then((res) => {
           console.log("movielist :", res);
@@ -471,7 +468,13 @@ export default {
   src: url(../../fonts/NanumSquareEB.ttf) format('truetype');
 
 }
+.mx-auto {
+  margin-top: 2rem;
+}
 
+.image-box {
+  margin: -25px auto;
+}
 
 .image-thumbnail {
   margin: -100px auto;
