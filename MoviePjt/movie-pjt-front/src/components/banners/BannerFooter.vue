@@ -1,11 +1,13 @@
 <template>
   <div class="footer">
     <div class="footer-summary">
-      <span>공지사항</span> | <span>팀 소개</span> |
-      <span>서비스 소개</span>
+            <span>김채련</span> | <span>심은조</span> | <span>양승우</span> | <span>이윤영</span> | <span>황이레</span>  
     </div>
     <div class="footer-title">
       <h3>Beads Movie</h3>
+    </div>
+    <div class="footer-title">
+      <h1></h1>
     </div>
   </div>
 </template>
