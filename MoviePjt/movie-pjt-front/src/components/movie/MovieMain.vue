@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="background">
     <div>
       <carousel :autoplay="false" :nav="false" :dots="false" :autoplayHoverPause="true" :items='1'>
         <div class="jb-wrap">
@@ -68,7 +68,7 @@
       
     </v-card-title>
   
-  <carousel :autoplay="true" :nav="false" :dots="true" :items="4" :margin="-120" :mouseDrag="false" :autoplaySpeed="5000" >
+  <carousel :autoplay="true" :nav="false" :dots="true" :items="4" :margin="-90" :mouseDrag="false" :autoplaySpeed="5000" >
     
     <div class="mbti-wrap">
     <v-img href="#adventure" v-smooth-scroll="{duration:50}"
@@ -293,18 +293,18 @@
         Top 10 Movies
       </v-card-title>
     <div v-if="toplist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="5">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in toplist">
-        <v-container  style="display: flex; justify-content: space-between;">
+        <v-container>
         
             <v-card
-              margin-right="100px"
-              margin-left="100px"
+              
               max-width="300px"
               min-width="300px"
               min-height="300px"
               elevation="10"
               style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+              background-color = black;
 
             >            
             <v-img
@@ -320,9 +320,8 @@
               <v-card-subtitle class="pb-0" >
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
-              <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+              <v-card-actions style="justify-content: right">
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
               </v-card-actions>
             </div>
             </v-card>
@@ -349,7 +348,7 @@
         Action
       </v-card-title>
     <div v-if="actionlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in actionlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -389,58 +388,6 @@
       </div> 
       </div>
 
-      <section id="adventure"></section>
-      <div>
-      <v-card-title
-        style="
-          margin-left: 30px;
-          margin-top: 50px;
-          font-family: NewWaltDisney;
-          font-size: 60px;
-          color: white;     "
-      >
-        Adventure
-      </v-card-title>
-    <div v-if="adventurelist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
-      <v-col :key="i" v-for="(movie1, i) in adventurelist">
-        <v-container  style="display: flex; justify-content: space-between;">
-        
-            <v-card
-              max-width="300px"
-              min-width="300px"
-              min-height="300px"
-              elevation="10"
-              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
-
-            >            
-            <v-img
-              class="white--text align-end"
-              min-width="300px"
-              max-width="150px"
-              max-height="430px"
-
-              :src="generalurl + movie1.poster_path"
-            >
-            </v-img>
-            <div class="text">
-              <v-card-subtitle class="pb-0" >
-                <h2>{{ movie1.title }}</h2>
-              </v-card-subtitle>
-              <v-card-actions>
-                <div class="col-7"></div>
-                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
-          
-              </v-card-actions>
-            </div>
-            </v-card>
-          
-      
-          </v-container>
-        </v-col>
-      </carousel>
-      </div> 
-      </div>
 
       <section id="animation"></section>
       <div>
@@ -455,7 +402,7 @@
         Animation
       </v-card-title>
     <div v-if="animationlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in animationlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -507,7 +454,7 @@
         Comedy
       </v-card-title>
     <div v-if="comedylist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in comedylist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -560,7 +507,7 @@
         Crime
       </v-card-title>
     <div v-if="crimelist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in crimelist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -613,7 +560,7 @@
         Documentary
       </v-card-title>
     <div v-if="doculist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in doculist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -666,7 +613,7 @@
         Drama
       </v-card-title>
     <div v-if="dramalist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in dramalist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -719,7 +666,7 @@
         Family
       </v-card-title>
     <div v-if="familylist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in familylist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -772,7 +719,7 @@
         Fantasy
       </v-card-title>
     <div v-if="fantasylist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in fantasylist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -825,7 +772,7 @@
         History
       </v-card-title>
     <div v-if="historylist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in historylist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -878,7 +825,7 @@
         Horror
       </v-card-title>
     <div v-if="horrorlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in horrorlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -930,7 +877,7 @@
         Music
       </v-card-title>
     <div v-if="musiclist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in musiclist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -982,7 +929,7 @@
         Mystery
       </v-card-title>
     <div v-if="mysterylist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in mysterylist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1021,6 +968,60 @@
       </carousel>
       </div> 
       </div>
+
+      <section id="adventure"></section>
+      <div>
+      <v-card-title
+        style="
+          margin-left: 30px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Adventure
+      </v-card-title>
+    <div v-if="adventurelist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
+      <v-col :key="i" v-for="(movie1, i) in adventurelist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
       <section id="romance"></section>
       <div>
       <v-card-title
@@ -1034,7 +1035,7 @@
         Romance
       </v-card-title>
     <div v-if="romancelist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in romancelist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1086,7 +1087,7 @@
         SF
       </v-card-title>
     <div v-if="sflist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in sflist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1138,7 +1139,7 @@
         TV series
       </v-card-title>
     <div v-if="tvlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in tvlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1190,7 +1191,7 @@
         Thriller
       </v-card-title>
     <div v-if="thrillerlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in thrillerlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1242,7 +1243,7 @@
         War
       </v-card-title>
     <div v-if="warlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in warlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1294,7 +1295,7 @@
         West
       </v-card-title>
     <div v-if="westlist.length > 0">
-    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5" :margin="100">
       <v-col :key="i" v-for="(movie1, i) in westlist">
         <v-container  style="display: flex; justify-content: space-between;">
         
@@ -1761,6 +1762,17 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.background {
+  
+  background-color: rgba(17, 53, 53, 100%);
+  background-image: url('@/assets/background.png');
+  background-position: center 700px;
+ 
+  
+ 
+  
+  background-size: 100vw, auto, contain;
 }
 
 

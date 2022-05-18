@@ -1,12 +1,13 @@
 <template>
   <v-app>
-    <v-main class="detail">
+    
       <banner-header />
-
+      <v-main class="detail">
       <router-view />
       <hr />
       <banner-footer />
-    </v-main>
+      </v-main>
+    
   </v-app>
 </template>
 

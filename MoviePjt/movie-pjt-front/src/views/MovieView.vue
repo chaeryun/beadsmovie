@@ -15,15 +15,6 @@ export default {
 };
 </script>
 <style>
-.background {
-  max-width: 50px;
-  max-height: 100px;
-  
-  
-  
-  background-attachment: local;
-  background-image: url('@/assets/background.png') ;
-  background-size:cover;
-}
+
 
 </style>

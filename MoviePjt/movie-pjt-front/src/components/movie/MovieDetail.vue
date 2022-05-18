@@ -211,10 +211,14 @@ h3 {
 }
 
 .detail {
+  
+  background-color: rgba(17, 53, 53, 100%);
   background-image: url('@/assets/background.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+ 
+  
+ 
+  
+  background-size: 100vw, auto, contain;
 }
 
 .recommend_line{
