@@ -133,7 +133,7 @@ def reco_detail_movie(request, movie_id):
 @permission_classes([AllowAny])
 def reco_genres_movie(request, genres_id):
     movie_list = genre_build_chart(genres_id)  
-    movies = Movie.objects.filter(_id__in=random.sample(movie_list, 10))
+    movies = Movie.objects.filter(_id__in=movie_list).order_by('-release_date')
     movieserializers = MovieSerializer(movies, many=True)
     return Response(movieserializers.data, status=status.HTTP_202_ACCEPTED)
 

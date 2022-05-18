@@ -62,20 +62,12 @@ export default {
 
   data() {
     return {
-      moviegenre: "",
-      movielist: [],
-
-      // 검색
-      keyword: "",
-      keywordlist: [],
-      genre:[],
+    
     };
   },
 
   created() {
-    this.moviegenre = 80;
-    this.getMovieList();
-    this.getGenre();
+ 
   },
 
   computed: {
@@ -108,42 +100,10 @@ export default {
     ///},
 
     //genre 가져오기
-    async getGenre() {
-      await http({
-        method: "GET",
-        url: "/similar_movie/genres/" + this.moviegenre,
-      })
-        .then((res) => {
-          console.log("genre :", res);
-          this.genre = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+   
 
     // 검색기능
-    searchmovie(keyword) {
-      console.log("keyword", keyword);
-
-      // keyword 초기화
-      this.keywordlist = [];
-
-      for (let i = 0; i < this.movielist.length; i++) {
-        if (
-          this.movielist[i].title.toLowerCase().includes(keyword.toLowerCase())
-        ) {
-          // console.log("키워드 일치");
-          this.keywordlist.push(this.movielist[i]);
-          // console.log("키워드 일치 와인리스트", this.keywordlist);
-        }
-      }
-
-      console.log("검색리스트", this.keywordlist);
-      this.$router
-        .push({ name: "MoveDetail", query: { search: keyword } })
-        .catch((err) => err);
-    },
+   
   },
 };
 </script>

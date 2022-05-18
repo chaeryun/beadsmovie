@@ -16,11 +16,13 @@ export default {
 </script>
 <style>
 .background {
-  height:100vh;
-  width: 100vw;
-  overflow: scroll;
+  max-width: 50px;
+  max-height: 100px;
+  
+  
+  
   background-attachment: local;
-  background-image: url('@/assets/background.png');
+  background-image: url('@/assets/background.png') ;
   background-size:cover;
 }
 

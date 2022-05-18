@@ -60,7 +60,6 @@ def genre_build_chart(genre_id):
     df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()
     percentile=0.88
-    df['year'] = pd.to_datetime(df['release_date'], errors='coerce').apply(lambda x: str(x).split('-')[0] if x != np.nan else np.nan)
     s = df.apply(lambda x: pd.Series(x['genres']), axis=1).stack().reset_index(level=1, drop=True)
     s.name = 'genre'
     gen_md = df.drop('genres', axis=1).join(s)
@@ -74,10 +73,8 @@ def genre_build_chart(genre_id):
     qualified['vote_average'] = qualified['vote_average'].astype('int')
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
-    a = qualified.pk.tolist()
-    a.reverse()
-    return a
     return qualified.pk.tolist()
+    
 
 
 
