@@ -2,9 +2,9 @@
   <v-main class="pt-10 pb-10">
     <v-container class="login-page">
       <v-layout class="row wrap">
-        <v-flex col-7></v-flex>
-        <v-flex col-5>
-          <h1 style="color: white">Login</h1>
+        <v-col col-4></v-col>
+        <v-col col-4 class="text-center">
+          <h1 style="color: #43A14D;">Login</h1>
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -33,7 +33,7 @@
               dark
             ></v-text-field>
 
-            <div>
+            <div >
               <v-btn
                 style="color: white"
                 :disabled="!valid"
@@ -59,7 +59,8 @@
               </v-btn>
             </div> -->
           </v-form>
-        </v-flex>
+        </v-col>
+        <v-col col-4></v-col>
       </v-layout>
     </v-container>
   </v-main>

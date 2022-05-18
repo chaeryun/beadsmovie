@@ -2,9 +2,9 @@
   <v-main class="pt-10 pb-10">
     <v-container class="signup-page">
       <v-layout row wrap>
-        <v-flex col-7></v-flex>
-        <v-flex col-5>
-          <h1 style="color: tomato">Signup</h1>
+        <v-col col-4></v-col>
+        <v-col col-4 class="text-center">
+          <h1 style="color: #43A14D">Signup</h1>
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
@@ -35,9 +35,11 @@
               :rules="idRules"
               label="ID"
               required
+              dark
             ></v-text-field>
 
             <v-text-field
+              dark
               v-model="user.password"
               :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               :rules="[rules.required, rules.min]"
@@ -50,6 +52,7 @@
             ></v-text-field>
 
             <v-text-field
+              dark
               v-model="user.passwordConfirmation"
               :append-icon="show2 ? 'mdi-eye' : 'mdi-eye-off'"
               :rules="[passrules.required, passrules.min]"
@@ -62,13 +65,15 @@
             ></v-text-field>
 
             <v-text-field
+              dark
               v-model="user.email"
               :rules="emailRules"
               label="E-mail"
               required
             ></v-text-field>
 
-            <v-text-field
+            <!-- <v-text-field
+              dark
               v-model="user.nickname"
               :rules="nicknameRules"
               label="Nickname"
@@ -78,6 +83,7 @@
             <v-row>
               <v-col cols="12" sm="5">
                 <v-slider
+                  dark
                   v-model="user.age"
                   color="orange"
                   label="Age"
@@ -91,6 +97,7 @@
             <v-row>
               <v-col cols="12" sm="5">
                 <v-select
+                dark
                   v-model="user.gender"
                   :items="genders"
                   label="Gender"
@@ -102,15 +109,17 @@
             <v-row>
               <v-col cols="12" sm="5">
                 <v-select
+                dark
                   v-model="user.occupation"
                   :items="occupations"
                   label="Occupation"
                   required
                 ></v-select>
               </v-col>
-            </v-row>
+            </v-row> -->
 
             <v-checkbox
+            dark
               v-model="checkbox"
               :rules="[(v) => !!v || 'You must agree to continue!']"
               label="개인정보 수집 및 이용에 동의합니다."
@@ -129,7 +138,8 @@
               <v-btn color="error" class="mr-4" @click="reset"> Cancel </v-btn>
             </div>
           </v-form>
-        </v-flex>
+        </v-col>
+        <v-col col-4></v-col>
       </v-layout>
     </v-container>
   </v-main>
@@ -245,7 +255,7 @@ export default {
     },
 
     reset() {
-      this.$router.push({ name: "login" });
+      this.$router.push({ name: "AccountLogin" });
     },
   },
 };

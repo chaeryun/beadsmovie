@@ -4,16 +4,16 @@
       <v-col cols="4">
         <v-card class="mx-auto" max-width="400" elevation="10">
           <v-img
-            height="510px"
-            width="410px"
+            height="100%"
+            width="100%"
             :src="this.generalurl + this.moviedetail.poster_path"
           >
           </v-img>
         </v-card>
       </v-col>
 
-      <v-col cols="8" >
-        <v-card flat style="background:rgba(0,0,0,0);">
+      <v-col cols="8">
+        <v-card  flat style="background:rgba(0,0,0,0);">
           <v-card-title class="mt-10 pt-10 mb-3">
             <h1 class="mr-2" style="color: white;">{{ this.moviedetail.title }}</h1>
             <h3 style="color: slategrey; background:rgba(0,0,0,0);">{{ this.moviedetail.original_title }}</h3>
@@ -70,7 +70,9 @@
         
         <div><h1 class="mt-10 ml-10 mb-8" style="color: white;">영화 추천</h1></div>
  
-        <v-row justify="center" class="mb-8" >
+
+
+        <v-row  justify="center" class="mb-8" >
           <v-col cols="4" v-for="movie in similar_movielist" :key="movie">
           
                   
@@ -122,6 +124,7 @@ export default {
     return {
       movieid: "",
       moviedetail: [],
+      recentlist: [],
       genrelist: [],
       similar_movielist: [],
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
@@ -136,6 +139,27 @@ export default {
     this.getSimilarMovieDetail();
   },
 
+  computed : {
+    startOffset() {
+      return (this.currentPage - 1) * this.perPage;
+    },
+    endOffset() {
+      return this.startOffset + this.perPage;
+    },
+    numOfPages() {
+      return Math.ceil(this.recentlist.length / this.perPage);
+    },
+    calData() {
+      return this.recentlist.slice(this.startOffset, this.endOffset);
+    },
+
+    movielistIsEmpty() {
+      // console.log(this.recentlist.length);
+      return this.recentlist.length == 0;
+    },
+  },
+  
+
   methods: {
     async getMovieDetail() {
       await http({
@@ -143,9 +167,11 @@ export default {
         url: "/movie/" + this.movieid,
       })
         .then((res) => {
-          console.log("moviedetail :", res);
+          // console.log("moviedetail :", res);
           this.moviedetail = res.data;
+          this.recentlist = this.moviedetail;
           this.genrelist = res.data.genres;
+          this.templist = res.data;
         })
         .catch((err) => {
           console.log(err);
@@ -159,7 +185,7 @@ export default {
         url: "/similar_movie/" + this.movieid,
       })
         .then((res) => {
-          console.log("similar_movielist :", res);
+          // console.log("similar_movielist :", res);
           this.similar_movielist = res.data;
         })
         .catch((err) => {
