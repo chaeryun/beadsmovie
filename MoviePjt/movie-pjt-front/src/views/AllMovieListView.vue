@@ -102,16 +102,17 @@
       </template>
       <v-row   v-else>
         <div
-          class="col-xl-3 col-lg-4 col-md-6"
+          class="col-xl-2 col-lg-3 col-md-6"
+          
           :key="i"
           v-for="(movie, i) in calData"
         >
           <v-card
             class="mx-auto mt-10"
-            max-width="430"
+            max-width="280"
             style="
               border-radius: 30px;
-              height: 530px;
+              height: 450px;
               color: gainsboro;
               background-color: darkslategrey;
               box-shadow: 0 0 10px grey;
@@ -122,13 +123,13 @@
           <br />
             <v-img
               :src="generalurl + movie.poster_path"
-              height="450"
+              height="350"
               alt="No image"
               contain
               @click="gomoviedetail(movie._id)"
             /><v-img />
             <v-card-title class="justify-center"
-              ><h3>{{ movie.title }}</h3></v-card-title
+              ><h4 class="text-center" style="box-sizing: content-box;">{{ movie.title }}</h4></v-card-title
             >
             <div
               class="d-flex justify-content-between align-items-center"
@@ -173,7 +174,7 @@ export default {
     keywordlist: [],
 
     currentPage: 1,
-    perPage: 20,
+    perPage: 24,
 
     gerne: "",
     genrelist: [],

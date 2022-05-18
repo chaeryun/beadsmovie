@@ -30,21 +30,6 @@
           >
         </div>
 
-        <v-row>
-          <v-col cols="10" align="right" color="white">
-            <v-text-field
-              color="white"
-              style="max-width: 200px; margin-top: -61px; margin-right: -220px;"
-              dark
-              class="text-white"
-              label="Search"
-              prepend-icon="mdi-magnify"
-              v-model="keyword"
-              @keyup.enter="searchmovie(keyword)"
-            ></v-text-field>
-          </v-col>
-        </v-row>
-
     </div>
 
 </template>
