@@ -60,6 +60,9 @@
       <v-btn class="genre_button" @click="clickgenre($event)" value="10752">
         전쟁
       </v-btn>
+      <v-btn class="genre_button" @click="clickgenre($event)" value="37">
+        서부
+      </v-btn>
       
       
 
@@ -341,12 +344,12 @@ export default {
 .genre_button{
   box-shadow: 0 0 10px #3b3b34;
   color: white !important;
-  height: 60px !important;
+  height: 50px !important;
   border-radius: 40px;
   margin: 12px;
   background-color: darkslategrey !important; 
   font-weight: bold !important; 
-  font-size:x-large !important;
+  font-size:large !important;
   padding: 20px !important;
 }
 
