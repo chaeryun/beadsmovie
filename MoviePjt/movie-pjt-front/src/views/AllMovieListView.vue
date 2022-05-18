@@ -4,9 +4,7 @@
      <div class="text-center">
        <br />
       
-      <v-btn class="genre_button" @click="clickgenre($event)" value="28">
-        액션
-      </v-btn>
+      
       <v-btn class="genre_button" @click="clickgenre($event)" value="12">
         모험
       </v-btn>
@@ -29,13 +27,14 @@
       <v-btn class="genre_button" @click="clickgenre($event)" value="10751">
         가족
       </v-btn>
+      
       <v-btn class="genre_button" @click="clickgenre($event)" value="14">
         판타지
       </v-btn>
-      <br/>
       <v-btn class="genre_button" @click="clickgenre($event)" value="36">
         역사
       </v-btn>
+      <br/>
       <v-btn class="genre_button" @click="clickgenre($event)" value="27">
         공포
       </v-btn>
@@ -62,6 +61,9 @@
       </v-btn>
       <v-btn class="genre_button" @click="clickgenre($event)" value="37">
         서부
+      </v-btn>
+      <v-btn class="genre_button" @click="clickgenre($event)" value="28">
+        액션
       </v-btn>
       
       
@@ -208,11 +210,11 @@ export default {
   },
 
   methods: {
-    // 전체 영화 불러와서 movielist에 넣기
+    // 원래는 전체 하지만, 액션 영화만 불러와서 movielist에 넣기
     async getMovieList() {
       await http({
         method: "get",
-        url: "/movie/",
+        url: "movie/genre/28",
       })
         .then((res) => {
           // console.log("movie list :", res);

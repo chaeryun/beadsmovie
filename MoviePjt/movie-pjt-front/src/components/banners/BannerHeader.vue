@@ -14,7 +14,7 @@
             &nbsp;&nbsp;</span
           >
           <span
-            ><router-link :to="{ name: 'ArticleList' }">SNS Reviews </router-link>
+            ><router-link :to="{ name: 'ArticleList' }">Reviews </router-link>
             &nbsp;&nbsp;</span
           >
           <span v-if="isLogin == false"

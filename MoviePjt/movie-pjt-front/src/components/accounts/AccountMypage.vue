@@ -1,10 +1,10 @@
 <template>
-  <v-container>
+  <v-container class="mypages">
     <v-row align="center" justify="center">
       <h1>Mypage</h1>
     </v-row>
 
-    <v-row class="uploadimage" align="center" justify="center">
+    <!-- <v-row class="uploadimage" align="center" justify="center">
       <image-input v-model="avatar">
         <div slot="activator">
           <v-avatar
@@ -27,9 +27,9 @@
           >
         </div>
       </v-slide-x-transition> -->
-    </v-row>
+    </v-row> -->
 
-    <v-row align="center" justify="center">
+    <!-- <v-row align="center" justify="center">
       <v-slide-x-transition>
         <div v-if="avatar && saved == false">
           <v-btn class="primary" @click="uploadImage" :loading="saving"
@@ -37,30 +37,15 @@
           >
         </div>
       </v-slide-x-transition>
-    </v-row>
+    </v-row> -->
 
     <v-row align="center" justify="center">
       <span class="usercontent">{{ this.user.nickname }}</span>
     </v-row>
 
-    <v-row class="mt-12" align="center" justify="center">
-      <span class="userfunction">개인정보수정</span>
-    </v-row>
-
     <v-row class="mt-4" align="center" justify="center">
-      <span class="userfunction">닉네임/대화명변경</span>
-    </v-row>
-
-    <v-row class="mt-4" align="center" justify="center">
-      <span class="userfunction">프로필 사진 변경</span>
-    </v-row>
-
-    <v-row class="mt-4" align="center" justify="center">
-      <span class="userfunction">프로필 사진 초기화</span>
-    </v-row>
-
-    <v-row class="mt-4" align="center" justify="center">
-      <span class="userfunction" @click="deleteuser">회원탈퇴</span>
+      <br />
+      <span class="userfunction" @click="deleteuser"><img src="../../assets/cry.png"><h4>회원탈퇴</h4></span>
     </v-row>
   </v-container>
 </template>
@@ -181,4 +166,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.mypages{
+  color: white;
+}
+
 </style>
