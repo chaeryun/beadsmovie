@@ -91,7 +91,7 @@
                       height="300"
                       style="margin-top: 10px; margin-bottom : 10px;"
                       contain
-                      @click="gomoviedetail(movie.movie_id)"
+                      @click="gomoviedetail(movie._id)"
                     ></v-img>
                     
                     <hr class="recommend_line" />
@@ -170,7 +170,7 @@ export default {
     // 추천영화 상세페이지 이동
     gomoviedetail(movie_id) {
       this.$router
-        .push({ path: "/moviedetail"+ this.movieid, query: { movie_id: movie_id } })
+        .push({ path: "/moviedetail", query: { _id: movie_id } })
         .catch(() => {});
       location.reload();
     },
