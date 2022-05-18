@@ -74,6 +74,9 @@ def genre_build_chart(genre_id):
     qualified['vote_average'] = qualified['vote_average'].astype('int')
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
+    a = qualified.pk.tolist()
+    a.reverse()
+    return a
     return qualified.pk.tolist()
 
 
