@@ -68,7 +68,7 @@
       
     </v-card-title>
   
-  <carousel :autoplay="true" :nav="false" :dots="true" :items="4" :margin="-90" :mouseDrag="false" :autoplaySpeed="5000" >
+  <carousel :autoplay="true" :nav="false" :dots="true" :items="4" :margin="-80" :mouseDrag="false" :autoplaySpeed="5000" >
     
     <div class="mbti-wrap">
     <v-img href="#adventure" v-smooth-scroll="{duration:50}"
@@ -78,7 +78,7 @@
           max-height="250px"
         >
         </v-img>
-        <h2 class="mbti-title">ENFP</h2>
+        <h2 class="mbti-title">ENFP</h2> 
         <p class="mbti-summary">#에너지 #열정 #감정기복</p>
       </div>
 
