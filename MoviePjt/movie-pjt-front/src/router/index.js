@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import MovieView from "../views/MovieView.vue";
+import AllMovieListView from "../views/AllMovieListView.vue";
 import MovieDetail from "../components/movie/MovieDetail.vue";
 import Movielist from "../components/movie/Movielist.vue";
 
@@ -57,6 +58,11 @@ const routes = [
     path: "/moviedetail",
     name: "MovieDetail",
     component: MovieDetail,
+  },
+  {
+    path: "/allmovie",
+    name: "AllMovieListView",
+    component: AllMovieListView,
   },
   {
     path: "/movielist",
