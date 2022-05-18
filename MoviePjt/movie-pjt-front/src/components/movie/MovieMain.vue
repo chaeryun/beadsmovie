@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <carousel :autoplay="true" :nav="false" :dots="true" :autoplayHoverPause="true" :items='1'>
+      <carousel :autoplay="false" :nav="false" :dots="true" :autoplayHoverPause="true" :items='1'>
         <div class="jb-wrap">
           <video class="video" autoplay="autoplay" loop="loop" muted="muted" >
 			      <source src="@/assets/video.mp4" type="video/mp4" >
