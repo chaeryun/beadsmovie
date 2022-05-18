@@ -83,67 +83,6 @@
       </div>
 
 
-    <v-col :key="i" v-for="(genre, i) in genrelist">
-      <v-card-title
-        style="
-          margin-left: 190px;
-          margin-top: 50px;
-          font-family: NewWaltDisney;
-          font-size: 60px;
-          color: white;
-        "
-      >
-        {{ genre }}
-      </v-card-title>
-      
-
-      
-      <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
-      <v-container style="display: flex; justify-content: space-between; ">
-        <v-col :key="i" v-for="(movie1, i) in movielist">
-      
-          
-            <v-card
-              max-width="300px"
-              min-width="300px"
-              min-height="300px"
-              elevation="10"
-              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
-
-            >
-            
-            <v-img
-              class="white--text align-end"
-              min-width="300px"
-              max-width="150px"
-              max-height="430px"
-
-              :src="generalurl + movie1.poster_path"
-            >
-            </v-img>
-            <div class="text">
-              <v-card-subtitle class="pb-0" >
-                <h2>{{ movie1.title }}</h2>
-              </v-card-subtitle>
-              <v-card-actions>
-                <v-btn color="orange" text @click="detail"> 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
-              </v-card-actions>
-            </div>
-            </v-card>
-  
-         
-        </v-col>
-        </v-container>
-      </carousel>
-      
-
-   
-
-
-    
-    </v-col>
-
     <!-- Top 10 Movies -->
     
     <v-card-title
@@ -158,208 +97,991 @@
       Top 10 Movies
     </v-card-title>
 
-    
 
-    
-  
-    
-    
-    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
-      <movie-list :movies="movies"></movie-list>
-    
-    </carousel>
-
-
-    <carousel :autoplay="false" :nav="false" :dots="false"  :items="3" >
-
-      <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
+    <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
       >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/bCz71ysciwNL2xddSm25ufrgZ7V.jpg"
-        >
-        </v-img>
+        Action
+      </v-card-title>
+    <div v-if="actionlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in actionlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
 
-        <v-card-subtitle class="pb-0" >
-          <h2>더 배트맨</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
 
-    </v-container>
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
       
-    </carousel>
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
 
-    <!-- Action -->
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Adventure
+      </v-card-title>
+    <div v-if="adventurelist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in adventurelist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Animation
+      </v-card-title>
+    <div v-if="animationlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in animationlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+      <section id="romance"></section>
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Comedy
+      </v-card-title>
+    <div v-if="comedylist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in comedylist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Crime
+      </v-card-title>
+    <div v-if="crimelist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in crimelist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Documentary
+      </v-card-title>
+    <div v-if="doculist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in doculist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Drama
+      </v-card-title>
+    <div v-if="dramalist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in dramalist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Family
+      </v-card-title>
+    <div v-if="familylist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in familylist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Fantasy
+      </v-card-title>
+    <div v-if="fantasylist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in fantasylist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        History
+      </v-card-title>
+    <div v-if="historylist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in historylist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Horror
+      </v-card-title>
+    <div v-if="horrorlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in horrorlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
     
-    <v-card-title
-      style="
-        margin-left: 400px;
-        margin-top: 30px;
-        font-family: NewWaltDisney;
-        font-size: 60px;
-        color: white;
-      "
-    >
-      Action
-    </v-card-title>
-  
-    <MovieCard :movies="action_movies" />
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
+    <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
       >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/bCz71ysciwNL2xddSm25ufrgZ7V.jpg"
-        >
-        </v-img>
+        Music
+      </v-card-title>
+    <div v-if="musiclist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in musiclist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
 
-        <v-card-subtitle class="pb-0">
-          <h2>더 배트맨</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
 
-    </v-container>
-
-    <!-- Animation -->
-    <v-card-title
-      style="
-        margin-left: 400px;
-        margin-top: 30px;
-        font-family: NewWaltDisney;
-        font-size: 60px;
-        color: white;
-      "
-    >
-      Animation
-    </v-card-title>
-    <MovieCard :movies="animation_movies" />
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3eElpVmCeMqplQbkQd0y1fftL04FkfbQZrjKbEuhg3D6rQuKf"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>아이스 에이지: 벅의 대모험 (2022)</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-container>
-
-    <!-- Comedy -->
-    <v-card-title
-      style="
-        margin-left: 400px;
-        margin-top: 30px;
-        font-family: NewWaltDisney;
-        font-size: 60px;
-        color: white;
-      "
-    >
-      Comedy
-    </v-card-title>
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
-      >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/wFjboE0aFZNbVOF05fzrka9Fqyx.jpg"
-        >
-        </v-img>
-
-        <v-card-subtitle class="pb-0">
-          <h2>애덤 프로젝트</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
       
-    </v-container>
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
 
-    <section id="romance"></section>
-    <!-- Romance -->
-    <v-card-title
-      style="
-        margin-left: 400px;
-        margin-top: 30px;
-        font-family: NewWaltDisney;
-        font-size: 60px;
-        color: white;
-      "
-    >
-      Romance
-    </v-card-title>
-
-    <v-container style="display: flex">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        elevation="10"
-        style="border-radius: 10px"
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
       >
-        <v-img
-          class="white--text align-end"
-          height="370px"
-          width="350px"
-          src="https://www.themoviedb.org/t/p/w220_and_h330_face/iABPzTM6r5gfvnSmD7z0LblW71s.jpg"
-        >
-        </v-img>
+        Mystery
+      </v-card-title>
+    <div v-if="mysterylist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in mysterylist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
 
-        <v-card-subtitle class="pb-0">
-          <h2>메리 미</h2>
-        </v-card-subtitle>
-        <v-card-actions>
-          <v-btn color="orange" text> 상세보기 </v-btn>
-          <v-btn color="orange" text> 찜하기 </v-btn>
-        </v-card-actions>
-      </v-card>
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
       
-    </v-container>
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Romance
+      </v-card-title>
+    <div v-if="romancelist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in romancelist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        SF
+      </v-card-title>
+    <div v-if="sflist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in sflist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        TV series
+      </v-card-title>
+    <div v-if="tvlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in tvlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Thriller
+      </v-card-title>
+    <div v-if="thrillerlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in thrillerlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        War
+      </v-card-title>
+    <div v-if="warlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in warlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+
+      <div>
+      <v-card-title
+        style="
+          margin-left: 190px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        West
+      </v-card-title>
+    <div v-if="westlist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="4">
+      <v-col :key="i" v-for="(movie1, i) in westlist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+   
+      
+
+
+ 
+    
+
+    
+    
+
+    
     </div>
 </template>
 
 <script>
+
 import axios from "axios";
 import { mapState, mapMutations } from "vuex";
 import http from "@/util/http-common";
@@ -375,13 +1097,35 @@ export default {
 
   data() {
     return {
+      movieid: "",
+      moviedetail: [],
       generalurl: "https://www.themoviedb.org/t/p/w220_and_h330_face",
       genres_id:"",
       movielist: [],
       movie:"",
+      actionlist: [],
+      adventurelist: [],
+      animationlist: [],
+      comedylist: [],
+      crimelist: [],
+      doculist: [],
+      dramalist: [],
+      familylist: [],
+      fantasylist: [],
+      historylist: [],
+      horrorlist: [],
+      musiclist: [],
+      mysterylist: [],
+      romancelist: [],
+      sflist: [],
+      tvlist: [],
+      thrillerlist: [],
+      warlist: [],
+      westlist: [],
+      ///genrelist: [],
 
       //genre 가져오기
-      genrelist : [28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
+      //genrelist : [28, 12, 16, 35, 80, 99, 18, 10751, 14, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
       dict : {
     "28": "액션",
     "12": "모험",
@@ -406,8 +1150,31 @@ export default {
     };
   },
   created() {
+  
+    
+    this.getActionList();
+    this.getAdventureList();
+    this.getAnimationList();
+    this.getComedyList();
+    this.getCrimeList();
+    this.getDocuList();
+    this.getDramaList();
+    this.getFamilyList();
+    this.getFantasyList();
+    this.getHistoryList();
+    this.getHorrorList();
+    this.getMusicList();
+    this.getMysteryList();
+    this.getRomanceList();
+    this.getSFList();
+    this.getTVList();
+    this.getThrillerList();
+    this.getWarList();
+    this.getWestList();
+    
+
    
-    this.getMovieList();
+
 
   },
 
@@ -419,23 +1186,256 @@ export default {
   },
 
    methods: {
-    detail(id) {
-      this.$router.push({ path: "/moviedetail", query: { _id: id } });
-    },
+    
     // 장르 MovieList 가져오기
-    async getMovieList() {
+    async getActionList() {
       await http({
         method: "GET",
-        url: "/similar_movie/genres/80/",
+        url: "/similar_movie/genres/28/",
       })
         .then((res) => {
-          console.log("movielist :", res);
-          this.movielist = res.data;
+          console.log("actionlist :", res);
+          this.actionlist = res.data;
         })
         .catch((err) => {
           console.log(err);
         });
     },
+    async getAdventureList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/12/",
+      })
+        .then((res) => {
+          console.log("adventurelist :", res);
+          this.adventurelist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getAnimationList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/16/",
+      })
+        .then((res) => {
+          console.log("animationlist :", res);
+          this.animationlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getComedyList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/35/",
+      })
+        .then((res) => {
+          console.log("comedylist :", res);
+          this.comedylist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getCrimeList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/80/",
+      })
+        .then((res) => {
+          console.log("crimelist :", res);
+          this.crimelist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getDocuList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/99/",
+      })
+        .then((res) => {
+          console.log("doculist :", res);
+          this.doculist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getDramaList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/18/",
+      })
+        .then((res) => {
+          console.log("dramalist :", res);
+          this.dramalist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getFamilyList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/10751/",
+      })
+        .then((res) => {
+          console.log("familylist :", res);
+          this.familylist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getFantasyList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/14/",
+      })
+        .then((res) => {
+          console.log("fantasylist :", res);
+          this.fantasylist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getHistoryList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/36/",
+      })
+        .then((res) => {
+          console.log("historylist :", res);
+          this.historylist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getHorrorList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/27/",
+      })
+        .then((res) => {
+          console.log("horrorlist :", res);
+          this.horrorlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getMusicList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/10402/",
+      })
+        .then((res) => {
+          console.log("musiclist :", res);
+          this.musiclist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getMysteryList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/9648/",
+      })
+        .then((res) => {
+          console.log("mysterylist :", res);
+          this.mysterylist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getRomanceList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/10749/",
+      })
+        .then((res) => {
+          console.log("romancelist :", res);
+          this.romancelist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getSFList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/878/",
+      })
+        .then((res) => {
+          console.log("sflist :", res);
+          this.sflist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getTVList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/10770/",
+      })
+        .then((res) => {
+          console.log("tvlist :", res);
+          this.tvlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getThrillerList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/53/",
+      })
+        .then((res) => {
+          console.log("thrillerlist :", res);
+          this.thrillerlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getWarList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/10752/",
+      })
+        .then((res) => {
+          console.log("warlist :", res);
+          this.warlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    async getWestList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/genres/37/",
+      })
+        .then((res) => {
+          console.log("westlist :", res);
+          this.westlist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    
     
     
     
