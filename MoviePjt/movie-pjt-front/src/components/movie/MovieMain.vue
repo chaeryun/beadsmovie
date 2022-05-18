@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <carousel :autoplay="false" :nav="false" :dots="true" :autoplayHoverPause="true" :items='1'>
+      <carousel :autoplay="false" :nav="false" :dots="false" :autoplayHoverPause="true" :items='1'>
         <div class="jb-wrap">
           <video class="video" autoplay="autoplay" loop="loop" muted="muted" >
 			      <source src="@/assets/video.mp4" type="video/mp4" >
@@ -53,55 +53,294 @@
     </div>
 
   <!--MBTI reco-->
-  <v-card-title
+  <v-card-title 
       style="
-        margin-left: 190px;
-        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        margin-top: 70px;
+        margin-bottom: 20px;
         font-family: NewWaltDisney;
         font-size: 60px;
         color: white;
       "
     >
-      Today I feel like...
+      Click your MBTI !
       
     </v-card-title>
   
-
-
+  <carousel :autoplay="true" :nav="false" :dots="true" :items="4" :margin="-120" :mouseDrag="false" :autoplaySpeed="5000" >
+    
     <div class="mbti-wrap">
-    <v-img href="#romance" v-smooth-scroll="{duration:50}"
+    <v-img href="#adventure" v-smooth-scroll="{duration:50}"
           class="enfp-photo"
           min-width="150px"
           max-width="350px"
-          max-height="200px"
-   
+          max-height="250px"
         >
         </v-img>
         <h2 class="mbti-title">ENFP</h2>
-        <p class="mbti-summary">#외향</p>
+        <p class="mbti-summary">#에너지 #열정 #감정기복</p>
+      </div>
 
+      <div class="mbti-wrap">
+    <v-img href="#animation" v-smooth-scroll="{duration:50}"
+          class="isfp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ISFP</h2>
+        <p class="mbti-summary">#호기심 #감성적 #성장형</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#action" v-smooth-scroll="{duration:50}"
+          class="estp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ESTP</h2>
+        <p class="mbti-summary">#매력적 #다재다능 #모험가</p>
+      </div>
+
+    <div class="mbti-wrap">
+    <v-img href="#romance" v-smooth-scroll="{duration:50}"
+          class="enfj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ENFJ</h2>
+        <p class="mbti-summary">#정의로운 #협동 #목표지향</p>
+      </div>
+
+    
+
+      <div class="mbti-wrap">
+    <v-img href="#fantasy" v-smooth-scroll="{duration:50}"
+          class="infp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">INFP</h2>
+        <p class="mbti-summary">#잔다르크 #외유내강 #감성</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#music" v-smooth-scroll="{duration:50}"
+          class="esfp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ESFP</h2>
+        <p class="mbti-summary">#자유로운 #에너지 #친화력</p>
       </div>
 
 
-    <!-- Top 10 Movies -->
-    
-    <v-card-title
-      style="
-        margin-left: 190px;
-        margin-top: 50px;
-        font-family: NewWaltDisney;
-        font-size: 60px;
-        color: white;
-      "
-    >
-      Top 10 Movies
-    </v-card-title>
 
+
+      <div class="mbti-wrap">
+    <v-img href="#drama" v-smooth-scroll="{duration:50}"
+          class="infj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">INFJ</h2>
+        <p class="mbti-summary">#통찰력 #내적갈등 #선의</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#horror" v-smooth-scroll="{duration:50}"
+          class="intp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">INTP</h2>
+        <p class="mbti-summary">#논리적 #사색 #비평가</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#scifi" v-smooth-scroll="{duration:50}"
+          class="entp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ENTP</h2>
+        <p class="mbti-summary">#상상력 #논쟁 #각양각색</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#thriller" v-smooth-scroll="{duration:50}"
+          class="entj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ENTJ</h2>
+        <p class="mbti-summary">#지도자 #치명적 #비전</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#family" v-smooth-scroll="{duration:50}"
+          class="isfj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ISFJ</h2>
+        <p class="mbti-summary">#성실온화 #정직 #용감</p>
+      </div>
+
+
+      <div class="mbti-wrap">
+    <v-img href="#docu" v-smooth-scroll="{duration:50}"
+          class="istj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ISTJ</h2>
+        <p class="mbti-summary">#모범생 #논리 #청렴결백</p>
+      </div>
+
+
+      <div class="mbti-wrap">
+    <v-img href="#mystery" v-smooth-scroll="{duration:50}"
+          class="intj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">INTJ</h2>
+        <p class="mbti-summary">#용의주도 #비전 #분석적</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#romance" v-smooth-scroll="{duration:50}"
+          class="esfj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ESFJ</h2>
+        <p class="mbti-summary">#사교적 #친절 #봉사자</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#history" v-smooth-scroll="{duration:50}"
+          class="estj-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ESTJ</h2>
+        <p class="mbti-summary">#엄격 #관리자 #실용적</p>
+      </div>
+
+      <div class="mbti-wrap">
+    <v-img href="#west" v-smooth-scroll="{duration:50}"
+          class="istp-photo"
+          min-width="150px"
+          max-width="350px"
+          max-height="250px"
+        >
+        </v-img>
+        <h2 class="mbti-title">ISTP</h2>
+        <p class="mbti-summary">#논리적 #적응력 #만능재주</p>
+      </div>
+
+      
+
+      
+
+   
+
+    
+  </carousel>
+
+
+    <!-- Top 10 Movies -->
 
     <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
+          margin-top: 50px;
+          font-family: NewWaltDisney;
+          font-size: 60px;
+          color: white;     "
+      >
+        Top 10 Movies
+      </v-card-title>
+    <div v-if="toplist.length > 0">
+    <carousel :autoplay="false" :nav="false" :dots="false" :items="5">
+      <v-col :key="i" v-for="(movie1, i) in toplist">
+        <v-container  style="display: flex; justify-content: space-between;">
+        
+            <v-card
+              margin-right="100px"
+              margin-left="100px"
+              max-width="300px"
+              min-width="300px"
+              min-height="300px"
+              elevation="10"
+              style="border-radius: 0px; margin: 0px 20px 0px 20px;"
+
+            >            
+            <v-img
+              class="white--text align-end"
+              min-width="300px"
+              max-width="150px"
+              max-height="430px"
+
+              :src="generalurl + movie1.poster_path"
+            >
+            </v-img>
+            <div class="text">
+              <v-card-subtitle class="pb-0" >
+                <h2>{{ movie1.title }}</h2>
+              </v-card-subtitle>
+              <v-card-actions>
+                <v-btn color="orange" text > 상세보기 </v-btn>
+                <v-btn color="orange" text> 찜하기 </v-btn>
+              </v-card-actions>
+            </div>
+            </v-card>
+          
+      
+          </v-container>
+        </v-col>
+      </carousel>
+      </div> 
+      </div>
+    
+  
+
+    <section id="action"></section>
+    <div>
+      <v-card-title
+        style="
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -149,10 +388,11 @@
       </div> 
       </div>
 
+      <section id="adventure"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -200,10 +440,11 @@
       </div> 
       </div>
 
+      <section id="animation"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -250,11 +491,11 @@
       </carousel>
       </div> 
       </div>
-      <section id="romance"></section>
+      <section id="comedy"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -302,10 +543,11 @@
       </div> 
       </div>
 
+      <section id="crime"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -353,10 +595,11 @@
       </div> 
       </div>
 
+      <section id="docu"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -404,10 +647,11 @@
       </div> 
       </div>
 
+      <section id="drama"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -454,11 +698,12 @@
       </carousel>
       </div> 
       </div>
-
+      
+      <section id="family"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -506,10 +751,11 @@
       </div> 
       </div>
 
+      <section id="fantasy"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -557,10 +803,11 @@
       </div> 
       </div>
 
+      <section id="history"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -608,10 +855,11 @@
       </div> 
       </div>
 
+      <section id="horror"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -658,11 +906,11 @@
       </carousel>
       </div> 
       </div>
-    
+    <section id="music"></section>
     <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -709,11 +957,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="mystery"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -760,11 +1008,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="romance"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -811,11 +1059,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="scifi"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -862,11 +1110,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="tv"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -913,11 +1161,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="thriller"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -964,11 +1212,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="war"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -1015,11 +1263,11 @@
       </carousel>
       </div> 
       </div>
-
+      <section id="west"></section>
       <div>
       <v-card-title
         style="
-          margin-left: 190px;
+          margin-left: 30px;
           margin-top: 50px;
           font-family: NewWaltDisney;
           font-size: 60px;
@@ -1122,6 +1370,7 @@ export default {
       thrillerlist: [],
       warlist: [],
       westlist: [],
+      toplist: [],
       ///genrelist: [],
 
       //genre 가져오기
@@ -1171,6 +1420,7 @@ export default {
     this.getThrillerList();
     this.getWarList();
     this.getWestList();
+    this.getTopList();
     
 
    
@@ -1186,6 +1436,19 @@ export default {
   },
 
    methods: {
+     async getTopList() {
+      await http({
+        method: "GET",
+        url: "/similar_movie/top/",
+      })
+        .then((res) => {
+          console.log("toplist :", res);
+          this.toplist = res.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     
     // 장르 MovieList 가져오기
     async getActionList() {
@@ -1685,6 +1948,202 @@ export default {
   background-size:cover; 
 }
 .enfp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.enfj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/enfj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.enfj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.estp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/estp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.estp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.infp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/infp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.infp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.istj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/istj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.istj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+
+.infj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/infj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.infj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.intp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/intp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.intp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.entp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/entp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.entp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.intj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/intj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.intj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.entj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/entj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.entj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.isfj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/isfj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.isfj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.esfj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/esfj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.esfj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.estj-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/estj.jpg') center no-repeat;
+  background-size:cover; 
+}
+.estj-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.esfp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/esfp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.esfp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.isfp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/isfp.png') center no-repeat;
+  background-size:cover; 
+}
+.isfp-photo:after {
+  content:"";
+  position: absolute;
+  display: block; width:100%; height:100%;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7));
+
+}
+.istp-photo{
+  position: relative;
+  width:100vw; height: 100vh;
+  background: url('@/assets/istp.jpg') center no-repeat;
+  background-size:cover; 
+}
+.istp-photo:after {
   content:"";
   position: absolute;
   display: block; width:100%; height:100%;
