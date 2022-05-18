@@ -170,7 +170,7 @@ export default {
     // 추천영화 상세페이지 이동
     gomoviedetail(movie_id) {
       this.$router
-        .push({ path: "/moviedetail", query: { movie_id: movieid } })
+        .push({ path: "/moviedetail"+ this.movieid, query: { movie_id: movie_id } })
         .catch(() => {});
       location.reload();
     },
