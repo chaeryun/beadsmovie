@@ -90,7 +90,7 @@ def get_recommendations(pk):
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
     df = df.reset_index()
     titles = df['pk']
-    indices = pd.Series(df.index, index=df['title'])
+    # indices = pd.Series(df.index, index=df['title'])
     idx = indices[title]
     sim_scores = list(enumerate(cosine_sim[idx]))
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
