@@ -4,11 +4,13 @@
       <v-layout class="row wrap">
         <v-flex col-7></v-flex>
         <v-flex col-5>
-          <h1 style="color: tomato">Login</h1>
+          <h1 style="color: white">Login</h1>
           <br />
 
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field
+              class="custom-label-color"
+              color="white"
               v-model="user.id"
               :counter="16"
               :rules="idRules"
@@ -18,6 +20,7 @@
 
             <v-text-field
               v-model="user.password"
+              class="password"
               :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
               :rules="[rules.required, rules.min]"
               :type="show1 ? 'text' : 'password'"
@@ -30,6 +33,7 @@
 
             <div>
               <v-btn
+                style="color: white"
                 :disabled="!valid"
                 color="success"
                 class="mr-4"
@@ -190,6 +194,11 @@ export default {
 .v-text-field {
   width: 600px;
   height: 90px;
+}
+
+.custom-label-color .v-label {
+  color: white;
+  opacity: 1;
 }
 
 .v-btn:not(.v-btn--round).v-size--default {
