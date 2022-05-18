@@ -16,6 +16,7 @@
               :rules="idRules"
               label="ID"
               required
+              dark
             ></v-text-field>
 
             <v-text-field
@@ -29,6 +30,7 @@
               hint="At least 4 characters ~ 12 characters"
               counter
               @click:append="show1 = !show1"
+              dark
             ></v-text-field>
 
             <div>

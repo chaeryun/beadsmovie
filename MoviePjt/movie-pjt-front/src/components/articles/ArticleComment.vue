@@ -7,8 +7,11 @@
           <div>댓글 작성</div>
           <v-textarea
             v-model.trim="comment_content"
+            class="my-textarea"
+            color="white"
             auto-grow
             outlined
+            dark
             rows="4"
             row-height="40"
             row-width="100"
@@ -199,6 +202,7 @@ export default {
   margin: 0px auto;
   margin-top: 5rem;
   margin-bottom: 10rem;
+  color: white;
 }
 .commentbtn {
   margin-top: 3rem;
@@ -206,5 +210,8 @@ export default {
 .card-comment {
   width: 75%;
   margin: 0 auto;
+}
+.my-textarea textarea {
+  color: blue !important;
 }
 </style>
