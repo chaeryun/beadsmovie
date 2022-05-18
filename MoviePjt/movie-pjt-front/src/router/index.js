@@ -9,7 +9,13 @@ import AccountSignup from "@/components/accounts/AccountSignup.vue";
 import AccountLogin from "@/components/accounts/AccountLogin.vue";
 import AccountMypage from "@/components/accounts/AccountMypage.vue";
 
+import ArticleView from "@/views/ArticleView.vue";
 import ArticleList from "@/components/articles/ArticleList.vue";
+import ArticleCreate from "@/components/articles/ArticleCreate.vue";
+import ArticleDetail from "@/components/articles/ArticleDetail.vue";
+import ArticleUpdate from "@/components/articles/ArticleUpdate.vue";
+import ArticleDelete from "@/components/articles/ArticleDelete.vue";
+
 
 // import User from "../views/User.vue";
 // import Userlogin from "@/components/user/login.vue";
@@ -60,9 +66,38 @@ const routes = [
 
   {
     path: "/article",
-    name: "ArticleList",
-    component: ArticleList,
+    name: "ArticleView",
+    component: ArticleView,
+    redirect: "/article/list",
+    children: [
+      {
+        path: "list",
+        name: "ArticleList",
+        component: ArticleList,
+      },
+      {
+        path: "create",
+        name: "ArticleCreate",
+        component: ArticleCreate,
+      },
+      {
+        path: "detail/:id",
+        name: "ArticleDetail",
+        component: ArticleDetail,
+      },
+      {
+        path: "update/:id",
+        name: "ArticleUpdate",
+        component: ArticleUpdate,
+      },
+      {
+        path: "delete/:id",
+        name: "ArticleDelete",
+        component: ArticleDelete,
+      },
+    ],
   },
+
   // {
   //   path: "/user",
   //   name: "User",
