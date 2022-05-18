@@ -375,8 +375,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -427,8 +428,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -479,8 +481,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -530,8 +533,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -582,8 +586,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -634,8 +639,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -686,8 +692,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -738,8 +745,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -790,8 +798,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -842,8 +851,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -894,8 +904,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -945,8 +956,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -996,8 +1008,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1047,8 +1060,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1098,8 +1112,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1149,8 +1164,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1200,8 +1216,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1251,8 +1268,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1302,8 +1320,9 @@
                 <h2>{{ movie1.title }}</h2>
               </v-card-subtitle>
               <v-card-actions>
-                <v-btn color="orange" text > 상세보기 </v-btn>
-                <v-btn color="orange" text> 찜하기 </v-btn>
+                <div class="col-7"></div>
+                <v-btn color="orange" text @click="gomoviedetail(movie1._id)"> 상세보기 </v-btn>
+          
               </v-card-actions>
             </div>
             </v-card>
@@ -1315,14 +1334,6 @@
       </div> 
       </div>
    
-      
-
-
- 
-    
-
-    
-    
 
     
     </div>
@@ -1699,7 +1710,13 @@ export default {
         });
     },
     
-    
+    // 추천영화 상세페이지 이동
+    gomoviedetail(movie_id) {
+      this.$router
+        .push({ path: "/moviedetail", query: { _id: movie_id } })
+        .catch(() => {});
+      location.reload();
+    },
     
     
   },

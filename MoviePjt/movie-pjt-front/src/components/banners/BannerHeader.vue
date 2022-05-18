@@ -6,15 +6,17 @@
         <div class="header-summary">
           <span
             ><router-link :to="{ name: 'home' }"
-              >Movie&nbsp;&nbsp;</router-link
+              >Home&nbsp;&nbsp;</router-link
             ></span
           >
           <span
-            ><router-link :to="{ name: 'ArticleList' }">Article </router-link>
+            ><router-link :to="{ name: 'AllMovieListView' }">Movies </router-link>
             &nbsp;&nbsp;</span
           >
-          <span>Interest &nbsp;&nbsp;</span>
-          <span>Subscribe &nbsp;&nbsp;</span>
+          <span
+            ><router-link :to="{ name: 'ArticleList' }">SNS Reviews </router-link>
+            &nbsp;&nbsp;</span
+          >
           <span v-if="isLogin == false"
             ><router-link :to="{ name: 'AccountView' }">Login</router-link>
           </span>

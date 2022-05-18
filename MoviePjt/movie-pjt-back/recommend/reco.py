@@ -3,7 +3,7 @@ import pandas as pd
 import json
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel 
+from sklearn.metrics.pairwise import linear_kernel
 from scipy import spatial
 import numpy as np
 
@@ -64,7 +64,7 @@ def genre_build_chart(genre_id):
     s = df.apply(lambda x: pd.Series(x['genres']), axis=1).stack().reset_index(level=1, drop=True)
     s.name = 'genre'
     gen_md = df.drop('genres', axis=1).join(s)
-    df3 = gen_md[gen_md['genre'] == genre]    
+    df3 = gen_md[gen_md['genre'] == genre]
     vote_counts = df3[df3['vote_count'].notnull()]['vote_count'].astype('int')
     vote_averages = df3[df3['vote_average'].notnull()]['vote_average'].astype('int')
     C = vote_averages.mean()
@@ -74,6 +74,9 @@ def genre_build_chart(genre_id):
     qualified['vote_average'] = qualified['vote_average'].astype('int')
     qualified['sc'] = qualified.apply(lambda x: (x['vote_count']/(x['vote_count']+m) * x['vote_average']) + (m/(m+x['vote_count']) * C), axis=1)
     qualified = qualified.sort_values('sc', ascending=False).head(10)
+    a = qualified.pk.tolist()
+    a.reverse()
+    return a
     return qualified.pk.tolist()
     
 
@@ -85,7 +88,7 @@ def get_recommendations(pk):
     df = df3.copy()
     title = df.loc[df['pk'] == int(pk)]
     title = title.iloc[0]['title']
-    tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 2), 
+    tf = TfidfVectorizer(analyzer='word', ngram_range=(1, 2),
     min_df=0, stop_words='english')
     tfidf_matrix = tf.fit_transform(df['overview'])
     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
@@ -100,7 +103,7 @@ def get_recommendations(pk):
     result = titles.iloc[movie_indices].head(10)
     return result.tolist()
 
-# 최근 인기영화 
+# 최근 인기영화
 def top_movies(n=10):
     df3 = pd.read_json('./recommend/movie.json')
     df = df3.copy()

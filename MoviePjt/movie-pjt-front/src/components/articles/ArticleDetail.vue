@@ -1,6 +1,34 @@
 <template>
   <div class="regist">
-    <h1 class="underline">글 정보</h1>
+    <v-card class="mx-auto" max-width="800">
+      <v-img :src="`http://127.0.0.1:8000` + article.image" />
+      <v-card-title>글 제목 : {{ article.title }}</v-card-title>
+
+      <v-card-subtitle class="pb-0">
+        작성자 : {{ article.userName }}
+      </v-card-subtitle>
+      <v-card-subtitle class="pb-0">
+        작성일 : {{ article.created_at | yyyyMMdd }}
+      </v-card-subtitle>
+      <hr
+        align="center"
+        style="border: solid 3px; width: 50%; margin: 0 auto; margin-top: 3rem"
+      />
+      <v-card-text class="text--primary">
+        <div>글 내용 :</div>
+        <div>{{ article.content }}</div>
+      </v-card-text>
+
+      <v-card-actions>
+        <v-btn v-if="islikes" icon color="blue" @click="like">
+          <v-icon>mdi-thumb-up</v-icon>
+        </v-btn>
+        <v-btn v-else icon color="blue" @click="like">
+          <v-icon>mdi-thumb-up-outline</v-icon>
+        </v-btn>
+      </v-card-actions>
+    </v-card>
+    <!-- <h1 class="underline">글 정보</h1>
     <div class="regist_form">
       <label for="title">이미지</label>
       <figure class="item">
@@ -25,24 +53,20 @@
         </v-btn>
       </div>
       <div>{{ likesNum }} 개</div>
+          </div> -->
 
-      <div align="center" justify="space-around" style="margin: 2.5rem">
-        <v-btn
-          depressed
-          dark
-          x-large
-          color="success"
-          @click="moveModifyArticle()"
-          >글수정</v-btn
-        >
-        <v-btn depressed dark x-large color="success" @click="deleteArticle()"
-          >글삭제</v-btn
-        >
-        <v-btn depressed dark x-large color="success" @click="listArticle()"
-          >목록</v-btn
-        >
-      </div>
+    <div align="center" justify="space-around" style="margin: 2.5rem">
+      <v-btn depressed dark x-large color="success" @click="moveModifyArticle()"
+        >글수정</v-btn
+      >
+      <v-btn depressed dark x-large color="success" @click="deleteArticle()"
+        >글삭제</v-btn
+      >
+      <v-btn depressed dark x-large color="success" @click="listArticle()"
+        >목록</v-btn
+      >
     </div>
+
     <article-comment />
   </div>
 </template>
