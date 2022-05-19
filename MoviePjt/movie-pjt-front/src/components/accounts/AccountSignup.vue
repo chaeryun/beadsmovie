@@ -72,7 +72,7 @@
               required
             ></v-text-field>
 
-            <!-- <v-text-field
+            <v-text-field
               dark
               v-model="user.nickname"
               :rules="nicknameRules"
@@ -116,7 +116,7 @@
                   required
                 ></v-select>
               </v-col>
-            </v-row> -->
+            </v-row>
 
             <v-checkbox
             dark
