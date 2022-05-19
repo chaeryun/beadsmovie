@@ -547,7 +547,7 @@
       </div> 
       </div>
 
-      <section id="docu"></section>
+      <!-- <section id="docu"></section>
       <div>
       <v-card-title
         style="
@@ -967,9 +967,9 @@
         </v-col>
       </carousel>
       </div> 
-      </div>
+      </div> -->
 
-      <section id="adventure"></section>
+      <!-- <section id="adventure"></section>
       <div>
       <v-card-title
         style="
@@ -1331,7 +1331,7 @@
       
           </v-container>
         </v-col>
-      </carousel>
+      </carousel> -->
       </div> 
       </div>
    
@@ -1715,8 +1715,9 @@ export default {
     gomoviedetail(movie_id) {
       this.$router
         .push({ path: "/moviedetail", query: { _id: movie_id } })
-        .catch(() => {});
-      location.reload();
+        .catch((err) => {
+          console.log(err);
+        });
     },
     
     

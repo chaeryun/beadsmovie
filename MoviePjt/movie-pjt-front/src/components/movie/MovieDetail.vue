@@ -53,9 +53,9 @@
         </v-card>
       </v-col>
       <v-col class="mb-2 mt-10">
-        <div class="ml-10 pl-10" style="color: white;"><h1>예고편</h1></div>
+        <v-col  style="color: white;"><h1>예고편</h1></v-col>
         <br />
-        <div class="video-container ml-10 pl-10">
+        <div class="video-container">
           <iframe
             class="video-iframe"
             width="90%"
@@ -66,13 +66,14 @@
           ></iframe>
         </div>
       </v-col>
+<br/>
       <v-col>
         
-        <div><h1 class="mt-10 ml-10 mb-8" style="color: white;">영화 추천</h1></div>
+        <v-col><h1 class="mt-10 mb-8" style="color: white;">영화 추천</h1></v-col>
  
 
 
-        <v-row  justify="center" class="mb-8" >
+        <v-row   justify="center" class="mb-8" >
           <v-col cols="4" v-for="movie in similar_movielist" :key="movie">
           
                   
@@ -104,7 +105,7 @@
                     </v-card-text>
                   </v-card>
                 </v-col>
-                  <img style="z-index:0; position:absolute;  width:350px; height:350px" src="@/assets/loading.gif">
+                  <img style="z-index:0; position:absolute;  width:240px; height:280px" src="@/assets/loading.gif">
               </v-row>
 </v-col>
 
